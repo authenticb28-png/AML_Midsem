@@ -314,6 +314,90 @@ for tr, va in KFold(n_splits=3).split(np.arange(6)):
     ],
     researched: R`k-fold mechanics, leave-one-out and fold statistics are beyond the worksheet ("study as homework"). Source: ISLR §5.1; scikit-learn \`KFold\`, \`cross_val_score\`, \`learning_curve\` docs.`,
     source: 'Worksheet L9 pp.10–15; ISLR §5.1.'
+  },
+  /* ---------------------------------------------------------------- L09.9 (researched) */
+  {
+    id: 'L09.9', title: 'Hyperparameter tuning: grid search and random search with cross-validation', badge: 'res', pages: '–', ws: 'Not in the worksheet (syllabus topics "Hyperparameter Tuning", "Model Tuning")',
+    concept: R`
+:::hook Hook
+Lecture 9 told you to pick the polynomial degree at the bottom of the validation curve, and Lecture 12 to pick λ by cross-validation. With **two** knobs (degree *and* λ) you need a systematic search. Which combinations do you try, and how many models does that cost?
+:::
+
+**Recap (L2).** *Parameters* (β, w) are learned by training. *Hyperparameters* (polynomial degree, λ, learning rate α, batch size, k in k-fold, PCA's k) are set **before** training. They are chosen by **validation performance**, never by training error (which always prefers the most complex model) and never by the test set (which would leak).
+
+**The tuning loop**
+1. Split off a **test set** and lock it away.
+2. Define a **search space** for each hyperparameter.
+3. For each candidate combination: run **k-fold CV on the training set** (L09.8) and record the mean validation score.
+4. Pick the combination with the best mean CV score.
+5. **Refit** that model on the whole training set; report the test score **once**.
+
+**Grid search** tries **every** combination of the listed values (the Cartesian product). Five degrees × four λ values = 20 combinations; with 5-fold CV that is 20 × 5 = **100 fits**, plus 1 refit. The cost multiplies with every hyperparameter you add (the curse of dimensionality again, L10).
+
+**Random search** samples **n_iter** combinations from distributions you specify (e.g. λ log-uniform between 10⁻³ and 10²). The cost is n_iter × k fits, whatever the size of the space. Bergstra & Bengio (2012) showed it usually finds a model as good as grid search with far fewer trials, because typically only one or two hyperparameters really matter. A 4 × 4 grid tests only **4 distinct values** of the important one; 16 random points test **16**.
+
+**Result on a noisy cubic** (\`aml-practice/L09_tuning_sklearn.py\`, pipeline PolynomialFeatures → StandardScaler → Ridge, 5-fold CV on 90 training rows):
+
+| Search | Fits | Best found | Best CV MSE |
+|---|---|---|---|
+| Grid: degree {1, 2, 3, 5, 9} × α {0.01, 0.1, 1, 10} | 100 (+1) | degree 3, α = 1 | 4.588 |
+| Random: 8 samples, α log-uniform [10⁻³, 10²] | 40 (+1) | degree 3, α = 0.245 | 4.587 |
+
+The test MSE of the grid-search model is 3.712, reported once at the end. Random search matched the grid with 40% of the fits.
+
+:::warn Leakage inside the search
+Put scaling and feature steps **inside a Pipeline**, so each fold fits its scaler on its own training part only. Scaling the whole training set before \`GridSearchCV\` leaks validation-fold statistics into training (L02.2).
+:::
+
+:::take Takeaway
+Hyperparameters are chosen by mean CV score on the training set. Grid search = every combination (cost = product of list sizes × k). Random search = n_iter samples (cost = n_iter × k); better when the space is large. Refit the winner, test once.
+:::`,
+    formulas: [
+      { name: 'Grid-search cost', tex: R`\text{fits} = k\prod_{h}|V_h| \;(+1 \text{ refit})`, sym: R`$|V_h|$ = number of values listed for hyperparameter h; k = CV folds.`, when: 'How many models GridSearchCV trains.' },
+      { name: 'Random-search cost', tex: R`\text{fits} = k \times n_{iter} \;(+1)`, sym: 'n_iter = sampled combinations.', when: 'Fixed budget, independent of the grid size.' },
+      { name: 'Selection rule', tex: R`h^* = \arg\min_{h} \frac1k\sum_{j=1}^{k}\text{MSE}_{\text{val},j}(h)`, sym: 'Mean validation error over the k folds.', when: 'Choosing any hyperparameter.' }
+    ],
+    plots: [
+      { id: 'P09-tunecv', title: 'Mean 5-fold CV MSE by polynomial degree (Ridge α = 1)', notice: 'The validation U-shape from L09.4, measured by CV: degree 3 (the true cubic) wins. Degrees 5 and 9 are only slightly worse because Ridge restrains them.',
+        spec: { type: 'bars', w: 480, h: 280, cats: ['degree 1', 'degree 2', 'degree 3', 'degree 5', 'degree 9'], vals: [16.114, 8.5, 4.588, 4.72, 4.686], hl: 2, ylabel: 'mean CV MSE', ylim: [0, 18] } },
+      { id: 'P09-gridrandom', title: 'Grid vs random search with the same budget (16 trials)', notice: 'Only the horizontal hyperparameter matters here (the score changes along x only). The grid tries just 4 distinct x values; random search tries 16, so it gets closer to the best x.',
+        spec: { type: 'multi', panels: [
+          { type: 'xy', w: 300, h: 280, title: 'Grid search', xlim: [0, 1], ylim: [0, 1], xlabel: 'important hyperparameter', ylabel: 'unimportant one', xticks: false, yticks: false,
+            series: [{ t: 'band', x0: 0.55, x1: 0.7, c: 's3', op: 0.25 }, { t: 'scatter', pts: [0.125, 0.375, 0.625, 0.875].flatMap(a => [0.125, 0.375, 0.625, 0.875].map(b => [a, b])), c: 's1', r: 5 }] },
+          { type: 'xy', w: 300, h: 280, title: 'Random search', xlim: [0, 1], ylim: [0, 1], xlabel: 'important hyperparameter', ylabel: 'unimportant one', xticks: false, yticks: false,
+            series: [{ t: 'band', x0: 0.55, x1: 0.7, c: 's3', op: 0.25 }, { t: 'scatter', pts: (() => { const r = NUM.rng(7); return Array.from({ length: 16 }, () => [r(), r()]); })(), c: 's4', r: 5 }] }
+        ] } }
+    ],
+    examples: [
+      { title: 'Counting fits (worked)', body: R`Grid: degree ∈ {1, 2, 3}, λ ∈ {0.01, 0.1, 1, 10, 100}, learning rate ∈ {0.01, 0.1}, 10-fold CV. Combinations = 3 × 5 × 2 = 30; fits = 30 × 10 = **300**, plus 1 refit = 301. Random search with n_iter = 12 and the same CV: 12 × 10 = **120** (+1).` },
+      { title: 'Reading a search result (worked)', body: R`Mean CV MSE: (degree 2, λ = 1) → 6.1; (degree 3, λ = 1) → 4.6; (degree 3, λ = 10) → 5.2; (degree 9, λ = 0.01) → 9.8. Choose **degree 3, λ = 1** (lowest mean CV error), refit on all training rows, evaluate on the test set once. Degree 9 with tiny λ is the overfitting corner: low training error, high CV error.` }
+    ],
+    code: [{ title: 'GridSearchCV and RandomizedSearchCV on a pipeline', lib: 'L09_tuning_sklearn.py', libLabel: 'scikit-learn' }],
+    traps: ['Never tune on the **test** set; tune on CV folds of the training set.', 'Grid cost multiplies: adding a hyperparameter with 5 values makes the search 5× more expensive.', 'Search λ on a **log** scale (0.001, 0.01, 0.1, …), not a linear one.', 'Fit scalers inside a Pipeline, or the search leaks.', '`best_score_` from GridSearchCV is the **mean CV score** (negative MSE when scoring="neg_mean_squared_error"), not the test score.'],
+    researched: R`Not covered in class — studied from the scikit-learn User Guide §3.2 "Tuning the hyper-parameters of an estimator" (GridSearchCV, RandomizedSearchCV), Bergstra & Bengio, "Random Search for Hyper-Parameter Optimization", JMLR 13 (2012), and ISLR §5.1 (cross-validation).`,
+    questions: [
+      { type: 'mcq', diff: 'E', q: 'Which data should decide the value of the Ridge penalty λ?',
+        options: ['Training error — pick the λ with the lowest training MSE', 'Mean cross-validation error on the training set', 'The test set error', 'Whichever λ gives the largest coefficients'], answer: 1,
+        sol: 'Training error always prefers λ = 0 (most flexible); the test set must stay untouched until the end.', why: ['Always picks the least regularised model.', 'Correct.', 'Leaks the test set.', 'Unrelated.'] },
+      { type: 'int', diff: 'E', q: 'Grid search over degree ∈ {1, 2, 3, 4} and λ ∈ {0.1, 1, 10} with 5-fold CV. How many model fits, **excluding** the final refit?', answer: 60, tol: 0, round: 'Exact',
+        verify: '4*3*5', sol: '4 × 3 = 12 combinations × 5 folds = **60** fits.' },
+      { type: 'int', diff: 'E', q: 'Random search with n_iter = 15 and 4-fold CV. How many fits, excluding the refit?', answer: 60, tol: 0, round: 'Exact',
+        verify: '15*4', sol: '15 × 4 = **60**, regardless of how many values each hyperparameter could take.' },
+      { type: 'mcq', diff: 'M', q: 'Why does random search often beat a grid with the same number of trials?',
+        options: ['It uses a better loss function', 'It tries more distinct values of each hyperparameter, which matters when only a few hyperparameters are important', 'It avoids cross-validation', 'It always finds the global optimum'], answer: 1,
+        sol: 'A 4 × 4 grid tests only 4 values per axis; 16 random points test 16 (Bergstra & Bengio 2012).', why: ['Same loss.', 'Correct.', 'It still uses CV.', 'No guarantee.'] },
+      { type: 'mcq', diff: 'M', q: 'A student standardises the whole training set and then runs GridSearchCV with 5 folds. What is wrong?',
+        options: ['Nothing', 'Each validation fold\'s statistics leaked into the scaler; the scaler should sit inside a Pipeline', 'StandardScaler cannot be used with Ridge', 'GridSearchCV needs at least 10 folds'], answer: 1,
+        sol: 'Inside a Pipeline the scaler is refit on each fold\'s training part only.', why: ['Mild leakage.', 'Correct.', 'It can.', 'Any k ≥ 2 works.'] },
+      { type: 'out', diff: 'E', q: 'Predict the exact output.', code: R`from sklearn.model_selection import ParameterGrid
+grid = {'degree': [1, 2, 3], 'alpha': [0.1, 1.0]}
+print(len(ParameterGrid(grid)), list(ParameterGrid(grid))[0])`, answer: "6 {'alpha': 0.1, 'degree': 1}",
+        sol: '3 × 2 = 6 combinations. ParameterGrid lists keys in sorted order (alpha before degree).' },
+      { type: 'mcq', diff: 'M', q: 'After GridSearchCV finishes (refit=True), what does `.predict` use?',
+        options: ['The model from the best fold only', 'A model with the best hyperparameters, refit on the whole training set', 'An average of all fold models', 'The model with the lowest training error'], answer: 1,
+        sol: 'refit=True retrains the winning combination on all training data.', why: ['No.', 'Correct.', 'No averaging.', 'No.'] }
+    ],
+    source: 'scikit-learn User Guide §3.2; Bergstra & Bengio, JMLR 13:281–305 (2012); ISLR §5.1.'
   }
   ]
 });

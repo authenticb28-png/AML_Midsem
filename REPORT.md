@@ -6,23 +6,45 @@ Open `aml-exam-prep/index.html` in a browser. It works offline from `file://`. P
 
 | Part | Contents |
 |---|---|
-| Lectures L0–L15 | 113 teaching units. Each unit has a concept explanation, formula sheet, plots/diagrams, worked examples, code links, exam traps, ≥ 5 practice questions and a source. Derivations are included wherever the worksheet derives something (28 blocks). |
-| Practice questions | 672 in the lecture units, plus 196 more on the pages below. |
-| Plots | 120, drawn from real numbers by `js/plots.js`. |
+| Lectures L0–L15 | 116 teaching units. Each unit has a concept explanation, formula sheet, plots/diagrams, worked examples, code links, exam traps, ≥ 5 practice questions and a source. Derivations are included wherever the worksheet derives something (29 blocks). |
+| Practice questions | 691 in the lecture units, plus 196 more on the pages below. |
+| Plots | 125, drawn from real numbers by `js/plots.js`. |
 | Course quiz patterns | Analysis of all 134 course-quiz questions and 24 labs: lectures, question styles, recurring traps, lab coding conventions, your scores and weak spots. Ends with a 13-question practice set covering each style. |
 | Integer drill | 65 numerical questions covering every formula in L1–L15. |
 | Code drill | 48 questions: 27 predict-the-output, 10 find-the-bug, 5 fill-the-line, 6 write-the-function in the course-lab style. |
 | Mock papers 1 and 2 | 35 questions, 61 marks and 90 minutes each, with a timer. Sections: MCQ, MSQ, numerical, code reading and code writing. After submitting you get a per-lecture score table with links to weak topics. Each paper covers all 16 lectures. |
 | 7-day plan | 1.5–2 h a day, prioritised by the quiz analysis. Also includes a 3-day fallback plan and a weekly checklist. |
 | Last-night revision | One-page formula, fact and trap sheet per lecture block, plus numbers worth remembering. |
-| Practice programs | 56 runnable Python files in `aml-practice/` (from scratch and with libraries, plus replicas of the course labs). |
+| Practice programs | 59 runnable Python files in `aml-practice/` (from scratch and with libraries, plus replicas of the course labs). |
+
+## Mid-semester syllabus check
+
+| # | Syllabus topic | Site lecture | Units |
+|---|---|---|---|
+| 1 | ML Project Lifecycle (Part 1) | L1 | 6 |
+| 2 | ML Project Lifecycle (Part 2) | L2 | 6 |
+| 3 | Simple Linear Regression (OLS) | L3 | 7 |
+| 4 | Multiple Linear Regression (OLS) | L4 | 8 |
+| 5 | Batch Gradient Descent | L5 | 6 |
+| 6 | SGD and Mini-Batch GD | L6 | 7 |
+| 7 | Evaluation Metrics | L7 | 9 |
+| 8 | Polynomial Regression and Assumptions | L8 | 8 |
+| 9 | Bias, Variance and Tradeoff | L9 | 9 (+ L09.9 tuning, researched) |
+| 10 | Feature Selection | L10 | 7 |
+| 11 | PCA | L11 | 8 (+ L11.8 PCA via SVD, researched) |
+| 12 | Regularization | L12 | 8 (+ L12.8 Elastic Net, researched) |
+| 13 | Time Series Analysis | L13 | 8 |
+| 14 | MLE and Logistic Regression | L14 | 7 |
+| 15 | GD on Logistic Regression and Multiclass | L15 | 7 |
+
+All 156 topic tags in `Study Pack/1 - Syllabus.md` are taught. Three topics were missing or only mentioned, so they were researched from published sources and added as units in the same format: grid and random search (scikit-learn User Guide; Bergstra & Bengio 2012), PCA via SVD (Jolliffe & Cadima 2016; scikit-learn docs), and Elastic Net (Zou & Hastie 2005; ESL §3.4). Lecture 0 is extra foundations material that is not on the mid-semester syllabus.
 
 ## How it was verified
 
 | Check | Command | Result |
 |---|---|---|
-| Coverage | `python3 tools/verify.py` | 113/113 units ticked ✅ in COVERAGE.md, 0 problems |
-| Answers | `python3 tools/check_questions.py` | 868 questions checked, 0 problems |
+| Coverage | `python3 tools/verify.py` | 116/116 units ticked ✅ in COVERAGE.md, 0 problems |
+| Answers | `python3 tools/check_questions.py` | 887 questions checked, 0 problems |
 | Source lint | `python3 tools/lint_sources.py` | 0 problems |
 | Browser | `NODE_PATH=$(npm root -g) node tools/site_test.js` | all checks passed |
 

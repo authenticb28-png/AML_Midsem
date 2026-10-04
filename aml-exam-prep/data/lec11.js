@@ -335,6 +335,86 @@ Do not fit scaling or PCA on all data and then cross-validate the model. Fit the
       { type: 'mcq', diff: 'M', q: '"Standardisation is always necessary before PCA."', options: ['True', 'False — only when units/scales differ arbitrarily'], answer: 1, sol: 'P4(b).', why: ['No.', 'Correct.'] }
     ],
     source: 'Worksheet L11 pp.11–15; scikit-learn `Pipeline` docs.'
+  },
+  /* ---------------------------------------------------------------- L11.8 (researched) */
+  {
+    id: 'L11.8', title: 'PCA through the SVD (how scikit-learn computes it)', badge: 'res', pages: '–', ws: 'Not in the worksheet',
+    concept: R`
+:::hook Hook
+The worksheet finds principal components as eigenvectors of the covariance matrix S. But scikit-learn's \`PCA\` never builds S. It factorises the centred data directly with the **singular value decomposition (SVD)**. Is that the same thing?
+:::
+
+**SVD.** Any n × p matrix can be written as
+$$X_c = U\Sigma V^T$$
+where U (n × r) and V (p × r) have **orthonormal columns** and Σ = diag(s₁ ≥ s₂ ≥ … ≥ 0) holds the **singular values**.
+
+**Link to the covariance eigenproblem** (derivation below): $S = \frac{1}{n-1}X_c^TX_c = V\frac{\Sigma^2}{n-1}V^T$. This is exactly an eigen-decomposition of S, so:
+- the **principal directions** are the columns of V (rows of \`Vt\`);
+- the **eigenvalues** are $\lambda_j = s_j^2/(n-1)$;
+- the **scores** are $Z = X_cV = U\Sigma$;
+- $\text{EVR}_j = s_j^2/\sum_k s_k^2$.
+
+**Check on the 10-point dataset** used in the PCA lab (\`aml-practice/L11_pca_svd_scratch.py\`):
+
+| Quantity | Covariance route | SVD route |
+|---|---|---|
+| eigenvalues / s²/(n−1) | 1.284, 0.0491 | s = 3.3994, 0.6646 → 1.284, 0.0491 |
+| PC1 | (0.6779, 0.7352) | (−0.6779, −0.7352) — same line, sign flipped |
+| EVR | 0.9632, 0.0368 | 0.9632, 0.0368 |
+| PC1 scores (first 3) | −0.828, 1.7776, −0.9922 | U·s gives the same |
+
+**Why libraries prefer the SVD:** forming XᵀX squares the condition number, so small directions lose precision. The SVD works on X itself and is numerically stabler. It also gives the scores (UΣ) directly. The answers are the same as the covariance method, up to the sign of each component.
+
+:::take Takeaway
+PCA = SVD of the **centred** data. Directions = V, variances = s²/(n − 1), scores = UΣ. Signs are arbitrary, so compare absolute values.
+:::`,
+    deriv: [{ id: 'D11-svd', title: 'Covariance eigenvectors from the SVD', badge: 'res',
+      intro: R`Start from the SVD of the centred data, $X_c = U\Sigma V^T$ with $U^TU = I$ and $V^TV = I$.`,
+      steps: [
+        { m: R`S = \frac{1}{n-1}X_c^TX_c`, t: 'Sample covariance of the centred data (L11.4).' },
+        { m: R`X_c^TX_c = (U\Sigma V^T)^T(U\Sigma V^T) = V\Sigma U^TU\Sigma V^T`, why: R`$(ABC)^T = C^TB^TA^T$ and $\Sigma^T = \Sigma$ (diagonal).` },
+        { m: R`= V\Sigma^2V^T`, why: R`$U^TU = I$.` },
+        { m: R`S\,V = V\frac{\Sigma^2}{n-1}V^TV = V\frac{\Sigma^2}{n-1}`, why: R`$V^TV = I$: column j satisfies $S\mathbf v_j = \frac{s_j^2}{n-1}\mathbf v_j$ — the eigen-equation $S\mathbf v = \lambda\mathbf v$.` },
+        { m: R`Z = X_cV = U\Sigma V^TV = U\Sigma`, why: 'Scores are the projections onto the directions (L11.3).' }
+      ],
+      result: R`\mathbf v_j = \text{column } j \text{ of } V,\qquad \lambda_j = \frac{s_j^2}{n-1},\qquad Z = U\Sigma`,
+      after: 'So the eigenvalue route and the SVD route always give the same PCA.' }],
+    formulas: [
+      { name: 'SVD of centred data', tex: R`X_c = U\Sigma V^T`, sym: 'U: n×r, Σ: r×r diagonal (s₁ ≥ s₂ ≥ …), V: p×r; orthonormal columns.', when: 'How sklearn PCA computes.' },
+      { name: 'Eigenvalue from singular value', tex: R`\lambda_j = \frac{s_j^2}{n-1}`, sym: '`explained_variance_` = `singular_values_**2/(n-1)`.', when: 'Converting between the two routes.' },
+      { name: 'EVR from singular values', tex: R`\text{EVR}_j = \frac{s_j^2}{\sum_k s_k^2}`, sym: 'The (n − 1) cancels.', when: 'Explained variance without computing S.' },
+      { name: 'Scores', tex: R`Z = X_cV = U\Sigma`, sym: 'n × k after keeping k columns.', when: 'Projected data.' }
+    ],
+    plots: [{ id: 'P11-svd', title: 'The lab data, centred, with PC1 and PC2 from the SVD', notice: 'PC1 (s²/(n−1) = 1.284) runs along the cloud; PC2 (0.049) is perpendicular. The SVD gives the same directions as the covariance eigenvectors (up to sign).',
+      spec: { type: 'xy', w: 420, h: 380, xlim: [-1.6, 1.6], ylim: [-1.6, 1.6], xlabel: 'x₁ − x̄₁', ylabel: 'x₂ − x̄₂',
+        series: [{ t: 'scatter', pts: [[2.5, 2.4], [0.5, 0.7], [2.2, 2.9], [1.9, 2.2], [3.1, 3.0], [2.3, 2.7], [2.0, 1.6], [1.0, 1.1], [1.5, 1.6], [1.1, 0.9]].map(p => [p[0] - 1.81, p[1] - 1.91]), c: 's1', r: 4 },
+          { t: 'arrow', x1: 0, y1: 0, x2: 1.4 * 0.6779, y2: 1.4 * 0.7352, c: 's4', w: 2.5 }, { t: 'arrow', x1: 0, y1: 0, x2: -0.5 * 0.7352, y2: 0.5 * 0.6779, c: 's3', w: 2.5 },
+          { t: 'text', x: 1.15, y: 1.2, s: 'PC1' }, { t: 'text', x: -0.55, y: 0.5, s: 'PC2' }] } }],
+    examples: [{ title: 'From singular values to PCA quantities (worked)', body: R`Centred data with n = 6 has singular values s = (6, 3, 1). Eigenvalues: 36/5 = **7.2**, 9/5 = **1.8**, 1/5 = **0.2**. EVR: 36/46 = 0.783, 9/46 = 0.196, 1/46 = 0.022. Cumulative EVR for k = 2: 45/46 = **97.8%**.` }],
+    code: [{ title: 'Covariance route vs SVD route vs sklearn PCA', scratch: 'L11_pca_svd_scratch.py' }],
+    traps: ['Use the **centred** X in the SVD; uncentred data gives a different, wrong decomposition.', 'Eigenvalue = s²/(n − 1), **not** s.', 'Each component\'s sign is arbitrary; compare with absolute values.', '`np.linalg.svd` returns **Vt** (rows = directions), not V.'],
+    researched: R`Not covered in class — studied from Jolliffe & Cadima, "Principal component analysis: a review and recent developments", Phil. Trans. R. Soc. A 374 (2016), the scikit-learn \`PCA\` documentation (uses an SVD of the centred data), and Strang, *Introduction to Linear Algebra* §7 (SVD).`,
+    questions: [
+      { type: 'int', diff: 'E', q: 'Centred data with n = 11 rows has largest singular value s₁ = 5. Variance along PC1 (eigenvalue)?', answer: 2.5, tol: 0.001, round: '1 decimal',
+        verify: '5**2/10', sol: 'λ₁ = s₁²/(n − 1) = 25/10 = **2.5**.' },
+      { type: 'int', diff: 'E', q: 'Singular values (4, 2). Explained variance ratio of PC1?', answer: 0.8, tol: 0.001, round: '2 decimals',
+        verify: '16/(16+4)', sol: '16/(16 + 4) = **0.8**; the n − 1 cancels.' },
+      { type: 'mcq', diff: 'M', q: 'In Xc = UΣVᵀ, the principal directions are:',
+        options: ['the columns of U', 'the columns of V', 'the diagonal of Σ', 'the rows of Xc'], answer: 1,
+        sol: 'XcᵀXc = VΣ²Vᵀ, so V holds the eigenvectors of the covariance matrix.', why: ['U holds the normalised scores.', 'Correct.', 'Those are singular values.', 'No.'] },
+      { type: 'mcq', diff: 'M', q: 'Why does scikit-learn compute PCA with the SVD instead of forming XᵀX?',
+        options: ['It gives different, better components', 'It is numerically stabler (XᵀX squares the condition number) and gives the scores directly', 'The SVD does not need centring', 'XᵀX cannot be computed for more than 2 features'], answer: 1,
+        sol: 'Same PCA, better numerics.', why: ['Same components (up to sign).', 'Correct.', 'Centring is still needed.', 'False.'] },
+      { type: 'out', diff: 'M', q: 'Predict the exact output.', code: R`import numpy as np
+Xc = np.array([[-1.0, -1.0], [0.0, 0.0], [1.0, 1.0]])
+s = np.linalg.svd(Xc, compute_uv=False)
+print(np.round(s ** 2 / (len(Xc) - 1), 3).tolist())`, answer: '[2.0, 0.0]',
+        sol: 'The points lie on a line: one singular value √4 = 2 → eigenvalue 4/2 = 2; the other is 0. The same as the course quiz with S = [[1, 1], [1, 1]] (eigenvalues 2 and 0).' },
+      { type: 'mcq', diff: 'E', q: 'Two programs report PC1 as (0.68, 0.74) and (−0.68, −0.74). Which is right?',
+        options: ['The first', 'The second', 'Both: an eigenvector\'s sign is arbitrary', 'Neither'], answer: 2,
+        sol: 'v and −v span the same line; the scores just flip sign.', why: ['Both.', 'Both.', 'Correct.', 'Both are valid.'] }
+    ],
+    source: 'Jolliffe & Cadima (2016); scikit-learn PCA docs; Strang, Introduction to Linear Algebra, ch. 7.'
   }
   ]
 });

@@ -372,6 +372,89 @@ X = np.array([[1.0], [2.0], [3.0]]); y = np.array([10.0, 12.0, 14.0])
 print(round(Ridge(alpha=1e9).fit(X, y).intercept_, 3))`, answer: '12.0', sol: 'The slope is shrunk to ~0 but the intercept is **not** penalised, so it tends to ȳ = 12.' }
     ],
     source: 'Worksheet L12 pp.16–22; scikit-learn `RidgeCV`, `LassoCV`, `GridSearchCV`.'
+  },
+  /* ---------------------------------------------------------------- L12.8 (researched) */
+  {
+    id: 'L12.8', title: 'Elastic Net: combining the L1 and L2 penalties', badge: 'res', pages: '–', ws: 'Named in Part I as "out of scope"; asked in the course quiz (OvR/BCE quiz Q4)',
+    concept: R`
+:::hook Hook
+Lasso gives sparsity; Ridge copes well with correlated features. What if your data has **both** many useless columns **and** groups of strongly correlated useful ones (e.g. area in m² and area in ft² plus 50 noise columns)?
+:::
+
+**Elastic Net** adds both penalties to the squared-error loss (Zou & Hastie, 2005):
+$$J(\mathbf w) = \sum_i(y_i - \hat y_i)^2 + \lambda_1\sum_j|w_j| + \lambda_2\sum_j w_j^2$$
+- λ₂ = 0 → **Lasso**; λ₁ = 0 → **Ridge**.
+- scikit-learn writes it with one strength **alpha** and a mix **l1_ratio** ∈ [0, 1]: $\frac{1}{2n}\|\mathbf y - X\mathbf w\|^2 + \alpha\,\rho\,\|\mathbf w\|_1 + \frac{\alpha(1-\rho)}{2}\|\mathbf w\|_2^2$, with ρ = l1_ratio. ρ = 1 is exactly Lasso; ρ = 0 is a pure L2 penalty (Ridge, up to how alpha is scaled).
+
+**Why combine them? Two weaknesses of Lasso**
+1. **Correlated groups:** among highly correlated features, Lasso tends to keep one and shrink the others arbitrarily, and the choice is unstable from sample to sample. The L2 part gives the **grouping effect**: correlated features get similar coefficients.
+2. **p > n:** Lasso can select at most n features. Elastic Net has no such limit.
+
+It keeps Lasso's **exact zeros** for useless features, because the L1 corner is still there.
+
+**Experiment** (\`aml-practice/L12_elastic_net_sklearn.py\`): y = 3z + noise; x₁ and x₂ are two noisy copies of z (correlation 0.997); x₃–x₅ are pure noise; n = 200.
+
+| Model | w₁ | w₂ | w₃ | w₄ | w₅ |
+|---|---|---|---|---|---|
+| Ridge (α = 10) | 1.457 | 1.438 | −0.004 | −0.080 | −0.029 |
+| Lasso (α = 1.0) | **0.506** | **1.323** | 0 | 0 | 0 |
+| Elastic Net (α = 1.0, l1_ratio = 0.5) | **0.932** | **0.937** | 0 | 0 | 0 |
+
+Ridge shares the weight but keeps small non-zero noise weights. Lasso zeros the noise but splits the shared signal unevenly. Elastic Net does **both**: it zeros the noise and shares the weight equally.
+
+**Geometry (compare L12.6).** The constraint region lies between Lasso's diamond and Ridge's circle. It keeps **corners** on the axes (so solutions can still land on an axis → zeros), but its edges are **curved** (so correlated directions are shared smoothly).
+
+**When to use:** many features, some correlated groups, and you want a sparse model. Tune **both** alpha and l1_ratio by cross-validation (\`ElasticNetCV\`, or a grid search as in L09.9). Standardise features first, as for Ridge and Lasso.
+
+:::take Takeaway
+Elastic Net = L1 (sparsity) + L2 (stability and grouping). l1_ratio = 1 → Lasso; l1_ratio = 0 → Ridge. Use it for correlated, high-dimensional data. Tune alpha and l1_ratio by CV.
+:::`,
+    formulas: [
+      { name: 'Elastic Net loss', tex: R`J(\mathbf w) = \sum_i (y_i-\hat y_i)^2 + \lambda_1\|\mathbf w\|_1 + \lambda_2\|\mathbf w\|_2^2`, sym: R`$\|\mathbf w\|_1 = \sum|w_j|$, $\|\mathbf w\|_2^2 = \sum w_j^2$.`, when: 'General form.' },
+      { name: 'scikit-learn form', tex: R`\frac{1}{2n}\|\mathbf y - X\mathbf w\|_2^2 + \alpha\rho\|\mathbf w\|_1 + \frac{\alpha(1-\rho)}{2}\|\mathbf w\|_2^2`, sym: 'α = overall strength, ρ = l1_ratio.', when: '`ElasticNet(alpha, l1_ratio)`.' },
+      { name: 'Special cases', tex: R`\rho = 1 \Rightarrow \text{Lasso},\qquad \rho = 0 \Rightarrow \text{Ridge}`, sym: '', when: 'MCQs on the relationship.' }
+    ],
+    plots: [
+      { id: 'P12-enball', title: 'Constraint regions: Lasso, Ridge and Elastic Net (l1_ratio = 0.5)', notice: 'Elastic Net keeps the corners on the axes (sparsity) but bulges outward between them (smooth sharing between correlated weights).',
+        spec: { type: 'xy', w: 400, h: 470, xlim: [-1.3, 1.3], ylim: [-1.3, 1.85], xlabel: 'w₁', ylabel: 'w₂', legend: 'tr',
+          series: [
+            { t: 'line', pts: [[1, 0], [0, 1], [-1, 0], [0, -1], [1, 0]], c: 's4', w: 2.5, label: 'Lasso |w₁| + |w₂| = 1' },
+            { t: 'line', pts: NUM.linspace(0, 2 * Math.PI, 121).map(a => [Math.cos(a), Math.sin(a)]), c: 's1', w: 2.5, label: 'Ridge w₁² + w₂² = 1' },
+            { t: 'line', pts: NUM.linspace(0, 2 * Math.PI, 241).map(a => { const c = Math.cos(a), s = Math.sin(a), L1 = Math.abs(c) + Math.abs(s); const r = (-0.5 * L1 + Math.sqrt(0.25 * L1 * L1 + 2)) / 1; return [r * c, r * s]; }), c: 's3', w: 2.5, label: 'Elastic Net ½·L1 + ½·L2² = 1' }
+          ] } },
+      { id: 'P12-encoef', title: 'Coefficients on two nearly identical features (true shared weight 3)', notice: 'Lasso splits the signal unevenly (0.51 vs 1.32) and the split changes from sample to sample. Elastic Net shares it equally (0.93 vs 0.94). Both set the three noise features to exactly 0.',
+        spec: { type: 'bars', w: 520, h: 290, cats: ['w₁ (x₁)', 'w₂ (x₂)', 'w₃ (noise)', 'w₄ (noise)', 'w₅ (noise)'],
+          groups: [{ label: 'Ridge α=10', c: 's1', vals: [1.457, 1.438, -0.004, -0.08, -0.029] }, { label: 'Lasso α=1', c: 's4', vals: [0.506, 1.323, 0, 0, 0] }, { label: 'Elastic Net α=1, ρ=0.5', c: 's3', vals: [0.932, 0.937, 0, 0, 0] }],
+          ylabel: 'coefficient', ylim: [-0.2, 1.6], values: false } }
+    ],
+    examples: [{ title: 'Evaluating the penalty (worked)', body: R`w = (2, −1, 0), λ₁ = 0.5, λ₂ = 0.25. L1 part: 0.5 × (2 + 1 + 0) = 1.5. L2 part: 0.25 × (4 + 1 + 0) = 1.25. Total penalty = **2.75**, added to the squared-error loss. In scikit-learn terms with α = 1 and l1_ratio = 0.5: 1 × 0.5 × 3 + (1 × 0.5/2) × 5 = 1.5 + 1.25 = 2.75.` }],
+    code: [{ title: 'Ridge vs Lasso vs Elastic Net on correlated + noise features', lib: 'L12_elastic_net_sklearn.py', libLabel: 'scikit-learn' }],
+    traps: ['l1_ratio = **1** is Lasso (not Ridge).', 'Elastic Net still produces exact zeros, unlike Ridge.', 'Two hyperparameters (alpha and l1_ratio) → tune both by CV.', 'Standardise features before fitting any penalised model.'],
+    researched: R`Not covered in class (the worksheet marks Elastic Net out of scope), but your course quiz asks how L2, L1 and Elastic Net differ. Studied from Zou & Hastie, "Regularization and variable selection via the elastic net", J. R. Statist. Soc. B 67 (2005), ESL §3.4, and the scikit-learn \`ElasticNet\` documentation.`,
+    questions: [
+      { type: 'mcq', diff: 'E', tag: 'Course-quiz pattern', q: 'How do L2 (Ridge), L1 (Lasso) and Elastic Net differ in their main effect on coefficients?',
+        options: ['L2 forces exact zeros; L1 never does; Elastic Net does neither', 'L2 shrinks smoothly without exact zeros; L1 can set coefficients exactly to zero; Elastic Net combines sparsity with smooth shrinkage', 'All three give identical coefficients', 'Elastic Net works only with one feature'], answer: 1,
+        sol: 'This is the course quiz\'s idea, rephrased.', why: ['Reversed.', 'Correct.', 'No.', 'No.'] },
+      { type: 'int', diff: 'M', q: 'w = (3, −2), λ₁ = 0.1, λ₂ = 0.05. Elastic Net penalty λ₁‖w‖₁ + λ₂‖w‖₂² ?', answer: 1.15, tol: 0.001, round: '2 decimals',
+        verify: '0.1*5+0.05*13', sol: '0.1 × (3 + 2) + 0.05 × (9 + 4) = 0.5 + 0.65 = **1.15**.' },
+      { type: 'mcq', diff: 'E', q: 'In scikit-learn, `ElasticNet(alpha=0.1, l1_ratio=1.0)` is the same as:',
+        options: ['Ridge(alpha=0.1)', 'Lasso(alpha=0.1)', 'LinearRegression()', 'Nothing else'], answer: 1,
+        sol: 'l1_ratio = 1 → only the L1 term remains, with the same scaling as Lasso.', why: ['That is l1_ratio = 0 (up to scaling).', 'Correct.', 'That is alpha = 0.', 'It equals Lasso.'] },
+      { type: 'mcq', diff: 'M', q: 'Ten genes are almost perfectly correlated and all relevant. Which penalty tends to keep them together with similar weights?',
+        options: ['Lasso', 'Elastic Net', 'No penalty', 'An L0 count penalty'], answer: 1,
+        sol: 'The L2 part gives the grouping effect; Lasso tends to pick one arbitrarily.', why: ['Picks one, unstably.', 'Correct.', 'Unstable under collinearity.', 'Picks one.'] },
+      { type: 'out', diff: 'M', q: 'Predict the exact output.', code: R`import numpy as np
+from sklearn.linear_model import ElasticNet, Lasso
+X = np.array([[1, 2], [2, 1], [3, 4], [4, 3.]]); y = np.array([1, 2, 3, 4.])
+a = ElasticNet(alpha=0.2, l1_ratio=1.0).fit(X, y).coef_
+b = Lasso(alpha=0.2).fit(X, y).coef_
+print(np.allclose(a, b))`, answer: 'True',
+        sol: 'l1_ratio = 1 makes Elastic Net exactly Lasso.' },
+      { type: 'mcq', diff: 'M', q: 'Which statement about Elastic Net is FALSE?',
+        options: ['It can set coefficients exactly to zero', 'It has two hyperparameters to tune', 'It can select more than n features when p > n', 'It never shrinks any coefficient'], answer: 3,
+        sol: 'Both penalties shrink coefficients.', why: ['True.', 'True.', 'True (Lasso cannot).', 'False — correct choice.'] }
+    ],
+    source: 'Zou & Hastie (2005); Hastie, Tibshirani & Friedman, ESL §3.4.3; scikit-learn ElasticNet docs.'
   }
   ]
 });

@@ -111,6 +111,7 @@ Columns: ID | Lecture | Section title (worksheet sections covered) | Page(s) | D
 | L09.6 | L9 | Dartboard illustration (S7) [C] | 8 | – | P09-dartboard | – | PRACTICE P2(c,d) | – | ✅ |
 | L09.7 | L9 | Real world: diagnosis from train/val, why split (S8–S10) [C] | 9–10 | – | – | – | PRACTICE P3(a,b) | – | ✅ |
 | L09.8 | L9 | Cross-validation & learning curves (S11–S13) [C] + k-fold detail [R] | 10–15 | – | P09-kfold, P09-complexity, P09-learncurve | – | PRACTICE P3(c,d), P4 | L09_cv_learning_curve.py | ✅ |
+| L09.9 | L9 | Hyperparameter tuning: grid search and random search with CV [R] | – | – | P09-tunecv, P09-gridrandom | fits = k × (product of list sizes) | counting fits, reading a search | L09_tuning_sklearn.py | ✅ |
 | L10.1 | L10 | Why feature selection; feature types; curse of dimensionality (S1–S4) [C][CW] | 1–3 | – | P10-columns | cells = bᵖ | PRACTICE P1 | – | ✅ |
 | L10.2 | L10 | Filters: duplicate removal & variance threshold (S5–S6) [C][CW] | 3–5 | – | P10-varfilter | Var = (1/n)Σ(x−x̄)²; binary q(1−q) | variance table | L10_filters.py | ✅ |
 | L10.3 | L10 | Pearson correlation with target; nonlinear counterexample (S7) [C] | 5–6 | D10-rzero | P10-rscatter | r formula | y=x² r=0 worked | L10_filters.py | ✅ |
@@ -125,6 +126,7 @@ Columns: ID | Lecture | Section title (worksheet sections covered) | Page(s) | D
 | L11.5 | L11 | Finding the principal components; worked example (S4) [C] + Lagrange proof [R] | 7–9 | D11-eigen, D11-lagrange | – |  | S−λI | =0 | 3-house example, PRACTICE P1, P2(b) | L11_pca.py, L11_lab_pca_scratch.py | ✅ |
 | L11.6 | L11 | PCA workflow; choosing k; EVR; scree (S5.1–5.2) [C] | 10–11 | – | P11-workflow, P11-scree | EVR, cumulative EVR | PRACTICE P3(a) | L11_pca.py | ✅ |
 | L11.7 | L11 | When PCA fails; what it preserves; PCA vs selection (S5.3–5.5) [C] | 11–15 | – | P11-failures | – | PRACTICE P3(b), P4 | – | ✅ |
+| L11.8 | L11 | PCA through the SVD (how scikit-learn computes it) [R] | – | D11-svd | P11-svd | X_c = UΣVᵀ, λ = s²/(n−1) | singular values → EVR | L11_pca_svd_scratch.py | ✅ |
 | L12.1 | L12 | Overfitting, coefficient explosion, what regularization is (Part I) [C] | 1–3 | – | P12-steep, P12-modelAB | – | slope 4500 question | – | ✅ |
 | L12.2 | L12 | Ridge in 2D: loss, closed-form slope, bias–variance mechanism (Part II) [C] | 3–5 | D12-ridge2d | P12-lambdafits | m_ridge = Sxy/(Sxx+λ) | regimes table | L12_ridge_lasso.py | ✅ |
 | L12.3 | L12 | Multiple Ridge normal equation (N-dim) [C] + derivation [R] | 6, 9 | D12-ridgeN | – | β=(XᵀX+λI)⁻¹Xᵀy | PRACTICE P1(b) | L12_ridge_lasso.py | ✅ |
@@ -132,6 +134,7 @@ Columns: ID | Lecture | Section title (worksheet sections covered) | Page(s) | D
 | L12.5 | L12 | Lasso: L1 penalty, sparsity, when to use (Part III) [C] | 10–12 | – | – | λΣ | wj |  | analogy | L12_ridge_lasso.py | ✅ |
 | L12.6 | L12 | Diamond vs circle; why Lasso gives exact zeros (proof) [C] | 12–15 | D12-lasso | P12-diamond | m=(N−λ)/D vs N/(D+λ) | PRACTICE P2 | L12_ridge_lasso.py | ✅ |
 | L12.7 | L12 | Comparison, CV for λ, standardization, intercept, traps (Part IV) [C] | 16–22 | – | P12-cv, P12-scale | – | CV table, PRACTICE P3, P4 | L12_cv_lambda.py | ✅ |
+| L12.8 | L12 | Elastic Net: L1 + L2 penalties [R] | – | – | P12-enball, P12-encoef | λ₁‖w‖₁ + λ₂‖w‖₂² | penalty by hand, correlated-features experiment | L12_elastic_net_sklearn.py | ✅ |
 | L13.1 | L13 | Order matters; IID vs time series; no K-fold (Part I) [C] + TimeSeriesSplit [R] | 1–2 | – | P13-crossvsts | – | Classroom question | L13_time_series.py | ✅ |
 | L13.2 | L13 | Components: trend, seasonality, noise [C] | 2–5 | – | P13-decomp | – | PRACTICE P1 | L13_time_series.py | ✅ |
 | L13.3 | L13 | Stationarity (Part II) [C] | 6–7 | – | P13-stationary | constant µ, σ², autocov | PRACTICE P2(a) | – | ✅ |
@@ -155,7 +158,7 @@ Columns: ID | Lecture | Section title (worksheet sections covered) | Page(s) | D
 | L15.6 | L15 | Multiclass cross-entropy (S13), gradient [R], OvR vs Softmax (S14) [C] | 9 | D15-ce, D15-cegrad | – | L = −Σ yk log p̂k | (0.665,0.245,0.090) example | L15_multiclass.py | ✅ |
 | L15.7 | L15 | Assumptions, odds & log-odds, polynomial boundaries, regularization (S15–S17) [C] | 10–13 | D15-logodds | P15-odds, P15-polyboundary | odds = p/(1−p); logit | PRACTICE P5 | L15_logistic_gd.py | ✅ |
 
-**Totals:** 113 teaching units · 28 derivation blocks · 120 plots/diagrams · 672 lecture practice questions + 196 in drills, mocks and the patterns page · 56 practice programs.
+**Totals:** 116 teaching units · 29 derivation blocks · 125 plots/diagrams · 691 lecture practice questions + 196 in drills, mocks and the patterns page · 59 practice programs.
 
 ## Researched extras (exam-relevant, not in the worksheets)
 
@@ -164,9 +167,9 @@ Taught as clearly separated "⚠ Not covered in class – researched" blocks. Lo
 - **L0:** Self-supervised learning (you named it in the brief; the worksheet only has four paradigms).
 - **L7:** ROC curve, AUC, threshold choice (worksheet mentions AUC-ROC only in L1 Reflect 3).
 - **L8:** VIF, Durbin–Watson, Q–Q plot, Breusch–Pagan as formal tests for the five assumptions.
-- **L9:** Full algebraic proof of MSE = Bias² + Variance + σ² (the worksheet says the proof is out of scope); k-fold CV mechanics.
-- **L11:** Why PCs are eigenvectors (Lagrange-multiplier proof); PCA via SVD as used by scikit-learn.
-- **L12:** Derivation of the Ridge normal equation; Lasso soft-thresholding/coordinate descent; Elastic Net (mentioned in L12 but marked out of scope).
+- **L9:** Full algebraic proof of MSE = Bias² + Variance + σ² (the worksheet says the proof is out of scope); k-fold CV mechanics; hyperparameter tuning with grid search and random search (unit L09.9, added after checking the mid-semester syllabus).
+- **L11:** Why PCs are eigenvectors (Lagrange-multiplier proof); PCA via SVD as used by scikit-learn (unit L11.8).
+- **L12:** Derivation of the Ridge normal equation; Lasso soft-thresholding/coordinate descent; Elastic Net (marked out of scope in L12, but asked in the course quiz; unit L12.8).
 - **L13:** ARMA/ARIMA(p,d,q) notation, ADF stationarity test, seasonal differencing, "ACF cuts off for MA(q)" identification table, TimeSeriesSplit.
 - **L14:** MLE for Bernoulli/binomial p̂ = k/n by calculus.
 - **L15:** Softmax cross-entropy gradient ∂L/∂z_k = p̂_k − y_k; scikit-learn's handling of multiclass (OvR vs multinomial).
@@ -176,7 +179,7 @@ Taught as clearly separated "⚠ Not covered in class – researched" blocks. Lo
 - DONE: Phase 0 (map, this file, UNCLEAR.md). Site engine: `aml-exam-prep/index.html`, `css/style.css`, `js/core.js`, `js/plots.js`, `js/app.js` (quiz engine, mocks, drills, progress, Pyodide). KaTeX and marked bundled in `vendor/`.
 - DONE: 56 practice programs in `aml-practice/` (L0–L15, both from-scratch and library versions, plus course-lab replicas with tests). All run; `tools/build_code.py` bundles them into `data/code_bundle.js`.
 - DONE: `data/lec00.js` (Lecture 0, 5 units, 27 questions), checked in the browser.
-- DONE: `data/lec01.js` … `lec15.js`: all teaching units L01.1–L15.7. Totals for L0–L15: 113 units, 672 questions, 117 plots. Every unit has a concept, formulas, plots, examples, code links, traps, ≥ 5 questions and a source. Derivations are included where the worksheet derives something.
+- DONE: `data/lec01.js` … `lec15.js`: all teaching units L01.1–L15.7. Totals for L0–L15: 113 units, 672 questions, 117 plots (plus 3 researched units added after the syllabus check: L09.9, L11.8, L12.8). Every unit has a concept, formulas, plots, examples, code links, traps, ≥ 5 questions and a source. Derivations are included where the worksheet derives something.
 - DONE: `patterns.js` (analysis of the 134 course-quiz questions and 24 labs + 13 pattern-practice questions), `drills.js` (65 integer + 48 code questions), `mock1.js` and `mock2.js` (35 questions, 61 marks, 90 minutes each; every lecture covered), `plan.js` (7-day plan + last-night revision sheet), `tools/verify.py` (ticks the Done column), `tools/site_test.js` (full Playwright pass), `REPORT.md` (final report).
 - Tools: `node tools/dump_data.js out.json` loads all data headlessly and renders every plot.
 - Tools: `python3 tools/check_questions.py [lec nums]` checks answer indices and options. It runs every `out` snippet, `int` verify expression and `write` ref+tests, scans for LaTeX whose escapes were eaten, and requires ≥ 5 questions per unit. Current result: 868 questions (lectures, drills, mocks, patterns page), 0 problems.

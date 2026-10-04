@@ -31,7 +31,7 @@ EXTRA.plan = {
           groups: [{ label: 'lectures', c: 's1', vals: [105, 120, 120, 95, 95, 0, 0] }, { label: 'drills / mocks', c: 's3', vals: [0, 0, 0, 25, 25, 90, 90] }, { label: 'review', c: 's5', vals: [0, 0, 0, 0, 0, 30, 60] }],
           ylabel: 'minutes', ylim: [0, 140] } } },
     { md: R`## Weekly checklist
-- [ ] All 113 units ticked **done** (sidebar counters).
+- [ ] All 116 units ticked **done** (sidebar counters).
 - [ ] Every practice set attempted; the [Progress](#/progress) page shows ≥ 70% per lecture.
 - [ ] Integer drill: all 65 questions; redo the wrong ones the next day.
 - [ ] Code drill: all 48 questions; run the write-the-function ones online at least once.
@@ -97,7 +97,8 @@ EXTRA.revision = {
 | Decomposition | $\text{MSE} = \text{Bias}^2 + \text{Var} + \sigma^2$; Bias = E[f̂] − f. Name the largest term. |
 | Diagnosis | Both errors high → high bias (more complex model). Low train, high validation → high variance (more data, regularize, simpler model). |
 | Dartboard | tight but off-centre = high bias, low variance; scattered around the centre = low bias, high variance. |
-| CV | k-fold trains on (k − 1)/k of the data; unstable fold scores → high variance. |` },
+| CV | k-fold trains on (k − 1)/k of the data; unstable fold scores → high variance. |
+| Tuning | Grid search fits = k × (product of list sizes) + 1 refit; random search = k × n_iter. Tune on CV of the training set, test once. |` },
     { md: R`## L10–L12 · Selection, PCA, regularization
 | Item | Remember |
 |---|---|
@@ -108,7 +109,9 @@ EXTRA.revision = {
 | PCA facts | λ = variance along PC; EVR = λ/Σλ; PCs orthogonal and uncorrelated (≠ independent); unsupervised (can drop a predictive low-variance direction); best k-dim reconstruction. |
 | Ridge | $m = \frac{S_{xy}}{S_{xx}+\lambda}$; $\boldsymbol\beta = (X^TX + \lambda I)^{-1}X^T\mathbf y$; shrinks, never exactly 0; circle constraint; big coefficients shrink fastest. |
 | Lasso | worksheet $m = \frac{S_{xy} - \lambda}{S_{xx}}$ (m > 0) → clip at **0**; diamond constraint → corners → sparsity = feature selection. |
-| Practice | standardise before penalising; do not penalise the intercept; choose λ by CV; λ → ∞ underfits. |` },
+| Practice | standardise before penalising; do not penalise the intercept; choose λ by CV; λ → ∞ underfits. |
+| Elastic Net | $\lambda_1\|\mathbf w\|_1 + \lambda_2\|\mathbf w\|_2^2$: zeros **and** grouping of correlated features; l1_ratio = 1 → Lasso, 0 → Ridge. |
+| PCA via SVD | $X_c = U\Sigma V^T$: directions = V, eigenvalue = s²/(n − 1), scores = UΣ. |` },
     { md: R`## L13 · Time series
 | Item | Remember |
 |---|---|
