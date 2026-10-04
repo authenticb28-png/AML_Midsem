@@ -46,3 +46,18 @@ Each item lists the file, the physical page, what is unclear, and what the websi
 17. **4 - MCQs.md.** Many course-quiz answers are "not shown by Newton".
     *Site:* every one of them was solved and checked. The site uses them only as *pattern evidence* and never copies them as "official answers".
 18. **GATE DA tags.** No question is tagged with a GATE DA year. I could not confirm any specific item verbatim against an official paper here, so everything is tagged **"GATE-style"** (rule 6).
+
+## Found while building Lectures 1–15
+
+19. **AML_Lecture 2, macro loop.** Step 3 "prepare data" comes before step 4 "split". The same worksheet warns that preprocessing statistics must come from the training data only.
+    *Site:* shows the loop as printed and adds a trap: split first, then fit the preprocessing on train.
+20. **AML_Lecture 2, P11.3 vs course quiz.** The worksheet key answers "No" to the cost–benefit question in P11.3, where no business value per unit is given. A course-quiz item with ₹/unit given answers "Yes".
+    *Site:* explains that the answer depends on whether a value per unit is given, and shows both.
+21. **3 - Coding & Lab Questions.md, "Polynomial Regression Detective" lab.** The printed expected output for the sample input could not be reproduced with `PolynomialFeatures` + `LinearRegression`.
+    *Site:* teaches the lab's exact grading rules. `aml-practice/L08_lab_poly_detective.py` checks them on a noisy-parabola dataset where underfit, good and overfit all occur.
+22. **AML_Lecture 12, Lasso closed form.** The worksheet writes the 1-D Lasso solution as "OLS numerator − λ". Differentiating Σ(·)² + λ|m| exactly gives m = (Sxy − λ/2)/Sxx. The worksheet has absorbed a ½ into λ.
+    *Site:* uses the worksheet's form in numericals and notes the exact form in a derivation and a trap.
+23. **AML_Lecture 15, softmax cross-entropy.** −ln(0.245) = 1.407 with the rounded probability. The worksheet's code uses the unrounded 0.2447 and prints 1.408.
+    *Site:* accepts 1.407 ± 0.002, which covers both.
+24. **AML_Lecture 5, epoch 2 table.** The worksheet's θ after epoch 2 is [0.00855, 0.03842, 0.67381]. That comes from carrying rounded intermediates; exact arithmetic gives [0.00821, 0.03873, 0.67372].
+    *Site:* shows the worksheet values with the exact values beside them. No question depends on this digit.

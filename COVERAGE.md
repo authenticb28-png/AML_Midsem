@@ -176,5 +176,9 @@ Taught as clearly separated "⚠ Not covered in class – researched" blocks. Lo
 - DONE: Phase 0 (map, this file, UNCLEAR.md). Site engine: `aml-exam-prep/index.html`, `css/style.css`, `js/core.js`, `js/plots.js`, `js/app.js` (quiz engine, mocks, drills, progress, Pyodide). KaTeX and marked bundled in `vendor/`.
 - DONE: 56 practice programs in `aml-practice/` (L0–L15, both from-scratch and library versions, plus course-lab replicas with tests). All run; `tools/build_code.py` bundles them into `data/code_bundle.js`.
 - DONE: `data/lec00.js` (Lecture 0, 5 units, 27 questions), checked in the browser.
-- TODO: `data/lec01.js` … `lec15.js` (currently placeholders), `patterns.js` (Phase 1), `drills.js`, `mock1.js`, `mock2.js`, `plan.js` (plan + revision), `verify.py`, Playwright pass, final report.
+- DONE: `data/lec01.js` … `lec15.js`: all teaching units L01.1–L15.7. Totals for L0–L15: 113 units, 672 questions, 117 plots. Every unit has a concept, formulas, plots, examples, code links, traps, ≥ 5 questions and a source. Derivations are included where the worksheet derives something.
+- TODO: `patterns.js` (Phase 1), `drills.js`, `mock1.js`, `mock2.js`, `plan.js` (plan + revision), `verify.py`, full Playwright pass of the quiz flows, final report.
 - Tools: `node tools/dump_data.js out.json` loads all data headlessly and renders every plot.
+- Tools: `python3 tools/check_questions.py [lec nums]` checks answer indices and options. It runs every `out` snippet, `int` verify expression and `write` ref+tests, scans for LaTeX whose escapes were eaten, and requires ≥ 5 questions per unit. Current result: 672 questions, 0 problems.
+- Tools: `python3 tools/lint_sources.py` flags single-quoted strings with backslash-letter sequences (use R`` for LaTeX).
+- Tools: `NODE_PATH=$(npm root -g) node tools/browser_check.js [lec nums]` renders each lecture in Chromium and counts KaTeX errors, plot/code errors and unrendered `$…$`. Current result: 0 for all of L0–L15.
