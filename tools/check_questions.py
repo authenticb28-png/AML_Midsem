@@ -118,10 +118,19 @@ for key in ["intDrill", "codeDrill"]:
             check_q(q, f"{key}.{i + 1}")
 if not want:
     for k, m in data.get("mocks", {}).items():
+        scan(m, f"mock{k}")
         for s in m["sections"]:
             for i, q in enumerate(s["questions"]):
                 nq += 1
                 check_q(q, f"mock{k}.{s['name']}.{i + 1}")
+    for key in ["intDrill", "codeDrill"]:
+        scan(data.get(key, []), key)
+    for k, d in data.get("docs", {}).items():
+        scan(d, k)
+        for b, blk in enumerate(d["blocks"]):
+            for i, q in enumerate(blk["qs"]):
+                nq += 1
+                check_q(q, f"{k}.block{b + 1}.q{i + 1}")
 
 print(f"checked {nq} questions, {len(problems)} problem(s)")
 for p in problems:
