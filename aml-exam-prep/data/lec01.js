@@ -291,7 +291,7 @@ The model is useless for the one thing the business cares about. EDA goal 7 (cla
         sol: 'The box spans Q1–Q3, and points beyond the whiskers are outliers.', why: ['Correct.', 'Two-variable relationship.', 'Trend over time.', 'Pairwise correlations.'] },
       { type: 'int', diff: 'M', q: 'Data: [2, 4, 6, 8, 10, 12, 14, 16]. Using the "median of each half" method, what is the **IQR**?', answer: 8, tol: 0, round: 'Exact', verify: '(14+12)/2 - (4+6)/2',
         sol: 'n = 8, so the halves are [2, 4, 6, 8] and [10, 12, 14, 16]. $Q_1$ = (4 + 6)/2 = 5, $Q_3$ = (12 + 14)/2 = 13. IQR = 13 − 5 = **8**.' },
-      { type: 'int', diff: 'M', q: 'For the data above (Q1 = 5, Q3 = 13), what is the **upper Tukey fence** $Q_3 + 1.5\,\text{IQR}$?', answer: 25, tol: 0, round: 'Exact', verify: '13 + 1.5*8',
+      { type: 'int', diff: 'M', q: R`For the data above (Q1 = 5, Q3 = 13), what is the **upper Tukey fence** $Q_3 + 1.5\,\text{IQR}$?`, answer: 25, tol: 0, round: 'Exact', verify: '13 + 1.5*8',
         sol: '13 + 1.5 × 8 = 13 + 12 = **25**. Any value above 25 would be drawn as an outlier.' },
       { type: 'mcq', diff: 'M', q: 'A dataset is 95% class A and 5% class B. A model always predicts A. Which statement is true?', options: ['It is excellent: 95% accuracy', 'Its recall for class B is 0%, so it is useless for B', 'Its precision for class B is 100%', 'Accuracy is the right metric here'], answer: 1,
         sol: 'Reflect 3: it never predicts B, so it detects 0% of B cases. Accuracy is misleading under imbalance.', why: ['Accuracy hides the failure.', 'Correct.', 'It makes no B predictions, so B-precision is undefined (0/0), not 100%.', 'Use recall/precision/F1/AUC instead.'] },

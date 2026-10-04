@@ -56,6 +56,17 @@ def check_q(q, where):
         answers = q["answer"] if isinstance(q["answer"], list) else [q["answer"]]
         if not any(norm(a) == norm(out) for a in answers):
             problems.append(f"{where}: OUTPUT MISMATCH\n  expected: {answers[0]!r}\n  got:      {out!r}\n  stderr:   {err[-300:]!r}")
+    if t == "write":
+        out, err = run_py(q["ref"] + "\n\n" + q.get("tests", "") + "\nprint('ALL TESTS PASSED')")
+        if "ALL TESTS PASSED" not in out:
+            problems.append(f"{where}: reference solution fails its tests: {err[-300:]!r}")
+        if q.get("expected") and norm(q["expected"]) != norm(out.replace("ALL TESTS PASSED", "")):
+            problems.append(f"{where}: expected output mismatch: {out!r}")
+    if t in ("bug", "fill") and q.get("fixed"):
+        out, err = run_py(q["fixed"])
+        answers = q["answer"] if isinstance(q.get("answer"), list) else [q.get("answer")]
+        if err.strip() and "Traceback" in err:
+            problems.append(f"{where}: fixed code raises: {err[-300:]!r}")
     if t == "int":
         if "verify" in q:
             try:
@@ -69,7 +80,28 @@ def check_q(q, where):
             problems.append(f"{where}: int question without verify")
 
 
+# LaTeX written in a plain '...' JS string loses its backslash: '\bar' -> backspace + 'ar', '\theta' -> tab + 'heta'.
+EATEN = re.compile(r"\x08(ar|eta|oldsymbol|f\b|ig|egin)|\t(heta|au|imes|ext|ilde|op|o\b|frac|riangle)|\x0c(rac)|\r(ho|ight|m\b|angle)|\x0b(ec|ar)|\n(abla|eq|u\b|ot|ewline|orm)")
+
+
+def scan(obj, where):
+    if isinstance(obj, str):
+        m = EATEN.search(obj)
+        if m:
+            problems.append(f"{where}: escaped LaTeX lost its backslash near {obj[max(0, m.start() - 20):m.end() + 10]!r} (use R`...`)")
+    elif isinstance(obj, dict):
+        for k, v in obj.items():
+            scan(v, where)
+    elif isinstance(obj, list):
+        for v in obj:
+            scan(v, where)
+
+
 nq = 0
+for lec in data["lectures"]:
+    if not want or lec["num"] in want:
+        for u in lec["units"]:
+            scan(u, u["id"])
 for lec in data["lectures"]:
     if want and lec["num"] not in want:
         continue
