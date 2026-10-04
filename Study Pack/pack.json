@@ -1,0 +1,2564 @@
+{
+ "subject": "Advanced Machine Learning",
+ "generated_at": "2026-10-04T09:20:50+00:00",
+ "courses": [
+  {
+   "kind": "Lectures",
+   "code": "AML",
+   "lectures": [
+    {
+     "n": 1,
+     "date": "2026-08-11",
+     "title": "Lecture 0",
+     "topics": [],
+     "files": []
+    },
+    {
+     "n": 2,
+     "date": "2026-08-13",
+     "title": "Programming Paradigms, Traditional Programming, Artificial Intelligence, Machine ...",
+     "topics": [
+      "Artificial Intelligence",
+      "Numerical Data",
+      "Python-Exploratory Data Analysis (EDA)",
+      "Machine Learning (ML)",
+      "Supervised Learning",
+      "Unsupervised Learning",
+      "Reinforcement Learning",
+      "Regression",
+      "Data Types",
+      "Bivariate Analysis",
+      "One Hot Encoding",
+      "Categorical Data",
+      "Data Preprocessing",
+      "Normalization",
+      "Classification",
+      "Clustering",
+      "Phases of Machine Learning Project",
+      "Handling missing values",
+      "Feature Scaling",
+      "Outlier Detection",
+      "Deep Learning (DL)",
+      "Semi-Supervised Learning",
+      "Multivariate Analysis",
+      "Univariate Analysis",
+      "Types of ML Tasks",
+      "Programming Paradigms",
+      "Traditional Programming",
+      "Labelled Data",
+      "Unlabelled Data",
+      "Learning Paradigms",
+      "Problem Definition",
+      "Data Collection",
+      "Structured Data",
+      "Unstructured Data",
+      "Semi-Structured Data",
+      "Time Series Data",
+      "Class Imbalance",
+      "Data Deletion",
+      "Data Imputation",
+      "Inconsistent Data Resolution",
+      "Standardization",
+      "Max Absolute Scaling",
+      "Robust Scaling",
+      "Categorical Encoding",
+      "Label Encoding",
+      "Ordinal Encoding",
+      "Binary Encoding"
+     ],
+     "files": []
+    },
+    {
+     "n": 3,
+     "date": "2026-08-18",
+     "title": "Data Splitting, Training Data, Validation Data, Test Data, Data Leakage, Feature ...",
+     "topics": [],
+     "files": []
+    },
+    {
+     "n": 4,
+     "date": "2026-08-20",
+     "title": "Linear Regression, Post-Deployment Monitoring, Model Drift, Retraining Cycle, Si ...",
+     "topics": [
+      "Linear Regression",
+      "Feature Engineering",
+      "Feature Creation",
+      "Hyperparameter Tuning",
+      "Model Training",
+      "Data Splitting",
+      "Training Data",
+      "Validation Data",
+      "Test Data",
+      "Data Leakage",
+      "Model Selection",
+      "Convergence",
+      "Model Deployment",
+      "Post-Deployment Monitoring",
+      "Model Drift",
+      "Retraining Cycle",
+      "Simple Linear Regression",
+      "Ordinary Least Squares (OLS)"
+     ],
+     "files": []
+    },
+    {
+     "n": 5,
+     "date": "2026-08-25",
+     "title": "Multiple Linear Regression, Normal Equation, Gradient Descent",
+     "topics": [],
+     "files": []
+    },
+    {
+     "n": 6,
+     "date": "2026-08-27",
+     "title": "Gradient Descent, Multiple Linear Regression, Normal Equation, Optimization, Gra ...",
+     "topics": [
+      "Gradient Descent",
+      "Gradient",
+      "Multiple Linear Regression",
+      "Optimization",
+      "Learning Rate",
+      "Normal Equation",
+      "Batch Gradient Descent",
+      "Epochs"
+     ],
+     "files": []
+    },
+    {
+     "n": 7,
+     "date": "2026-09-01",
+     "title": "Stochastic Gradient Descent, Mini-batch Gradient Descent",
+     "topics": [
+      "Stochastic Gradient Descent",
+      "Mini-batch Gradient Descent"
+     ],
+     "files": []
+    },
+    {
+     "n": 8,
+     "date": "2026-09-03",
+     "title": "Evaluation Metrics, Regression Metrics, R-Squared Score, Adjusted R-Squared Scor ...",
+     "topics": [
+      "Mean Squared Error (MSE)",
+      "Classification Metrics",
+      "F1 Score",
+      "Mean Absolute Error (MAE)",
+      "Confusion Matrix",
+      "Regression Metrics",
+      "Precision",
+      "Evaluation Metrics",
+      "Mean Absolute Percentage Error (MAPE)",
+      "Root Mean Squared Error (RMSE)",
+      "R-Squared Score",
+      "Total Sum of Squares (TSS)",
+      "Residual Sum of Squares (RSS)",
+      "Explained Variation",
+      "Adjusted R-Squared Score",
+      "Accuracy"
+     ],
+     "files": []
+    },
+    {
+     "n": 9,
+     "date": "2026-09-08",
+     "title": "Macro Average, Weighted Average, Micro Average, Polynomial Regression, Feature T ...",
+     "topics": [
+      "Feature Transformation",
+      "Polynomial Regression",
+      "Linear regression assumptions",
+      "Linearity",
+      "Normality of Residuals",
+      "Homoscedasticity",
+      "Macro Average",
+      "Weighted Average",
+      "Micro Average"
+     ],
+     "files": []
+    },
+    {
+     "n": 10,
+     "date": "2026-09-10",
+     "title": "Model Tuning, Independence of Errors, Multicollinearity, Population True Functio ...",
+     "topics": [
+      "Variance",
+      "Cross-Validation",
+      "Underfitting",
+      "Overfitting",
+      "White noise",
+      "Bias",
+      "Independence of Errors",
+      "Multicollinearity",
+      "Model Tuning",
+      "Population True Function",
+      "Irreducible Error",
+      "Model Estimator",
+      "Bias-Variance Decomposition"
+     ],
+     "files": []
+    },
+    {
+     "n": 11,
+     "date": "2026-09-15",
+     "title": "Feature Selection, Curse of Dimensionality, Filter Methods, Variance Threshold,  ...",
+     "topics": [
+      "Feature Selection",
+      "Pearson Correlation",
+      "Curse of Dimensionality",
+      "Filter Methods",
+      "Variance Threshold",
+      "Wrapper Methods",
+      "Exhaustive Search",
+      "Backward Elimination"
+     ],
+     "files": [
+      "Feature Selection.pdf"
+     ]
+    },
+    {
+     "n": 12,
+     "date": "2026-09-17",
+     "title": "Feature Extraction, Forward Selection, Principal Component Analysis (PCA), Ortho ...",
+     "topics": [
+      "Principal Component Analysis (PCA)",
+      "Feature Extraction",
+      "Eigen vectors",
+      "Orthogonality",
+      "Forward Selection",
+      "Covariance Matrix"
+     ],
+     "files": []
+    },
+    {
+     "n": 13,
+     "date": "2026-09-22",
+     "title": "Eigen values, Explained Variance Ratio, Scree Plot, Regularization, Ridge Regres ...",
+     "topics": [
+      "Lasso Regression",
+      "Ridge Regression",
+      "Regularization",
+      "Eigen values",
+      "Data Sparsity",
+      "Explained Variance Ratio",
+      "Scree Plot"
+     ],
+     "files": []
+    },
+    {
+     "n": 14,
+     "date": "2026-09-24",
+     "title": "Time Series Modelling, Time Series Data, Time Series Components, Trend, Seasonal ...",
+     "topics": [
+      "Time Series Modelling",
+      "Time Series Data",
+      "Time Series Components",
+      "Trend",
+      "Seasonality",
+      "Noise",
+      "Stationarity",
+      "Lags",
+      "Auto Regression Model",
+      "Autocorrelation Function",
+      "Partial Autocorrelation Function",
+      "Moving Average (MA) Model"
+     ],
+     "files": []
+    },
+    {
+     "n": 15,
+     "date": "2026-09-29",
+     "title": "Classification Models, Logistic Regression, Decision boundary, Sigmoid Function, ...",
+     "topics": [
+      "Logistic Regression",
+      "Sigmoid Function",
+      "Maximum Likelihood Estimation",
+      "Decision boundary",
+      "Classification Models",
+      "Logit Transformation"
+     ],
+     "files": []
+    },
+    {
+     "n": 16,
+     "date": "2026-10-01",
+     "title": "OvR (One-vs-Rest), Multiclass Classification, Binary Cross-Entropy, Multinomial  ...",
+     "topics": [
+      "OvR (One-vs-Rest)",
+      "Binary Cross-Entropy",
+      "Multiclass Classification",
+      "Multinomial Logistic Regression"
+     ],
+     "files": []
+    }
+   ],
+   "assignments": [
+    {
+     "assignment": "CN_lab_ALB_Section_D",
+     "title": "CN_Lab: Application Load Balancer",
+     "type": "game",
+     "status": "Solved ✓",
+     "difficulty": "Medium",
+     "question": "<h2>In-Class Lab &ndash; Build a Highly Available Web App with an Application Load Balancer</h2>\r\n\r\n<p>In this lab you will build a fault-tolerant web architecture on AWS from scratch. Two web servers, each in a different data-centre zone, sit behind an <strong>Application Load Balancer (ALB)</strong> that distributes traffic between them. You will then deliberately stop one server and watch the ALB silently switch all traffic to the surviving one &mdash; with zero changes on your part.</p>\r\n\r\n<h3>Architecture you will build</h3>\r\n\r\n<pre>\r\n              Internet\r\n                 │\r\n       ┌─────────▼──────────┐\r\n       │ Application Load   │\r\n       │     Balancer       │\r\n       └────────┬───────────┘\r\n                │\r\n       ┌────────▼───────────┐\r\n       │    Target Group    │\r\n       └──────┬─────────────┘\r\n              │\r\n   ┌──────────┴──────────┐\r\n   │                     │\r\n┌──▼────────┐      ┌─────▼──────┐\r\n│  EC2-A    │      │   EC2-B    │\r\n│  AZ-1     │      │   AZ-2     │\r\n│ &quot;Instance │      │ &quot;Instance  │\r\n│    A&quot;     │      │    B&quot;      │\r\n└───────────┘      └────────────┘\r\n</pre>\r\n\r\n<p>EC2-A and EC2-B serve <strong>different pages</strong> so you can see exactly which instance the ALB is sending you to. When EC2-A is stopped, every reload will show EC2-B&#39;s page &mdash; no error, no downtime.</p>\r\n\r\n<hr />\r\n<h3 style=\"color:#c0392b;\">⚠ Tag Rule &mdash; apply to every resource you create</h3>\r\n\r\n<table>\r\n\t<tbody>\r\n\t\t<tr>\r\n\t\t\t<th>Key</th>\r\n\t\t\t<th>Value</th>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td><code>Project</code></td>\r\n\t\t\t<td><code>ha-web-app</code></td>\r\n\t\t</tr>\r\n\t</tbody>\r\n</table>\r\n\r\n<p>The grader finds your work by this tag. A resource without it is invisible to the grader.</p>\r\n\r\n<p>Region for this entire lab: <strong>us-east-1 (N. Virginia)</strong></p>\r\n\r\n<hr />\r\n<h2>Part 1 &ndash; Create the VPC and Network</h2>\r\n\r\n<h3>Step 1.1 &ndash; Create the VPC</h3>\r\n\r\n<ol>\r\n\t<li>Search for <strong>VPC</strong> in the AWS Console. Open the VPC service.</li>\r\n\t<li>Left menu &rarr; <strong>Your VPCs</strong> &rarr; <strong>Create VPC</strong>.</li>\r\n\t<li>Select <strong>VPC only</strong>.</li>\r\n\t<li>Fill in:\r\n\t<table>\r\n\t\t<tbody>\r\n\t\t\t<tr>\r\n\t\t\t\t<th>Field</th>\r\n\t\t\t\t<th>Value</th>\r\n\t\t\t</tr>\r\n\t\t\t<tr>\r\n\t\t\t\t<td>Name tag</td>\r\n\t\t\t\t<td><code>ha-vpc</code></td>\r\n\t\t\t</tr>\r\n\t\t\t<tr>\r\n\t\t\t\t<td>IPv4 CIDR</td>\r\n\t\t\t\t<td><code>10.0.0.0/16</code></td>\r\n\t\t\t</tr>\r\n\t\t\t<tr>\r\n\t\t\t\t<td>Tenancy</td>\r\n\t\t\t\t<td>Default</td>\r\n\t\t\t</tr>\r\n\t\t</tbody>\r\n\t</table>\r\n\t</li>\r\n\t<li>Tags &rarr; add <code>Project</code> = <code>ha-web-app</code>. Click <strong>Create VPC</strong>.</li>\r\n</ol>\r\n\r\n<h3>Step 1.2 &ndash; Create Subnet A (AZ us-east-1a)</h3>\r\n\r\n<ol>\r\n\t<li>Left menu &rarr; <strong>Subnets</strong> &rarr; <strong>Create subnet</strong>.</li>\r\n\t<li>VPC: select <code>ha-vpc</code>.</li>\r\n\t<li>Subnet settings:\r\n\t<table>\r\n\t\t<tbody>\r\n\t\t\t<tr>\r\n\t\t\t\t<th>Field</th>\r\n\t\t\t\t<th>Value</th>\r\n\t\t\t</tr>\r\n\t\t\t<tr>\r\n\t\t\t\t<td>Subnet name</td>\r\n\t\t\t\t<td><code>ha-subnet-az1</code></td>\r\n\t\t\t</tr>\r\n\t\t\t<tr>\r\n\t\t\t\t<td>Availability Zone</td>\r\n\t\t\t\t<td><code>us-east-1a</code></td>\r\n\t\t\t</tr>\r\n\t\t\t<tr>\r\n\t\t\t\t<td>IPv4 CIDR</td>\r\n\t\t\t\t<td><code>10.0.1.0/24</code></td>\r\n\t\t\t</tr>\r\n\t\t</tbody>\r\n\t</table>\r\n\t</li>\r\n\t<li>Add tag <code>Project</code> = <code>ha-web-app</code>.</li>\r\n</ol>\r\n\r\n<h3>Step 1.3 &ndash; Create Subnet B (AZ us-east-1b)</h3>\r\n\r\n<p>Click <strong>Add new subnet</strong> on the same page:</p>\r\n\r\n<table>\r\n\t<tbody>\r\n\t\t<tr>\r\n\t\t\t<th>Field</th>\r\n\t\t\t<th>Value</th>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Subnet name</td>\r\n\t\t\t<td><code>ha-subnet-az2</code></td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Availability Zone</td>\r\n\t\t\t<td><code>us-east-1b</code></td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>IPv4 CIDR</td>\r\n\t\t\t<td><code>10.0.2.0/24</code></td>\r\n\t\t</tr>\r\n\t</tbody>\r\n</table>\r\n\r\n<p>Add tag <code>Project</code> = <code>ha-web-app</code>. Click <strong>Create subnet</strong>.</p>\r\n\r\n<h3>Step 1.4 &ndash; Enable auto-assign public IP on both subnets</h3>\r\n\r\n<ol>\r\n\t<li>Select <code>ha-subnet-az1</code> &rarr; <strong>Actions &rarr; Edit subnet settings</strong>.</li>\r\n\t<li>Check <strong>Enable auto-assign public IPv4 address</strong> &rarr; Save.</li>\r\n\t<li>Repeat for <code>ha-subnet-az2</code>.</li>\r\n</ol>\r\n\r\n<h3>Step 1.5 &ndash; Create and attach an Internet Gateway</h3>\r\n\r\n<ol>\r\n\t<li>Left menu &rarr; <strong>Internet Gateways</strong> &rarr; <strong>Create internet gateway</strong>.</li>\r\n\t<li>Name: <code>ha-igw</code>. Tag <code>Project</code> = <code>ha-web-app</code>. Create.</li>\r\n\t<li><strong>Actions &rarr; Attach to VPC</strong> &rarr; select <code>ha-vpc</code> &rarr; Attach.</li>\r\n</ol>\r\n\r\n<h3>Step 1.6 &ndash; Create a route table and connect it to the subnets</h3>\r\n\r\n<ol>\r\n\t<li>Left menu &rarr; <strong>Route Tables</strong> &rarr; <strong>Create route table</strong>.</li>\r\n\t<li>Name: <code>ha-public-rt</code>. VPC: <code>ha-vpc</code>. Tag <code>Project</code> = <code>ha-web-app</code>. Create.</li>\r\n\t<li>Select <code>ha-public-rt</code> &rarr; <strong>Routes</strong> tab &rarr; <strong>Edit routes</strong> &rarr; <strong>Add route</strong>:\r\n\t<table>\r\n\t\t<tbody>\r\n\t\t\t<tr>\r\n\t\t\t\t<th>Destination</th>\r\n\t\t\t\t<th>Target</th>\r\n\t\t\t</tr>\r\n\t\t\t<tr>\r\n\t\t\t\t<td><code>0.0.0.0/0</code></td>\r\n\t\t\t\t<td>Internet Gateway &rarr; <code>ha-igw</code></td>\r\n\t\t\t</tr>\r\n\t\t</tbody>\r\n\t</table>\r\n\tSave changes.</li>\r\n\t<li><strong>Subnet associations</strong> tab &rarr; <strong>Edit subnet associations</strong> &rarr; check both <code>ha-subnet-az1</code> and <code>ha-subnet-az2</code> &rarr; Save.</li>\r\n</ol>\r\n\r\n<hr />\r\n<h2>Part 2 &ndash; Create Security Groups</h2>\r\n\r\n<p>We use two security groups: one for the ALB (accepts traffic from the internet) and one for the EC2 instances (accepts traffic <em>only from the ALB</em>, never directly from the internet). This is called <strong>security group chaining</strong>.</p>\r\n\r\n<h3>Step 2.1 &ndash; ALB Security Group</h3>\r\n\r\n<ol>\r\n\t<li>Left menu &rarr; <strong>Security Groups</strong> &rarr; <strong>Create security group</strong>.</li>\r\n\t<li>\r\n\t<table>\r\n\t\t<tbody>\r\n\t\t\t<tr>\r\n\t\t\t\t<th>Field</th>\r\n\t\t\t\t<th>Value</th>\r\n\t\t\t</tr>\r\n\t\t\t<tr>\r\n\t\t\t\t<td>Name</td>\r\n\t\t\t\t<td><code>ha-alb-sg</code></td>\r\n\t\t\t</tr>\r\n\t\t\t<tr>\r\n\t\t\t\t<td>Description</td>\r\n\t\t\t\t<td>Allow HTTP from internet to ALB</td>\r\n\t\t\t</tr>\r\n\t\t\t<tr>\r\n\t\t\t\t<td>VPC</td>\r\n\t\t\t\t<td><code>ha-vpc</code></td>\r\n\t\t\t</tr>\r\n\t\t</tbody>\r\n\t</table>\r\n\t</li>\r\n\t<li>Inbound rule: Type <strong>HTTP</strong>, Port <strong>80</strong>, Source <strong>Anywhere-IPv4</strong>.</li>\r\n\t<li>Tag <code>Project</code> = <code>ha-web-app</code>. Create.</li>\r\n</ol>\r\n\r\n<h3>Step 2.2 &ndash; EC2 Security Group</h3>\r\n\r\n<ol>\r\n\t<li>Create security group again.</li>\r\n\t<li>\r\n\t<table>\r\n\t\t<tbody>\r\n\t\t\t<tr>\r\n\t\t\t\t<th>Field</th>\r\n\t\t\t\t<th>Value</th>\r\n\t\t\t</tr>\r\n\t\t\t<tr>\r\n\t\t\t\t<td>Name</td>\r\n\t\t\t\t<td><code>ha-ec2-sg</code></td>\r\n\t\t\t</tr>\r\n\t\t\t<tr>\r\n\t\t\t\t<td>Description</td>\r\n\t\t\t\t<td>Allow HTTP only from ALB SG</td>\r\n\t\t\t</tr>\r\n\t\t\t<tr>\r\n\t\t\t\t<td>VPC</td>\r\n\t\t\t\t<td><code>ha-vpc</code></td>\r\n\t\t\t</tr>\r\n\t\t</tbody>\r\n\t</table>\r\n\t</li>\r\n\t<li>Add <strong>two</strong> inbound rules:\r\n\t<table>\r\n\t\t<tbody>\r\n\t\t\t<tr>\r\n\t\t\t\t<th>Type</th>\r\n\t\t\t\t<th>Port</th>\r\n\t\t\t\t<th>Source</th>\r\n\t\t\t\t<th>Reason</th>\r\n\t\t\t</tr>\r\n\t\t\t<tr>\r\n\t\t\t\t<td>HTTP</td>\r\n\t\t\t\t<td>80</td>\r\n\t\t\t\t<td>Custom &rarr; <code>ha-alb-sg</code></td>\r\n\t\t\t\t<td>Only the ALB can send web traffic in</td>\r\n\t\t\t</tr>\r\n\t\t\t<tr>\r\n\t\t\t\t<td>SSH</td>\r\n\t\t\t\t<td>22</td>\r\n\t\t\t\t<td>Anywhere-IPv4</td>\r\n\t\t\t\t<td>Troubleshooting access</td>\r\n\t\t\t</tr>\r\n\t\t</tbody>\r\n\t</table>\r\n\r\n\t<p>For the HTTP rule, click the Source dropdown and select <strong>Custom</strong>, then search for and select <code>ha-alb-sg</code>.</p>\r\n\t</li>\r\n\t<li>Tag <code>Project</code> = <code>ha-web-app</code>. Create.</li>\r\n</ol>\r\n\r\n<hr />\r\n<h2>Part 3 &ndash; Launch EC2-A (Availability Zone 1)</h2>\r\n\r\n<p>EC2-A will serve a blue-themed page that says <strong>&quot;Instance A&quot;</strong>. This makes it visually clear which instance the ALB is routing to.</p>\r\n\r\n<ol>\r\n\t<li>Search for <strong>EC2</strong> in the console. Click <strong>Launch instance</strong>.</li>\r\n\t<li>Name: <code>ha-ec2-a</code>.</li>\r\n\t<li>AMI: <strong>Amazon Linux 2023 AMI</strong> (default, leave as-is).</li>\r\n\t<li>Instance type: <code>t2.micro</code>.</li>\r\n\t<li>Key pair: select <strong>vockey</strong>.</li>\r\n\t<li>Network settings &rarr; click <strong>Edit</strong>:\r\n\t<table>\r\n\t\t<tbody>\r\n\t\t\t<tr>\r\n\t\t\t\t<th>Field</th>\r\n\t\t\t\t<th>Value</th>\r\n\t\t\t</tr>\r\n\t\t\t<tr>\r\n\t\t\t\t<td>VPC</td>\r\n\t\t\t\t<td><code>ha-vpc</code></td>\r\n\t\t\t</tr>\r\n\t\t\t<tr>\r\n\t\t\t\t<td>Subnet</td>\r\n\t\t\t\t<td><code>ha-subnet-az1</code> (us-east-1a)</td>\r\n\t\t\t</tr>\r\n\t\t\t<tr>\r\n\t\t\t\t<td>Auto-assign public IP</td>\r\n\t\t\t\t<td>Enable</td>\r\n\t\t\t</tr>\r\n\t\t\t<tr>\r\n\t\t\t\t<td>Security group</td>\r\n\t\t\t\t<td>Select existing &rarr; <code>ha-ec2-sg</code></td>\r\n\t\t\t</tr>\r\n\t\t</tbody>\r\n\t</table>\r\n\t</li>\r\n\t<li>Scroll down to <strong>Advanced details</strong> &rarr; expand &rarr; scroll to the bottom to find <strong>User data</strong>.</li>\r\n\t<li>Paste the following script into the User data box:\r\n\t<pre>\r\n<code>#!/bin/bash\r\ndnf install -y httpd\r\nsystemctl start httpd\r\nsystemctl enable httpd\r\ncat &gt; /var/www/html/index.html &lt;&lt; 'EOF'\r\n&lt;!DOCTYPE html&gt;\r\n&lt;html&gt;\r\n&lt;head&gt;&lt;title&gt;Instance A&lt;/title&gt;&lt;/head&gt;\r\n&lt;body style=\"font-family:sans-serif; padding:40px; background:#dbeafe;\"&gt;\r\n  &lt;h1&gt;You are on Instance A&lt;/h1&gt;\r\n  &lt;p&gt;Availability Zone: &lt;strong&gt;us-east-1a&lt;/strong&gt;&lt;/p&gt;\r\n  &lt;p&gt;The ALB routed your request to &lt;strong&gt;EC2-A&lt;/strong&gt;.&lt;/p&gt;\r\n&lt;/body&gt;\r\n&lt;/html&gt;\r\nEOF</code></pre>\r\n\t</li>\r\n\t<li>Tags &rarr; add <code>Project</code> = <code>ha-web-app</code>.</li>\r\n\t<li>Click <strong>Launch instance</strong>.</li>\r\n</ol>\r\n\r\n<hr />\r\n<h2>Part 4 &ndash; Launch EC2-B (Availability Zone 2)</h2>\r\n\r\n<p>EC2-B will serve a green-themed page that says <strong>&quot;Instance B&quot;</strong>. When EC2-A is stopped, the browser will switch to this green page &mdash; proving the ALB shifted traffic automatically.</p>\r\n\r\n<ol>\r\n\t<li>Click <strong>Launch instance</strong> again.</li>\r\n\t<li>Name: <code>ha-ec2-b</code>.</li>\r\n\t<li>AMI: <strong>Amazon Linux 2023 AMI</strong>.</li>\r\n\t<li>Instance type: <code>t2.micro</code>.</li>\r\n\t<li>Key pair: select <strong>vockey</strong>.</li>\r\n\t<li>Network settings &rarr; click <strong>Edit</strong>:\r\n\t<table>\r\n\t\t<tbody>\r\n\t\t\t<tr>\r\n\t\t\t\t<th>Field</th>\r\n\t\t\t\t<th>Value</th>\r\n\t\t\t</tr>\r\n\t\t\t<tr>\r\n\t\t\t\t<td>VPC</td>\r\n\t\t\t\t<td><code>ha-vpc</code></td>\r\n\t\t\t</tr>\r\n\t\t\t<tr>\r\n\t\t\t\t<td>Subnet</td>\r\n\t\t\t\t<td><code>ha-subnet-az2</code> (us-east-1b)</td>\r\n\t\t\t</tr>\r\n\t\t\t<tr>\r\n\t\t\t\t<td>Auto-assign public IP</td>\r\n\t\t\t\t<td>Enable</td>\r\n\t\t\t</tr>\r\n\t\t\t<tr>\r\n\t\t\t\t<td>Security group</td>\r\n\t\t\t\t<td>Select existing &rarr; <code>ha-ec2-sg</code></td>\r\n\t\t\t</tr>\r\n\t\t</tbody>\r\n\t</table>\r\n\t</li>\r\n\t<li>Scroll to <strong>User data</strong> and paste this <em>different</em> script:\r\n\t<pre>\r\n<code>#!/bin/bash\r\ndnf install -y httpd\r\nsystemctl start httpd\r\nsystemctl enable httpd\r\ncat &gt; /var/www/html/index.html &lt;&lt; 'EOF'\r\n&lt;!DOCTYPE html&gt;\r\n&lt;html&gt;\r\n&lt;head&gt;&lt;title&gt;Instance B&lt;/title&gt;&lt;/head&gt;\r\n&lt;body style=\"font-family:sans-serif; padding:40px; background:#dcfce7;\"&gt;\r\n  &lt;h1&gt;You are on Instance B&lt;/h1&gt;\r\n  &lt;p&gt;Availability Zone: &lt;strong&gt;us-east-1b&lt;/strong&gt;&lt;/p&gt;\r\n  &lt;p&gt;The ALB routed your request to &lt;strong&gt;EC2-B&lt;/strong&gt;.&lt;/p&gt;\r\n&lt;/body&gt;\r\n&lt;/html&gt;\r\nEOF</code></pre>\r\n\t</li>\r\n\t<li>Tags &rarr; add <code>Project</code> = <code>ha-web-app</code>.</li>\r\n\t<li>Click <strong>Launch instance</strong>.</li>\r\n</ol>\r\n\r\n<p>Wait until both instances show <strong>Instance state: Running</strong> before continuing.</p>\r\n\r\n<hr />\r\n<h2>Part 5 &ndash; Create the Target Group</h2>\r\n\r\n<p>A <strong>Target Group</strong> holds the list of EC2 instances the ALB sends traffic to. The ALB continuously health-checks each target &mdash; if a target stops responding, the ALB removes it from rotation automatically.</p>\r\n\r\n<ol>\r\n\t<li>In the EC2 left menu scroll down to <strong>Target Groups</strong> &rarr; <strong>Create target group</strong>.</li>\r\n\t<li>Target type: <strong>Instances</strong>.</li>\r\n\t<li>\r\n\t<table>\r\n\t\t<tbody>\r\n\t\t\t<tr>\r\n\t\t\t\t<th>Field</th>\r\n\t\t\t\t<th>Value</th>\r\n\t\t\t</tr>\r\n\t\t\t<tr>\r\n\t\t\t\t<td>Target group name</td>\r\n\t\t\t\t<td><code>ha-tg</code></td>\r\n\t\t\t</tr>\r\n\t\t\t<tr>\r\n\t\t\t\t<td>Protocol</td>\r\n\t\t\t\t<td>HTTP</td>\r\n\t\t\t</tr>\r\n\t\t\t<tr>\r\n\t\t\t\t<td>Port</td>\r\n\t\t\t\t<td>80</td>\r\n\t\t\t</tr>\r\n\t\t\t<tr>\r\n\t\t\t\t<td>VPC</td>\r\n\t\t\t\t<td><code>ha-vpc</code></td>\r\n\t\t\t</tr>\r\n\t\t\t<tr>\r\n\t\t\t\t<td>Protocol version</td>\r\n\t\t\t\t<td>HTTP1</td>\r\n\t\t\t</tr>\r\n\t\t</tbody>\r\n\t</table>\r\n\t</li>\r\n\t<li>Health checks: Protocol HTTP, Path <code>/</code>. Leave other defaults.</li>\r\n\t<li>Click <strong>Next</strong>.</li>\r\n\t<li>On the <strong>Register targets</strong> page: check both <code>ha-ec2-a</code> and <code>ha-ec2-b</code> &rarr; click <strong>Include as pending below</strong> &rarr; <strong>Create target group</strong>.</li>\r\n\t<li>Find <code>ha-tg</code> in the list &rarr; <strong>Tags</strong> tab &rarr; add <code>Project</code> = <code>ha-web-app</code>.</li>\r\n</ol>\r\n\r\n<hr />\r\n<h2>Part 6 &ndash; Create the Application Load Balancer</h2>\r\n\r\n<ol>\r\n\t<li>EC2 left menu &rarr; <strong>Load Balancers</strong> &rarr; <strong>Create load balancer</strong>.</li>\r\n\t<li>Choose <strong>Application Load Balancer</strong> &rarr; Create.</li>\r\n\t<li>\r\n\t<table>\r\n\t\t<tbody>\r\n\t\t\t<tr>\r\n\t\t\t\t<th>Field</th>\r\n\t\t\t\t<th>Value</th>\r\n\t\t\t</tr>\r\n\t\t\t<tr>\r\n\t\t\t\t<td>Name</td>\r\n\t\t\t\t<td><code>ha-alb</code></td>\r\n\t\t\t</tr>\r\n\t\t\t<tr>\r\n\t\t\t\t<td>Scheme</td>\r\n\t\t\t\t<td><strong>Internet-facing</strong></td>\r\n\t\t\t</tr>\r\n\t\t\t<tr>\r\n\t\t\t\t<td>IP address type</td>\r\n\t\t\t\t<td>IPv4</td>\r\n\t\t\t</tr>\r\n\t\t</tbody>\r\n\t</table>\r\n\t</li>\r\n\t<li>Network mapping: VPC = <code>ha-vpc</code>. Check <strong>us-east-1a</strong> &rarr; <code>ha-subnet-az1</code>. Check <strong>us-east-1b</strong> &rarr; <code>ha-subnet-az2</code>.</li>\r\n\t<li>Security groups: remove the default, select <code>ha-alb-sg</code>.</li>\r\n\t<li>Listeners: Protocol HTTP, Port 80, Default action &rarr; Forward to <code>ha-tg</code>.</li>\r\n\t<li>Tags &rarr; add <code>Project</code> = <code>ha-web-app</code>.</li>\r\n\t<li>Click <strong>Create load balancer</strong>.</li>\r\n\t<li>Once created, open <code>ha-alb</code> and copy the <strong>DNS name</strong> (e.g. <code>ha-alb-xxxxxxxx.us-east-1.elb.amazonaws.com</code>). This is your test URL.</li>\r\n</ol>\r\n\r\n<hr />\r\n<h2>Part 7 &ndash; Verify the Setup</h2>\r\n\r\n<h3>Step 7.1 &ndash; Wait for both targets to become healthy</h3>\r\n\r\n<ol>\r\n\t<li><strong>EC2 &rarr; Target Groups &rarr; ha-tg &rarr; Targets</strong> tab.</li>\r\n\t<li>Wait until both <code>ha-ec2-a</code> and <code>ha-ec2-b</code> show <strong>Status: healthy</strong>. This takes 2&ndash;3 minutes while Apache installs on boot.</li>\r\n\t<li>Do not proceed until both are healthy.</li>\r\n</ol>\r\n\r\n<h3>Step 7.2 &ndash; Test in your browser</h3>\r\n\r\n<ol>\r\n\t<li>Open a new tab: <code>http://&lt;your-ALB-DNS-name&gt;</code></li>\r\n\t<li>You will see either the <strong>blue &quot;Instance A&quot;</strong> page or the <strong>green &quot;Instance B&quot;</strong> page.</li>\r\n\t<li>Reload several times &mdash; the colour and instance name should alternate as the ALB round-robins between the two servers.</li>\r\n</ol>\r\n\r\n<hr />\r\n<h2>Part 8 &ndash; Simulate a Server Failure</h2>\r\n\r\n<p>You will now <strong>stop EC2-A</strong> (not terminate &mdash; stop is reversible). The ALB&#39;s health check will detect that EC2-A is no longer responding and will route 100% of traffic to EC2-B.</p>\r\n\r\n<h3>Step 8.1 &ndash; Stop EC2-A</h3>\r\n\r\n<ol>\r\n\t<li>Go to <strong>EC2 &rarr; Instances</strong>.</li>\r\n\t<li>Select <code>ha-ec2-a</code>.</li>\r\n\t<li>Click <strong>Instance state &rarr; Stop instance</strong> &rarr; confirm.</li>\r\n</ol>\r\n\r\n<h3>Step 8.2 &ndash; Watch the health check fail</h3>\r\n\r\n<ol>\r\n\t<li>Go to <strong>Target Groups &rarr; ha-tg &rarr; Targets</strong>.</li>\r\n\t<li>Refresh every 15&ndash;20 seconds. You will see <code>ha-ec2-a</code>&#39;s status change from <strong>healthy</strong> &rarr; <strong>draining</strong> &rarr; <strong>unhealthy</strong>.</li>\r\n\t<li>The ALB stops sending traffic to an unhealthy target within one health-check cycle.</li>\r\n</ol>\r\n\r\n<h3>Step 8.3 &ndash; Test the ALB immediately</h3>\r\n\r\n<ol>\r\n\t<li>Go back to your browser tab and reload the page.</li>\r\n\t<li>Every response now shows the <strong>green &quot;Instance B&quot;</strong> page &mdash; the ALB has silently routed all traffic to the surviving server.</li>\r\n\t<li>There was no error page, no restart required, no manual action from you.</li>\r\n</ol>\r\n\r\n<h3>Step 8.4 &ndash; Bring EC2-A back (optional)</h3>\r\n\r\n<ol>\r\n\t<li>Select <code>ha-ec2-a</code> &rarr; <strong>Instance state &rarr; Start instance</strong>.</li>\r\n\t<li>Wait for it to pass health checks in the target group again (2&ndash;3 min).</li>\r\n\t<li>Reload the browser &mdash; the page alternates between blue and green again. Capacity fully restored.</li>\r\n</ol>\r\n\r\n<hr />\r\n<h2>Part 9 &ndash; Submit for Validation</h2>\r\n\r\n<p><strong>Before submitting:</strong> make sure both instances are running and both show <strong>Status: healthy</strong> in the target group. The grader checks this live.</p>\r\n\r\n<ol>\r\n\t<li>Go to the <strong>Learner Lab</strong> page &rarr; click <strong>AWS Details</strong>.</li>\r\n\t<li>Copy the <strong>Access Key ID</strong>, <strong>Secret Access Key</strong>, and <strong>Session Token</strong> into the form below.</li>\r\n\t<li>For Region enter <strong>us-east-1</strong>.</li>\r\n\t<li>Submit. The grader reads your account read-only and checks each item below.</li>\r\n</ol>\r\n\r\n<p><strong>Note:</strong> Credentials expire when your lab session ends (~4 hours). Build and submit in one session.</p>\r\n\r\n<hr />\r\n<h2>What the grader checks</h2>\r\n\r\n<table>\r\n\t<thead>\r\n\t\t<tr>\r\n\t\t\t<th>Check</th>\r\n\t\t\t<th>What it verifies</th>\r\n\t\t\t<th>Common reason to fail</th>\r\n\t\t</tr>\r\n\t</thead>\r\n\t<tbody>\r\n\t\t<tr>\r\n\t\t\t<td>VPC exists</td>\r\n\t\t\t<td>A custom VPC tagged <code>ha-web-app</code> exists in us-east-1</td>\r\n\t\t\t<td>Used default VPC, or forgot the tag</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Subnets in &ge;2 AZs</td>\r\n\t\t\t<td>At least 2 subnets in different Availability Zones</td>\r\n\t\t\t<td>Both subnets accidentally in the same AZ</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Internet Gateway attached</td>\r\n\t\t\t<td>IGW exists and is attached to the VPC</td>\r\n\t\t\t<td>Created IGW but forgot to attach it</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Security group chaining</td>\r\n\t\t\t<td>EC2 instances accept port 80 only from <code>ha-alb-sg</code>, not from the internet directly</td>\r\n\t\t\t<td>Set EC2 SG source to 0.0.0.0/0 instead of the ALB SG</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Internet-facing ALB across &ge;2 AZs</td>\r\n\t\t\t<td>ALB scheme is internet-facing and spans both AZs</td>\r\n\t\t\t<td>ALB in only one AZ, or set to internal</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>2 healthy targets</td>\r\n\t\t\t<td>Both EC2-A and EC2-B are registered and passing health checks</td>\r\n\t\t\t<td>Apache not installed, wrong port, instances not registered to TG, or EC2-A still stopped</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Site responds via ALB</td>\r\n\t\t\t<td>The ALB DNS name returns HTTP 200</td>\r\n\t\t\t<td>Listener not configured, wrong security group on ALB</td>\r\n\t\t</tr>\r\n\t</tbody>\r\n</table>",
+     "input": "",
+     "output": "",
+     "example": "",
+     "constraints": ""
+    }
+   ],
+   "quizzes": [
+    {
+     "title": "Programming Paradigms, Traditional Programming, Artificial Intelligence, Machine ... - Revision",
+     "questions": [
+      {
+       "question": "Which of these is an example of <b><i>semi-structured data</i></b>?",
+       "options": {
+        "A": "Relational SQL organized database tables",
+        "B": "Raw images from cameras",
+        "C": "Key value object in a JSON format",
+        "D": "Streaming real time IoT data"
+       },
+       "answer": "C",
+       "explanation": "<b>Correct:</b> JSON files are classic examples of semi-structured data.",
+       "marks": 3
+      },
+      {
+       "question": "Which <b><i>encoding method</i></b> is commonly used for categorical data?",
+       "options": {
+        "A": "One-hot encoding",
+        "B": "Dimensionality reduction encoding",
+        "C": "Min-max scaling encoding",
+        "D": "Imputation encoding"
+       },
+       "answer": "A",
+       "explanation": "<b>Correct:</b> One-hot encoding converts categories into binary format.",
+       "marks": 3
+      },
+      {
+       "question": "Your regression model achieves MAE = 11 on crop yield prediction. The baseline (simple average) achieves MAE = 12. Training costs 15 lakh rupees. The domain is agricultural insurance where a 1-unit MAE error equals 80000 rupees in incorrect claim payouts per farm. You have 500 farms. Should you deploy the complex model?",
+       "options": {
+        "A": "No - a 1-unit MAE improvement is always too small to justify any cost",
+        "B": "Yes - any improvement over baseline always justifies deployment",
+        "C": "Yes - the 1-unit MAE improvement saves 4 crore rupees annually across 500 farms, far exceeding the 15 lakh training cost",
+        "D": "No - MAE is not the right metric for insurance decisions; only RMSE matters"
+       },
+       "answer": "C",
+       "explanation": "Business metric mapping: 1 MAE unit x 80000 rupees per farm x 500 farms = 4,00,00,000 rupees (4 crore) saved annually. The training cost is 15 lakh. The ROI is strongly positive, so deployment is justified. This illustrates why technical metrics must always be translated into business value before making deployment decisions.",
+       "marks": 3
+      }
+     ]
+    },
+    {
+     "title": "Linear Regression, Post-Deployment Monitoring, Model Drift, Retraining Cycle, Si ... - Revision",
+     "questions": [
+      {
+       "question": "The vertical gap between a data point and the regression line is called:",
+       "options": {
+        "A": "Bias",
+        "B": "Residual (or error)",
+        "C": "Slope",
+        "D": "Intercept"
+       },
+       "answer": "B",
+       "explanation": "The vertical difference between the observed value and the predicted value is called the residual (or error).",
+       "marks": 1
+      },
+      {
+       "question": "Absolute error loss |e| is robust to outliers, while squared error loss e&sup2; is sensitive to outliers. Consider two models:<br />\r\n<b>Model A:</b> Uses squared error loss<br />\r\n<b>Model B:</b> Uses absolute error loss<br />\r\n<br />\r\nBoth models fit the same dataset, which contains one extreme outlier. Which statement is most accurate?",
+       "options": {
+        "A": "Model A will ignore the outlier completely; Model B will overfit to it",
+        "B": "Model A will be more strongly influenced by the outlier than Model B",
+        "C": "Both models will give identical predictions because they minimize error in the same way",
+        "D": "Model B will always have a lower total error than Model A"
+       },
+       "answer": "B",
+       "explanation": "Squared error magnifies large residuals, making OLS much more sensitive to outliers than absolute error loss.",
+       "marks": 3
+      },
+      {
+       "question": "In the OLS derivation, we first solve for the intercept <b>c</b> by taking the partial derivative &part;E/&part;c = 0, obtaining <b>c = ȳ &minus; m&middot;x̄</b>. We then substitute this expression back into E(m, c) before solving for <b>m</b>. Why is this substitution performed before optimizing the slope?",
+       "options": {
+        "A": "Because c must be computed before m in all machine learning algorithms",
+        "B": "Because it reduces the number of independent variables from 2 to 1, simplifying the optimization to a single-variable problem",
+        "C": "Because the intercept has no relationship with the slope",
+        "D": "Because absolute error formulas require this order"
+       },
+       "answer": "B",
+       "explanation": "Substituting c = ȳ − m·x̄ reduces the optimization from two variables to one, simplifying the derivation.",
+       "marks": 3
+      },
+      {
+       "question": "You are given the dataset:\r\n<table>\r\n\t<tbody>\r\n\t\t<tr>\r\n\t\t\t<th>x</th>\r\n\t\t\t<th>y</th>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>2</td>\r\n\t\t\t<td>6</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>4</td>\r\n\t\t\t<td>10</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>6</td>\r\n\t\t\t<td>14</td>\r\n\t\t</tr>\r\n\t</tbody>\r\n</table>\r\n<br />\r\nCalculate x̄ and ȳ, and verify whether the OLS regression line passes through (x̄, ȳ). Which statement is correct?",
+       "options": {
+        "A": "x̄ = 4, ȳ = 10, and the line does NOT pass through (4, 10)",
+        "B": "x̄ = 6, ȳ = 14, and the line passes through (6, 14)",
+        "C": "x̄ = 4, ȳ = 10, and the line passes through (4, 10)",
+        "D": "x̄ = 3, ȳ = 8, and we cannot verify without computing m and c"
+       },
+       "answer": "C",
+       "explanation": "The means are x̄ = (2+4+6)/3 = 4 and ȳ = (6+10+14)/3 = 10. Every OLS regression line passes through (x̄, ȳ).",
+       "marks": 3
+      },
+      {
+       "question": "The denominator of the OLS slope formula is <b>&Sigma;(xᵢ &minus; x̄)&sup2;</b>. Which of the following does <b>NOT</b> correctly describe this term?",
+       "options": {
+        "A": "It is the sum of squared deviations of x from its mean",
+        "B": "It is proportional to the variance of x",
+        "C": "It is the covariance between x and y",
+        "D": "It becomes zero if and only if all xᵢ values are identical"
+       },
+       "answer": "C",
+       "explanation": "The denominator measures the spread (variance-related quantity) of x only. Covariance involves both x and y and appears in the numerator.",
+       "marks": 5
+      }
+     ]
+    },
+    {
+     "title": "Gradient Descent, Multiple Linear Regression, Normal Equation, Optimization, Gra ... - Revision",
+     "questions": [
+      {
+       "question": "The learning rate &alpha; is a hyperparameter. Which dataset should be used to evaluate and select the best &alpha;?",
+       "options": {
+        "A": "The training set",
+        "B": "The test set",
+        "C": "A held-out validation set",
+        "D": "Any random sample from the test set"
+       },
+       "answer": "",
+       "explanation": null,
+       "marks": null
+      },
+      {
+       "question": "Despite having multiple input features, Multiple Linear Regression is still classified as a linear model. Why?",
+       "options": {
+        "A": "Because the output y is always a positive number",
+        "B": "Because the prediction equation \\hat{y}=w\\_0+w\\_1x\\_1+w\\_2x\\_2+\\cdots+w\\_px\\_p is linear in the parameters w\\_0,w\\_1,w\\_2,\\ldots,w\\_p.",
+        "C": "Because the design matrix X always has the same number of rows and columns",
+        "D": "Because the residuals are always zero when the model is trained correctly"
+       },
+       "answer": "",
+       "explanation": null,
+       "marks": null
+      },
+      {
+       "question": "If a Multiple Linear Regression model has p = 5 input features, how many learnable parameters does the model have?",
+       "options": {
+        "A": "5",
+        "B": "6",
+        "C": "10",
+        "D": "4"
+       },
+       "answer": "",
+       "explanation": null,
+       "marks": null
+      },
+      {
+       "question": "For a dataset with p features, how many parameters are in the vector &theta; for a Multiple Linear Regression model?",
+       "options": {
+        "A": "p parameters",
+        "B": "p + 1 parameters",
+        "C": "2p parameters",
+        "D": "n parameters (where n is dataset size)"
+       },
+       "answer": "",
+       "explanation": null,
+       "marks": null
+      },
+      {
+       "question": "Consider the following linear regression dataset: &lt;inlineMath&gt;(1,2)&lt;/inlineMath&gt;, &lt;inlineMath&gt;(2,4)&lt;/inlineMath&gt;, &lt;inlineMath&gt;(3,6)&lt;/inlineMath&gt;, and &lt;inlineMath&gt;(4,8)&lt;/inlineMath&gt;. Assume the initial parameters are &lt;inlineMath&gt;\\theta_0 = 0&lt;/inlineMath&gt; and &lt;inlineMath&gt;\\theta_1 = 0&lt;/inlineMath&gt;, and the learning rate is &lt;inlineMath&gt;\\alpha = 0.1&lt;/inlineMath&gt;. Using Batch Gradient Descent, compute the average gradient over the entire dataset after one epoch. Express your answer as &lt;inlineMath&gt;\\left(\\mathrm{grad}_{\\theta_0}, \\mathrm{grad}_{\\theta_1}\\right)&lt;/inlineMath&gt;.",
+       "options": {
+        "A": "(-5, -15)",
+        "B": "(-2, -8)",
+        "C": "(-20, -60)",
+        "D": "(-8, -32)"
+       },
+       "answer": "",
+       "explanation": null,
+       "marks": null
+      },
+      {
+       "question": "Consider the following linear regression dataset: &lt;inlineMath&gt;(1,2)&lt;/inlineMath&gt;, &lt;inlineMath&gt;(2,4)&lt;/inlineMath&gt;, &lt;inlineMath&gt;(3,6)&lt;/inlineMath&gt;, and &lt;inlineMath&gt;(4,8)&lt;/inlineMath&gt;. Assume the initial parameters are &lt;inlineMath&gt;\\theta_0 = 0&lt;/inlineMath&gt; and &lt;inlineMath&gt;\\theta_1 = 0&lt;/inlineMath&gt;, and the learning rate is &lt;inlineMath&gt;\\alpha = 0.1&lt;/inlineMath&gt;. After computing the average gradient over the entire dataset using Batch Gradient Descent, perform the parameter update for one epoch. What are the updated parameter values? Express your answer as &lt;inlineMath&gt;(\\theta_0,\\theta_1)&lt;/inlineMath&gt;.",
+       "options": {
+        "A": "\\theta = (0.5, 1.5)",
+        "B": "\\theta = (0.5, 0.5)",
+        "C": "\\theta = (-0.5, -1.5)",
+        "D": "\\theta = (5, 15)"
+       },
+       "answer": "",
+       "explanation": null,
+       "marks": null
+      },
+      {
+       "question": "In non-convex optimization (e.g., neural networks), why can SGD&#39;s noise sometimes be beneficial?",
+       "options": {
+        "A": "It guarantees convergence to the global minimum",
+        "B": "It can help the optimizer bounce out of shallow local minima or flat/saddle regions",
+        "C": "It eliminates the need to choose a learning rate",
+        "D": "It reduces the number of model parameters"
+       },
+       "answer": "",
+       "explanation": null,
+       "marks": null
+      },
+      {
+       "question": "When the number of features p is very large, why is explicitly computing (X<sup>T</sup>X)<sup>-1</sup> slow? Its cost grows approximately as:",
+       "options": {
+        "A": "O(p)",
+        "B": "O(p2)",
+        "C": "O(p3)",
+        "D": "O(log p)"
+       },
+       "answer": "",
+       "explanation": null,
+       "marks": null
+      },
+      {
+       "question": "A recommendation model is trained on 500GB of user-item logs that cannot fit entirely in RAM. Which BGD limitation does this scenario primarily illustrate?",
+       "options": {
+        "A": "Slow feedback",
+        "B": "Memory and I/O pressure",
+        "C": "Redundant work",
+        "D": "High cost per update from large d"
+       },
+       "answer": "",
+       "explanation": null,
+       "marks": null
+      },
+      {
+       "question": "A fraud detection system must adapt immediately to new incoming transactions. Which BGD limitation is most relevant here?",
+       "options": {
+        "A": "Slow feedback",
+        "B": "Memory and I/O pressure",
+        "C": "Redundant work",
+        "D": "Deterministic path"
+       },
+       "answer": "",
+       "explanation": null,
+       "marks": null
+      },
+      {
+       "question": "Identity 2 states that the derivative of &lt;inlineMath&gt;a^{T}w&lt;/inlineMath&gt; with respect to &lt;inlineMath&gt;w&lt;/inlineMath&gt; equals &lt;inlineMath&gt;a&lt;/inlineMath&gt;. In the expanded loss function, the linear term is &lt;inlineMath&gt;-2y^{T}Xw&lt;/inlineMath&gt;. What is the derivative of this term with respect to &lt;inlineMath&gt;w&lt;/inlineMath&gt;?",
+       "options": {
+        "A": "-2 \\* XT \\* y",
+        "B": "-2 \\* yT \\* X",
+        "C": "2 \\* XT \\* X \\* w",
+        "D": "The zero vector"
+       },
+       "answer": "",
+       "explanation": null,
+       "marks": null
+      },
+      {
+       "question": "After differentiating the expanded loss function and setting the gradient equal to zero, which equation is obtained?",
+       "options": {
+        "A": "X \\* w = y",
+        "B": "X^{T}Xw=X^{T}y",
+        "C": "w = XT \\* y",
+        "D": "XT \\* w = yT \\* X"
+       },
+       "answer": "",
+       "explanation": null,
+       "marks": null
+      },
+      {
+       "question": "A dataset has &lt;inlineMath&gt;p=100&lt;/inlineMath&gt; features. The closed-form OLS solution requires inverting the matrix &lt;inlineMath&gt;X^{T}X&lt;/inlineMath&gt;. Approximately how many operations does this inversion require?",
+       "options": {
+        "A": "100 (linear in p)",
+        "B": "10,000 (approximately p squared)",
+        "C": "1,000,000 (approximately p cubed)",
+        "D": "100,000,000 (approximately p to the fourth power)"
+       },
+       "answer": "",
+       "explanation": null,
+       "marks": null
+      },
+      {
+       "question": "In the Batch Gradient Descent update step, how are the multiple parameters in &theta; updated?",
+       "options": {
+        "A": "Sequentially, using the newly updated parameters to compute gradients for the rest",
+        "B": "Simultaneously, using partial derivatives computed from the old parameter values",
+        "C": "Randomly, updating one parameter per epoch",
+        "D": "Only if their specific partial derivative is strictly positive"
+       },
+       "answer": "",
+       "explanation": null,
+       "marks": null
+      },
+      {
+       "question": "Which NumPy expression correctly represents the matrix-vector multiplication for computing predictions ŷ = X&theta;?",
+       "options": {
+        "A": "`X @ theta`",
+        "B": "`theta @ X.T`",
+        "C": "`X.T @ theta`",
+        "D": "`X * theta`"
+       },
+       "answer": "",
+       "explanation": null,
+       "marks": null
+      },
+      {
+       "question": "<p data-end=\"187\" data-start=\"15\">If the design matrix &lt;inlineMath&gt;X&lt;/inlineMath&gt; has dimensions &lt;inlineMath&gt;n\\times(p+1)&lt;/inlineMath&gt;, what are the dimensions of the matrix &lt;inlineMath&gt;X^{T}X&lt;/inlineMath&gt;?</p>",
+       "options": {
+        "A": "n x n",
+        "B": "(p+1) x n",
+        "C": "(p+1) x (p+1)",
+        "D": "n x (p+1)"
+       },
+       "answer": "",
+       "explanation": null,
+       "marks": null
+      },
+      {
+       "question": "A dataset contains 10 million nearly identical ad impressions. Which BGD limitation does this scenario create?",
+       "options": {
+        "A": "Slow feedback",
+        "B": "Memory and I/O pressure",
+        "C": "Redundant work",
+        "D": "High cost per update"
+       },
+       "answer": "",
+       "explanation": null,
+       "marks": null
+      },
+      {
+       "question": "In the OLS derivation, when differentiating the quadratic term &lt;inlineMath&gt;w^{T}X^{T}Xw&lt;/inlineMath&gt;, the identity for the derivative of a quadratic form requires the matrix to be symmetric. Why is &lt;inlineMath&gt;X^{T}X&lt;/inlineMath&gt; always a symmetric matrix?",
+       "options": {
+        "A": "Because X itself is always a square symmetric matrix",
+        "B": "Because the transpose of X^{T}X equals (X^{T}X)^{T}=X^{T}(X^{T})^{T}=X^{T}X, which is the same matrix.",
+        "C": "Because the column of 1s in X forces symmetry in the product",
+        "D": "Because the parameter vector w is always symmetric"
+       },
+       "answer": "",
+       "explanation": null,
+       "marks": null
+      },
+      {
+       "question": "<p data-end=\"272\" data-start=\"15\">A dataset has &lt;inlineMath&gt;3&lt;/inlineMath&gt; features: &lt;inlineMath&gt;x_1&lt;/inlineMath&gt; (temperature in Celsius), &lt;inlineMath&gt;x_2&lt;/inlineMath&gt; (temperature in Fahrenheit), and &lt;inlineMath&gt;x_3&lt;/inlineMath&gt; (humidity). An engineer attempts to compute the OLS solution &lt;inlineMath&gt;w^{*}=(X^{T}X)^{-1}X^{T}y&lt;/inlineMath&gt; but gets an error that the matrix cannot be inverted. What is the most likely cause?</p>\r\n\r\n<p data-end=\"423\" data-start=\"412\">&nbsp;</p>",
+       "options": {
+        "A": "The dataset has too many rows (n is too large) for the inverse to be computed",
+        "B": "The humidity feature x3 contains negative values, making the matrix singular",
+        "C": "Features x1 and x2 are linearly dependent (x2 = 1.8\\*x1 + 32), causing multicollinearity and making XT\\*X singular",
+        "D": "The intercept column of 1s was accidentally included twice in the design matrix"
+       },
+       "answer": "",
+       "explanation": null,
+       "marks": null
+      },
+      {
+       "question": "The proof that matrix inversion takes O(p<sup>3</sup>) time uses Gauss-Jordan elimination with three nested loops on the augmented matrix [A | I]. What does each loop iterate over?",
+       "options": {
+        "A": "Outer: rows (n iterations), Middle: columns (p iterations), Inner: features (p iterations)",
+        "B": "Outer: columns for pivots (p iterations), Middle: rows to eliminate (p iterations), Inner: elements across the augmented row (~2p iterations)",
+        "C": "Outer: data points (n iterations), Middle: features (p iterations), Inner: parameters (p+1 iterations)",
+        "D": "Outer: elements of w (p+1 iterations), Middle: residuals (n iterations), Inner: loss function terms (3 iterations)"
+       },
+       "answer": "",
+       "explanation": null,
+       "marks": null
+      },
+      {
+       "question": "For a full-rank convex quadratic loss like Mean Squared Error (MSE), Batch Gradient Descent with an appropriately chosen learning rate will converge to:",
+       "options": {
+        "A": "A random local minimum that depends on initialization",
+        "B": "A global minimum, which is identical to the OLS solution",
+        "C": "A local maximum",
+        "D": "An infinite loss value over time"
+       },
+       "answer": "",
+       "explanation": null,
+       "marks": null
+      },
+      {
+       "question": "In a dataset predicting scores, if attendance values are large (e.g., 70-100) and hours studied are small (e.g., 1-5), what happens during the first Batch Gradient Descent update?",
+       "options": {
+        "A": "The hours coefficient changes more because small features have larger gradients",
+        "B": "The attendance coefficient updates much more because its larger numerical scale produces larger partial derivatives",
+        "C": "Both coefficients update by exactly the same amount because they share the learning rate α",
+        "D": "The bias term dominates, so neither feature coefficient updates"
+       },
+       "answer": "",
+       "explanation": null,
+       "marks": null
+      },
+      {
+       "question": "What is the correct vectorized Batch Gradient Descent update rule for MSE loss defined as <sup>1</sup>/<sub>m</sub> ||X&theta; - y||<sup>2</sup>?",
+       "options": {
+        "A": "`θ = θ - α * XT(y - Xθ)`",
+        "B": "`θ = θ - α * 2/m XT(Xθ - y)`",
+        "C": "`θ = θ + α * 1/m X(Xθ - y)`",
+        "D": "`θ = θ - α * (XTX)-1XTy`"
+       },
+       "answer": "",
+       "explanation": null,
+       "marks": null
+      },
+      {
+       "question": "Which of the following is the CORRECT order of steps in the complete OLS derivation for Multiple Linear Regression?",
+       "options": {
+        "A": "Define residual vector -> Write prediction equation -> Expand loss -> Set gradient to zero -> Matrix form -> Derive identities -> Solve for w\\*",
+        "B": "Write prediction equation \\hat{y}=Xw → Convert to matrix form \\hat{y}=Xw → Define residual vector e=y-Xw → Write total squared error E=e^{T}e → Expand loss function → Derive matrix calculus identities → Differentiate and set the gradient to zero \\frac{\\partial E}{\\partial w}=0 → Solve for w^{\\*}=(X^{T}X)^{-1}X^{T}y.",
+        "C": "Derive identities -> Write prediction equation -> Define residual -> Solve for w\\* -> Expand loss -> Set gradient to zero",
+        "D": "Convert to matrix form -> Solve for w\\* -> Define residual -> Expand loss -> Derive identities -> Set gradient to zero"
+       },
+       "answer": "",
+       "explanation": null,
+       "marks": null
+      }
+     ]
+    },
+    {
+     "title": "Stochastic Gradient Descent, Mini-batch Gradient Descent - Revision",
+     "questions": [
+      {
+       "question": "What exactly does SGD randomize at each iteration?",
+       "options": {
+        "A": "The values of the model parameters \\theta",
+        "B": "The learning rate \\alpha",
+        "C": "The index i\\_t of the training sample used to estimate the gradient",
+        "D": "The loss function itself"
+       },
+       "answer": "",
+       "explanation": null,
+       "marks": null
+      },
+      {
+       "question": "Why must the dataset be shuffled at the start of every SGD epoch?",
+       "options": {
+        "A": "Shuffling speeds up matrix multiplication",
+        "B": "Without shuffling, consecutive updates may follow the dataset's inherent ordering pattern instead of the true learning signal",
+        "C": "Shuffling reduces the number of updates required per epoch",
+        "D": "Shuffling converts SGD into Mini-Batch GD"
+       },
+       "answer": "",
+       "explanation": null,
+       "marks": null
+      },
+      {
+       "question": "Consider the following linear regression dataset: &lt;inlineMath&gt;(1,2)&lt;/inlineMath&gt;, &lt;inlineMath&gt;(2,4)&lt;/inlineMath&gt;, &lt;inlineMath&gt;(3,6)&lt;/inlineMath&gt;, and &lt;inlineMath&gt;(4,8)&lt;/inlineMath&gt;. Assume the initial parameters are &lt;inlineMath&gt;\\theta_0 = 0&lt;/inlineMath&gt; and &lt;inlineMath&gt;\\theta_1 = 0&lt;/inlineMath&gt;, and the learning rate is &lt;inlineMath&gt;\\alpha = 0.1&lt;/inlineMath&gt;. During one epoch of Stochastic Gradient Descent (SGD), the shuffled visiting order is &lt;inlineMath&gt;\\{\\text{Sample }2,\\ \\text{Sample }4,\\ \\text{Sample }1,\\ \\text{Sample }3\\}&lt;/inlineMath&gt;. What are the updated parameter values immediately after the first SGD update using &lt;inlineMath&gt;\\text{Sample }2&lt;/inlineMath&gt;? Express your answer as &lt;inlineMath&gt;(\\theta_0,\\theta_1)&lt;/inlineMath&gt;.",
+       "options": {
+        "A": "(0.400, 0.800)",
+        "B": "(0.5, 1.5)",
+        "C": "(-4.000, -8.000)",
+        "D": "(0.840, 2.560)"
+       },
+       "answer": "",
+       "explanation": null,
+       "marks": null
+      },
+      {
+       "question": "According to the worksheet, why is the SGD gradient estimator described as &#39;unbiased&#39;?",
+       "options": {
+        "A": "It always points exactly toward the minimum",
+        "B": "Its average direction over many random sample choices equals the full-gradient direction \\nabla J(\\theta), even though any single draw can be far from that average",
+        "C": "It never changes value between iterations",
+        "D": "It equals zero on average"
+       },
+       "answer": "",
+       "explanation": null,
+       "marks": null
+      },
+      {
+       "question": "If the mini-batch size <inlinemath>b = 1</inlinemath>, Mini-Batch GD becomes mathematically identical to:",
+       "options": {
+        "A": "Batch GD",
+        "B": "SGD, since an update occurs after every single sample",
+        "C": "Neither, because mini-batch always averages more than one sample",
+        "D": "A hybrid method distinct from both"
+       },
+       "answer": "",
+       "explanation": null,
+       "marks": null
+      },
+      {
+       "question": "For <inlinemath>m = 1000</inlinemath> and batch size <inlinemath>b = 100</inlinemath>, how many parameter updates occur in one Mini-Batch GD epoch?",
+       "options": {
+        "A": "1000",
+        "B": "100",
+        "C": "10",
+        "D": "1"
+       },
+       "answer": "",
+       "explanation": null,
+       "marks": null
+      },
+      {
+       "question": "Consider the following linear regression dataset: &lt;inlineMath&gt;(1,2)&lt;/inlineMath&gt;, &lt;inlineMath&gt;(2,4)&lt;/inlineMath&gt;, &lt;inlineMath&gt;(3,6)&lt;/inlineMath&gt;, and &lt;inlineMath&gt;(4,8)&lt;/inlineMath&gt;. Assume the initial parameters are &lt;inlineMath&gt;\\theta_0 = 0&lt;/inlineMath&gt; and &lt;inlineMath&gt;\\theta_1 = 0&lt;/inlineMath&gt;, the learning rate is &lt;inlineMath&gt;\\alpha = 0.1&lt;/inlineMath&gt;, and the mini-batch size is &lt;inlineMath&gt;b = 2&lt;/inlineMath&gt;. The shuffled order of the samples is &lt;inlineMath&gt;\\{\\text{Sample }2,\\ \\text{Sample }4\\}&lt;/inlineMath&gt; followed by &lt;inlineMath&gt;\\{\\text{Sample }1,\\ \\text{Sample }3\\}&lt;/inlineMath&gt;. After computing the average gradient for the first mini-batch, perform one Mini-Batch Gradient Descent update. What are the updated parameter values after Mini-Batch 1? Express your answer as &lt;inlineMath&gt;(\\theta_0,\\theta_1)&lt;/inlineMath&gt;.",
+       "options": {
+        "A": "(0.6, 2.0)",
+        "B": "(0.5, 1.5)",
+        "C": "(0.400, 0.800)",
+        "D": "(0.840, 2.560)"
+       },
+       "answer": "",
+       "explanation": null,
+       "marks": null
+      },
+      {
+       "question": "Why are batch sizes like 32, 64, or 128 commonly preferred over very small sizes such as 1 or 2 in deep learning?",
+       "options": {
+        "A": "They are mathematically required for gradient descent to converge",
+        "B": "Powers of two fit efficiently into GPU parallel architectures, improving hardware utilization the underlying math does not require them",
+        "C": "They guarantee zero sampling noise",
+        "D": "They reduce the required number of epochs to exactly one"
+       },
+       "answer": "",
+       "explanation": null,
+       "marks": null
+      },
+      {
+       "question": "A student claims: &#39;The loss must decrease after every single SGD update.&#39; Which correction applies?",
+       "options": {
+        "A": "This claim is correct",
+        "B": "The full training loss can temporarily increase after a noisy update; the important trend is the decrease over many updates, not every single step",
+        "C": "Loss only decreases in BGD, never in SGD",
+        "D": "Loss is undefined for SGD"
+       },
+       "answer": "",
+       "explanation": null,
+       "marks": null
+      },
+      {
+       "question": "Consider the following linear regression dataset: &lt;inlineMath&gt;(1,2)&lt;/inlineMath&gt;, &lt;inlineMath&gt;(2,4)&lt;/inlineMath&gt;, &lt;inlineMath&gt;(3,6)&lt;/inlineMath&gt;, and &lt;inlineMath&gt;(4,8)&lt;/inlineMath&gt;. Assume the initial parameters are &lt;inlineMath&gt;\\theta_0 = 0&lt;/inlineMath&gt; and &lt;inlineMath&gt;\\theta_1 = 0&lt;/inlineMath&gt;, and the learning rate is &lt;inlineMath&gt;\\alpha = 0.1&lt;/inlineMath&gt;. During one epoch of Stochastic Gradient Descent (SGD), the shuffled visiting order is &lt;inlineMath&gt;\\{\\text{Sample }2,\\ \\text{Sample }4,\\ \\text{Sample }1,\\ \\text{Sample }3\\}&lt;/inlineMath&gt;. After Step 3, the parameter values are &lt;inlineMath&gt;\\theta = (0.700,\\ 2.420)&lt;/inlineMath&gt;. Step 4 uses &lt;inlineMath&gt;\\text{Sample }3&lt;/inlineMath&gt;, where &lt;inlineMath&gt;(x,y)=(3,6)&lt;/inlineMath&gt;. What are the updated parameter values after completing Step 4? Express your answer as &lt;inlineMath&gt;(\\theta_0,\\theta_1)&lt;/inlineMath&gt;.",
+       "options": {
+        "A": "(0.504, 1.832)",
+        "B": "(0.700, 2.420)",
+        "C": "(1.960, 5.880)",
+        "D": "(0.840, 2.560)"
+       },
+       "answer": "",
+       "explanation": null,
+       "marks": null
+      },
+      {
+       "question": "Which implementation mistake silently turns an SGD implementation back into Batch GD?",
+       "options": {
+        "A": "Forgetting to shuffle the dataset each epoch",
+        "B": "Accumulating gradients across the full sample loop and updating theta only once, after the loop ends",
+        "C": "Using a decreasing learning rate schedule",
+        "D": "Computing the prediction before the gradient"
+       },
+       "answer": "",
+       "explanation": null,
+       "marks": null
+      },
+      {
+       "question": "Which of these is a genuine LIMITATION of SGD specifically (not of Batch GD)?",
+       "options": {
+        "A": "Requires a full-dataset scan before any update can occur",
+        "B": "High cost per update proportional to O(md)",
+        "C": "Iteration-level loss fluctuates rapidly, making a clean stopping criterion harder to define",
+        "D": "Cannot be used at all on large datasets"
+       },
+       "answer": "",
+       "explanation": null,
+       "marks": null
+      },
+      {
+       "question": "Consider the following linear regression dataset: &lt;inlineMath&gt;(1,2)&lt;/inlineMath&gt;, &lt;inlineMath&gt;(2,4)&lt;/inlineMath&gt;, &lt;inlineMath&gt;(3,6)&lt;/inlineMath&gt;, and &lt;inlineMath&gt;(4,8)&lt;/inlineMath&gt;. Assume the initial parameters are &lt;inlineMath&gt;\\theta_0 = 0&lt;/inlineMath&gt; and &lt;inlineMath&gt;\\theta_1 = 0&lt;/inlineMath&gt;, the learning rate is &lt;inlineMath&gt;\\alpha = 0.1&lt;/inlineMath&gt;, and the mini-batch size is &lt;inlineMath&gt;b = 2&lt;/inlineMath&gt;. The shuffled order of the samples is &lt;inlineMath&gt;\\{\\text{Sample }2,\\ \\text{Sample }4,\\ \\text{Sample }1,\\ \\text{Sample }3\\}&lt;/inlineMath&gt;. After the first mini-batch update, the parameter values are &lt;inlineMath&gt;\\theta = (0.6,\\ 2.0)&lt;/inlineMath&gt;. The second mini-batch consists of &lt;inlineMath&gt;\\{\\text{Sample }1,\\ \\text{Sample }3\\}&lt;/inlineMath&gt;. What are the updated parameter values after completing the Mini-Batch 2 update? Express your answer as &lt;inlineMath&gt;(\\theta_0,\\theta_1)&lt;/inlineMath&gt;.",
+       "options": {
+        "A": "(0.540, 1.880)",
+        "B": "(0.6, 2.0)",
+        "C": "(0.700, 2.420)",
+        "D": "(0.504, 1.832)"
+       },
+       "answer": "",
+       "explanation": null,
+       "marks": null
+      },
+      {
+       "question": "How does SGD&#39;s per-step update differ from vanilla gradient descent&#39;s, and what is the main consequence?&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;",
+       "options": {
+        "A": "SGD uses the gradient from just one training example per step, which is noisier but much cheaper, letting it take many more updates in the same time",
+        "B": "SGD uses a larger dataset than vanilla GD, making it slower but more accurate",
+        "C": "SGD never updates the parameters, only vanilla GD does",
+        "D": "SGD is identical to vanilla GD but uses a different loss function"
+       },
+       "answer": "",
+       "explanation": null,
+       "marks": null
+      },
+      {
+       "question": "Which method offers the best overall balance of stability, update speed, and GPU/hardware efficiency for deep learning on large datasets?",
+       "options": {
+        "A": "Batch GD",
+        "B": "Stochastic GD",
+        "C": "Mini-Batch GD",
+        "D": "All three are equivalent in this respect"
+       },
+       "answer": "",
+       "explanation": null,
+       "marks": null
+      }
+     ]
+    },
+    {
+     "title": "Evaluation Metrics, Regression Metrics, R-Squared Score, Adjusted R-Squared Scor ... - Revision",
+     "questions": [
+      {
+       "question": "Which formula correctly defines Mean Absolute Error (MAE)?",
+       "options": {
+        "A": "MAE = \\frac{1}{n}\\sum\\_{i=1}^{n} (y\\_i - \\hat{y}\\_i)",
+        "B": "MAE = \\frac{1}{n}\\sum\\_{i=1}^{n} (y\\_i - \\hat{y}\\_i)^2",
+        "C": "MAE = \\frac{1}{n}\\sum\\_{i=1}^{n} |y\\_i - \\hat{y}\\_i|",
+        "D": "MAE = \\sum\\_{i=1}^{n} |y\\_i - \\hat{y}\\_i|"
+       },
+       "answer": "",
+       "explanation": null,
+       "marks": null
+      },
+      {
+       "question": "A regression model has finished training and produced predictions for all students. According to the worksheet, why can we not simply look at the predictions and declare the model &#39;good&#39;?",
+       "options": {
+        "A": "Because evaluation needs a numerical language for judging prediction quality",
+        "B": "Because predictions must always be integers",
+        "C": "Because the model has not yet been trained",
+        "D": "Because actual marks are always unknown"
+       },
+       "answer": "",
+       "explanation": null,
+       "marks": null
+      },
+      {
+       "question": "For the NST Marks Dataset, the absolute errors for students A-E are 5, 2, 2, 2, and 2 marks. What is the MAE?",
+       "options": {
+        "A": "13",
+        "B": "2.6",
+        "C": "2.0",
+        "D": "3.25"
+       },
+       "answer": "",
+       "explanation": null,
+       "marks": null
+      },
+      {
+       "question": "In the NST table, the errors for students A-E are -5, -2, 2, -2, 2. Why does MAE use the absolute value of each error instead of the raw error?",
+       "options": {
+        "A": "Because absolute values are always larger",
+        "B": "Because raw errors are impossible to calculate",
+        "C": "Because marks cannot be negative",
+        "D": "Because positive and negative raw errors can cancel out and hide how wrong the model really is"
+       },
+       "answer": "",
+       "explanation": null,
+       "marks": null
+      },
+      {
+       "question": "Which expression correctly defines the Absolute Percentage Error (APE) for a single student <inlinemath>i</inlinemath>?",
+       "options": {
+        "A": "APE\\_i = \\frac{y\\_i - \\hat{y}\\_i}{\\hat{y}\\_i} \\times 100",
+        "B": "APE\\_i = \\frac{|y\\_i - \\hat{y}\\_i|}{y\\_i} \\times 100",
+        "C": "APE\\_i = |y\\_i - \\hat{y}\\_i| \\times 100",
+        "D": "APE\\_i = \\frac{|y\\_i - \\hat{y}\\_i|}{n} \\times 100"
+       },
+       "answer": "",
+       "explanation": null,
+       "marks": null
+      },
+      {
+       "question": "Student B actually scored 50 marks and the model predicted 52. What is the Absolute Percentage Error (APE) for Student B?",
+       "options": {
+        "A": "4.00%",
+        "B": "2.00%",
+        "C": "3.85%",
+        "D": "96.15%"
+       },
+       "answer": "",
+       "explanation": null,
+       "marks": null
+      },
+      {
+       "question": "According to the worksheet, what happens to MAPE if a student&#39;s actual mark <inlinemath>y_i</inlinemath> is zero?",
+       "options": {
+        "A": "MAPE becomes exactly zero",
+        "B": "MAPE automatically switches to using the predicted mark instead",
+        "C": "MAPE becomes undefined, since it involves division by y\\_i",
+        "D": "MAPE is simply ignored for that student"
+       },
+       "answer": "",
+       "explanation": null,
+       "marks": null
+      },
+      {
+       "question": "How does MSE modify the individual error <inlinemath>e_i = y_i - \\hat{y}_i</inlinemath> before averaging?",
+       "options": {
+        "A": "It takes the absolute value, |e\\_i|",
+        "B": "It divides the error by y\\_i",
+        "C": "It leaves the error unchanged",
+        "D": "It squares the error, e\\_i^2"
+       },
+       "answer": "",
+       "explanation": null,
+       "marks": null
+      },
+      {
+       "question": "For the NST data, MSE = 8.2. What is the unit of this value, and why is this considered a limitation of MSE?",
+       "options": {
+        "A": "Marks squared, because the error was squared before averaging",
+        "B": "Marks, because MSE is always in the same unit as the target",
+        "C": "Percentage, because MSE is a relative measure",
+        "D": "Unitless, because squaring removes the unit"
+       },
+       "answer": "",
+       "explanation": null,
+       "marks": null
+      },
+      {
+       "question": "In the Adjusted <inlinemath>R^2</inlinemath> formula, what does <inlinemath>p</inlinemath> represent?",
+       "options": {
+        "A": "The number of input features, excluding the intercept",
+        "B": "The number of students being evaluated",
+        "C": "The predicted mark for a student",
+        "D": "The percentage error of the model"
+       },
+       "answer": "",
+       "explanation": null,
+       "marks": null
+      },
+      {
+       "question": "Consider two possible errors: Student X has an error of 2 marks, Student Y has an error of 5 marks. Under MAE, Student Y&#39;s mistake counts as 2.5 times worse than Student X&#39;s. Under MSE (before averaging), how many times worse is Student Y&#39;s squared error than Student X&#39;s squared error?",
+       "options": {
+        "A": "2.5 times",
+        "B": "6.25 times",
+        "C": "5 times",
+        "D": "25 times"
+       },
+       "answer": "",
+       "explanation": null,
+       "marks": null
+      },
+      {
+       "question": "Two models predict marks for students F (actual = 30) and G (actual = 90). Model X predicts 25 and 85; Model Y predicts 28 and 82. Both models have the same MAE of 5.0, but Model Y has a lower MAPE than Model X. What does this tell us?",
+       "options": {
+        "A": "MAE and MAPE must always agree, so one of the calculations is wrong",
+        "B": "Model Y made smaller absolute errors than Model X on both students",
+        "C": "MAE is always a more reliable metric than MAPE",
+        "D": "MAPE weighs each error relative to the actual mark, so Model X's larger relative miss on the lower-scoring student F costs it more under MAPE even though the absolute errors average out the same"
+       },
+       "answer": "",
+       "explanation": null,
+       "marks": null
+      },
+      {
+       "question": "A regression model is evaluated on a small class where the Total Sum of Squares (TSS) is 500 and the Residual Sum of Squares (RSS) is 150. What is <inlinemath>R^2</inlinemath> for this model?",
+       "options": {
+        "A": "0.70",
+        "B": "0.30",
+        "C": "0.35",
+        "D": "3.33"
+       },
+       "answer": "",
+       "explanation": null,
+       "marks": null
+      },
+      {
+       "question": "A team adds a new input feature to their regression model - the last digit of each student&#39;s roll number. This feature has no real relationship with marks. According to the worksheet, what typically happens to <inlinemath>R^2</inlinemath> after adding this feature?",
+       "options": {
+        "A": "R^2 always decreases sharply, because irrelevant features actively harm the model",
+        "B": "R^2 stays exactly the same, because irrelevant features are automatically excluded",
+        "C": "R^2 usually stays the same or increases slightly, because the feature may fit accidental noise and reduce RSS a little",
+        "D": "R^2 becomes undefined, because irrelevant features break the formula"
+       },
+       "answer": "",
+       "explanation": null,
+       "marks": null
+      },
+      {
+       "question": "A model is evaluated on <inlinemath>n=50</inlinemath> students using <inlinemath>p=4</inlinemath> features, achieving <inlinemath>R^2 = 0.85</inlinemath>. What is the Adjusted <inlinemath>R^2</inlinemath>? (Round to 4 decimal places.)",
+       "options": {
+        "A": "0.8500",
+        "B": "0.8367",
+        "C": "0.8200",
+        "D": "0.7500"
+       },
+       "answer": "",
+       "explanation": null,
+       "marks": null
+      },
+      {
+       "question": "Two models predict marks for the same 60 students. Model 1 uses 3 features and achieves <inlinemath>R^2=0.750</inlinemath>. Model 2 uses 5 features and achieves <inlinemath>R^2=0.758</inlinemath>. Based on Adjusted <inlinemath>R^2</inlinemath>, which model should be preferred?",
+       "options": {
+        "A": "Model 2, since more features always improve Adjusted R^2",
+        "B": "Both models are identical once n is this large",
+        "C": "Model 2, since it has the higher R^2",
+        "D": "Model 1, since its Adjusted R^2 (\\approx 0.7366) is higher than Model 2's (\\approx 0.7356) despite Model 2's higher R^2"
+       },
+       "answer": "",
+       "explanation": null,
+       "marks": null
+      },
+      {
+       "question": "A model&#39;s errors for three students are 3, 1, and 1 marks. A fourth student is added whose error is 15 marks (an outlier). By what factor does MAE increase, and by what factor does MSE increase?",
+       "options": {
+        "A": "MAE increases about 16.1 times; MSE increases 3 times",
+        "B": "MAE increases 5 times; MSE increases 59 times",
+        "C": "MAE increases 3 times; MSE increases about 16.1 times",
+        "D": "Both MAE and MSE increase by the same factor, since they measure the same thing"
+       },
+       "answer": "",
+       "explanation": null,
+       "marks": null
+      },
+      {
+       "question": "A model achieves <inlinemath>R^2=0.88</inlinemath> on a dataset where the Total Sum of Squares (TSS) is 2500. What is the Residual Sum of Squares (RSS)?",
+       "options": {
+        "A": "300",
+        "B": "2200",
+        "C": "220",
+        "D": "2800"
+       },
+       "answer": "",
+       "explanation": null,
+       "marks": null
+      },
+      {
+       "question": "A fraud classifier is used where missing a real fraud case is much more costly than sending a legitimate transaction for manual review. The model currently has precision = 0.90 and recall = 0.45 for the Fraud class. Which change is most directly aligned with the business objective?",
+       "options": {
+        "A": "Prioritize increasing recall, even if precision decreases somewhat.",
+        "B": "Prioritize increasing precision, even if recall decreases.",
+        "C": "Use accuracy as the only evaluation metric.",
+        "D": "Increase specificity while ignoring false negatives."
+       },
+       "answer": "",
+       "explanation": null,
+       "marks": null
+      },
+      {
+       "question": "A classifier&#39;s overall accuracy increases from 70% to 78% after a model change. However, recall for an operationally critical minority class falls from 80% to 55%. Which evaluation decision is most appropriate?",
+       "options": {
+        "A": "Automatically choose the new model because accuracy increased.",
+        "B": "Reject the new model automatically because any recall decrease is unacceptable.",
+        "C": "Evaluate the trade-off using the cost of missing that class and inspect class-wise metrics rather than relying on accuracy alone.",
+        "D": "Ignore recall because it is only useful for binary classification."
+       },
+       "answer": "",
+       "explanation": null,
+       "marks": null
+      },
+      {
+       "question": "The worksheet presents six statements, in scrambled order, that together explain why <inlinemath>R^2</inlinemath> can be misleading when a new feature is added: (i) This motivates the need for Adjusted <inlinemath>R^2</inlinemath>. (ii) The new feature fits accidental noise patterns in the data, slightly reducing RSS. (iii) A fair metric should penalize the added complexity if the gain is negligible. (iv) We add a new feature to the regression model. (v) <inlinemath>R^2</inlinemath> reports that the model has improved. (vi) <inlinemath>R^2 = 1-\\frac{RSS}{TSS}</inlinemath> increases whenever RSS decreases, regardless of the reason. What is the correct logical order of these six statements?",
+       "options": {
+        "A": "i, ii, iii, iv, v, vi",
+        "B": "iv, vi, ii, v, iii, i",
+        "C": "iv, ii, v, vi, iii, i",
+        "D": "iv, ii, vi, v, iii, i"
+       },
+       "answer": "",
+       "explanation": null,
+       "marks": null
+      },
+      {
+       "question": "A model predicts marks reasonably well overall: its MAE is a modest 3 marks and its RMSE is close to that, showing no extreme outliers. However, most of this model&#39;s errors happen to fall on students who scored very low (under 10 marks), while high-scoring students are predicted almost perfectly. Which metric would most clearly expose that these errors are concentrated among low-scoring students, and why?",
+       "options": {
+        "A": "Adjusted R^2, because it accounts for the number of features used",
+        "B": "MAPE, because it divides each error by the actual mark, so the same absolute error becomes a much larger percentage for low-scoring students",
+        "C": "MSE, because squaring always reveals which students are low-scoring",
+        "D": "RMSE, because it is expressed in the same unit as the marks"
+       },
+       "answer": "",
+       "explanation": null,
+       "marks": null
+      }
+     ]
+    },
+    {
+     "title": "Macro Average, Weighted Average, Micro Average, Polynomial Regression, Feature T ... - Revision",
+     "questions": [
+      {
+       "question": "Two classification models are evaluated on the same single-label multiclass test set. Model X has 80 correct predictions out of 100, while Model Y has 85 correct predictions. Which statement must be true?",
+       "options": {
+        "A": "Model Y has higher micro precision, micro recall, and micro F1 than Model X.",
+        "B": "Model Y has higher macro F1 than Model X.",
+        "C": "Model Y has higher F1 for every individual class.",
+        "D": "Model Y has higher weighted F1 regardless of the class distribution."
+       },
+       "answer": "A",
+       "explanation": "In single-label multiclass classification, micro precision, micro recall, and micro F1 equal accuracy. Therefore Model Y's micro metrics must be 0.85 versus 0.80 for Model X. Macro, class-wise, and weighted metrics need not improve simply because accuracy increased.",
+       "marks": 3
+      },
+      {
+       "question": "A team compares two multiclass classifiers on the same data. Model A has class-wise F1 scores of 0.95, 0.90, and 0.20. Model B has scores of 0.75, 0.75, and 0.75. The three classes have similar support. Which conclusion is most defensible if every class is equally important?",
+       "options": {
+        "A": "Model A is preferable because its highest class-wise F1 is larger.",
+        "B": "Model B is preferable because macro F1 gives each class equal influence.",
+        "C": "Model A is preferable because weighted F1 always rewards the weakest class most.",
+        "D": "The models must have identical accuracy because their F1 scores are comparable."
+       },
+       "answer": "B",
+       "explanation": "When every class is equally important, macro averaging is appropriate because each class receives one equal vote. Model A's macro F1 is (0.95+0.90+0.20)/3 ≈ 0.683, while Model B's is 0.75, so Model B is better under that objective.",
+       "marks": 3
+      }
+     ]
+    },
+    {
+     "title": "Model Tuning, Independence of Errors, Multicollinearity, Population True Functio ... - Revision",
+     "questions": [
+      {
+       "question": "True or False: &#39;Irreducible error can be reduced by choosing a more complex model.&#39; What is the correct answer and justification?",
+       "options": {
+        "A": "True, because complex models fit noise as well as signal",
+        "B": "False, because irreducible error is inherent noise that no model can eliminate",
+        "C": "True, but only for decision tree models",
+        "D": "False, because irreducible error is equal to the bias term"
+       },
+       "answer": "B",
+       "explanation": "This statement is False: irreducible error is inherent noise in the system and cannot be reduced by model choice.",
+       "marks": 2
+      },
+      {
+       "question": "<p>What is the expected value of the random noise term, &lt;inlineMath&gt;E(\\epsilon)&lt;/inlineMath&gt;?</p>",
+       "options": {
+        "A": "0",
+        "B": "1",
+        "C": "\\sigma^2",
+        "D": "It varies depending on the sample drawn"
+       },
+       "answer": "A",
+       "explanation": "By definition, the mean of white noise is 0, so <inlineMath>E(\\epsilon) = 0</inlineMath>.",
+       "marks": 2
+      },
+      {
+       "question": "<p>Given &lt;inlineMath&gt;Var(\\epsilon) = \\sigma^2 = E(\\epsilon^2) - [E(\\epsilon)]^2&lt;/inlineMath&gt;, and knowing &lt;inlineMath&gt;E(\\epsilon) = 0&lt;/inlineMath&gt;, what does &lt;inlineMath&gt;Var(\\epsilon)&lt;/inlineMath&gt; simplify to?</p>",
+       "options": {
+        "A": "E(\\epsilon)",
+        "B": "[E(\\epsilon)]^2",
+        "C": "E(\\epsilon^2)",
+        "D": "\\sigma"
+       },
+       "answer": "C",
+       "explanation": "Because <inlineMath>E(\\epsilon)=0</inlineMath>, the second term vanishes, leaving <inlineMath>Var(\\epsilon)=\\sigma^2=E(\\epsilon^2)</inlineMath>.",
+       "marks": 2
+      },
+      {
+       "question": "Which of the following is given as an example of an estimator?",
+       "options": {
+        "A": "The irreducible error",
+        "B": "Linear Regression estimates",
+        "C": "Cross-validation",
+        "D": "The learning curve"
+       },
+       "answer": "B",
+       "explanation": "Sample mean estimates, Linear Regression estimates, and Decision tree estimates are all given as examples of estimators.",
+       "marks": 2
+      },
+      {
+       "question": "Three people each fit a straight-line model to their own sample drawn from population data generated by &lt;inlineMath&gt;Y=x^2&lt;/inlineMath&gt; plus noise. None of the lines fit their respective training data well, but all three lines look very similar to one another. What do these models exhibit?",
+       "options": {
+        "A": "High Bias and Low Variance",
+        "B": "Low Bias and High Variance",
+        "C": "High Bias and High Variance",
+        "D": "Low Bias and Low Variance"
+       },
+       "answer": "A",
+       "explanation": "The straight-line models are too simple to capture the curve (High Bias), but since the 3 lines are very similar to each other, they have Low Variance.",
+       "marks": 2
+      },
+      {
+       "question": "Three people each increase the degree of their polynomial model until it exactly fits their own training data. The three resulting curves end up looking very different from one another. What do these models exhibit?",
+       "options": {
+        "A": "High Bias and Low Variance",
+        "B": "High Bias and High Variance",
+        "C": "Low Bias and High Variance",
+        "D": "Low Bias and Low Variance"
+       },
+       "answer": "C",
+       "explanation": "These models fit their specific training data extremely well (Low Bias), but the resulting curves differ greatly from each other across the three samples (High Variance).",
+       "marks": 2
+      },
+      {
+       "question": "Which formula correctly gives the Bias-Variance Decomposition of MSE?",
+       "options": {
+        "A": "MSE = Bias + Variance",
+        "B": "MSE = Bias^2 - Variance + Var(\\epsilon)",
+        "C": "MSE = Bias + Variance^2 + Var(\\epsilon)",
+        "D": "MSE = Bias^2 + Variance + Var(\\epsilon)"
+       },
+       "answer": "D",
+       "explanation": "The Bias-Variance Decomposition result is <inlineMath>MSE = Bias^2 + Variance + Var(\\epsilon)</inlineMath>.",
+       "marks": 2
+      },
+      {
+       "question": "If feature x<sub>2</sub> is exactly twice the value of feature x<sub>1</sub> across all examples, what happens to X<sup>T</sup>X?",
+       "options": {
+        "A": "It becomes the Identity matrix",
+        "B": "It becomes singular (not invertible) due to multicollinearity",
+        "C": "It becomes orthogonal",
+        "D": "Its dimensions change to n x p"
+       },
+       "answer": "B",
+       "explanation": "If one feature is a linear combination of another, the columns of the design matrix X are linearly dependent. This multicollinearity makes the product matrix X<sup>T</sup>X singular, meaning its inverse does not exist.",
+       "marks": 3
+      },
+      {
+       "question": "If &lt;inlineMath&gt;E[\\hat{f}(x)] = 12&lt;/inlineMath&gt; and &lt;inlineMath&gt;f(x) = 10&lt;/inlineMath&gt; at a particular point x, what is the Bias?",
+       "options": {
+        "A": "-2",
+        "B": "0",
+        "C": "22",
+        "D": "2"
+       },
+       "answer": "D",
+       "explanation": "<inlineMath>Bias = E[\\hat{f}(x)] - f(x) = 12 - 10 = 2</inlineMath>.",
+       "marks": 3
+      },
+      {
+       "question": "What does it suggest about a model if its performance changes significantly across different cross-validation folds?",
+       "options": {
+        "A": "The model has zero irreducible error",
+        "B": "The model is sensitive to the training data, indicating higher variance",
+        "C": "The model definitely has high bias",
+        "D": "The true function f(x) has been found"
+       },
+       "answer": "B",
+       "explanation": "If performance changes significantly across folds, this suggests the model is sensitive to training data — a practical indication of higher variance.",
+       "marks": 4
+      },
+      {
+       "question": "What is the typical pattern of a High Bias (Underfitting) learning curve as training data size increases?",
+       "options": {
+        "A": "Training error is very low but validation error is much higher",
+        "B": "Both errors drop rapidly to near zero",
+        "C": "Both training and validation errors remain high, even after adding more data",
+        "D": "Validation error decreases sharply while training error rises"
+       },
+       "answer": "C",
+       "explanation": "For High Bias, both training and validation errors remain high even after adding more data, since the model is too simple to capture the pattern.",
+       "marks": 4
+      },
+      {
+       "question": "Consider this Assertion-Reason pair: &#39;A: A linear regression model applied to a highly non-linear dataset is likely to have high bias. R: A linear model cannot capture non-linear patterns, so it will systematically underfit the data.&#39; Which option correctly evaluates A and R?",
+       "options": {
+        "A": "Both A and R are true, and R is the correct explanation of A",
+        "B": "Both A and R are true, but R is not the correct explanation of A",
+        "C": "A is true but R is false",
+        "D": "A is false but R is true"
+       },
+       "answer": "A",
+       "explanation": "Both A and R are true, and R correctly explains why the linear model has high bias — it cannot capture non-linear patterns and hence underfits.",
+       "marks": 4
+      },
+      {
+       "question": "<p>A model has &lt;inlineMath&gt;Bias^2 = 1&lt;/inlineMath&gt;, Variance = 9, and &lt;inlineMath&gt;\\sigma^2 = 2&lt;/inlineMath&gt;. What is the total error, and which component dominates?</p>",
+       "options": {
+        "A": "Total error = 12; Bias^2 dominates",
+        "B": "Total error = 10; the irreducible error dominates",
+        "C": "Total error = 12; Variance dominates",
+        "D": "Total error = 3; Bias^2 and Variance contribute equally"
+       },
+       "answer": "C",
+       "explanation": "<inlineMath>MSE = Bias^2 + Variance + Var(\\epsilon) = 1 + 9 + 2 = 12</inlineMath>; since 9 is the largest of the three terms, the Variance component dominates.",
+       "marks": 5
+      },
+      {
+       "question": "A data scientist fits a degree-1 polynomial to data whose true relationship is &lt;inlineMath&gt;y = x^3 + 2x^2 - x + 5&lt;/inlineMath&gt;. Based on the mismatch between model complexity and the true function&#39;s complexity, what will most likely happen?",
+       "options": {
+        "A": "The model will overfit, showing low bias and high variance",
+        "B": "The model will be an unbiased estimator of the cubic relationship",
+        "C": "The model will show low bias and low variance, achieving a good fit",
+        "D": "The model will underfit, showing high bias and low variance, since a straight line cannot capture the cubic curve"
+       },
+       "answer": "D",
+       "explanation": "The model will suffer from high bias and low variance and will underfit, because a degree-1 (straight-line) model is too simple to capture the cubic (<inlineMath>x^3</inlineMath>) relationship.",
+       "marks": 5
+      }
+     ]
+    },
+    {
+     "title": "Feature Selection, Curse of Dimensionality, Filter Methods, Variance Threshold,  ... - Revision",
+     "questions": [
+      {
+       "question": "What is the main goal of <b><i>feature selection</i></b> in ML?",
+       "options": {
+        "A": "To increase the dataset size",
+        "B": "To retain the most important input features that helps in solving the real problem and that best describes the probability distribution of the data.",
+        "C": "To create new features from existing data",
+        "D": "To align stakeholders with project goals"
+       },
+       "answer": "B",
+       "explanation": "<b>Correct:</b> Feature selection removes irrelevant features to boost efficiency.",
+       "marks": 3
+      }
+     ]
+    },
+    {
+     "title": "Feature Extraction, Forward Selection, Principal Component Analysis (PCA), Ortho ... - Revision",
+     "questions": [
+      {
+       "question": "How does feature selection differ from PCA in terms of the underlying question being asked?",
+       "options": {
+        "A": "Feature selection asks whether a lower-dimensional linear combination of columns is useful",
+        "B": "Feature selection asks which original columns should remain, while PCA asks whether the information spread across columns can be represented by newly constructed features",
+        "C": "Feature selection and PCA both construct entirely new axes as weighted combinations of the original columns",
+        "D": "Feature selection always requires computing a covariance matrix, while PCA never does"
+       },
+       "answer": "",
+       "explanation": null,
+       "marks": null
+      },
+      {
+       "question": "<p>The centering step is written as &lt;inlineMath&gt;X_c = X - \\mathbf{1}\\mu^T&lt;/inlineMath&gt;. What is the purpose of this step?</p>",
+       "options": {
+        "A": "To rescale every feature to have unit variance",
+        "B": "To remove duplicate feature columns before analysis",
+        "C": "To divide each feature by its standard deviation",
+        "D": "To subtract the training mean of each feature so that every column of X\\_c has mean zero"
+       },
+       "answer": "",
+       "explanation": null,
+       "marks": null
+      },
+      {
+       "question": "<p>For a unit direction u and a centered observation &lt;inlineMath&gt;x_i&lt;/inlineMath&gt;, the scalar coordinate &lt;inlineMath&gt;z_i = u^Tx_i&lt;/inlineMath&gt; represents what?</p>",
+       "options": {
+        "A": "The distance between x\\_i and the origin",
+        "B": "The variance of the entire dataset along direction u",
+        "C": "The one-dimensional score of point x\\_i projected onto direction u",
+        "D": "The eigenvalue associated with direction u"
+       },
+       "answer": "",
+       "explanation": null,
+       "marks": null
+      },
+      {
+       "question": "<p>The equation &lt;inlineMath&gt;Av = \\lambda v&lt;/inlineMath&gt; describes an eigenvector v of matrix A. What does this equation mean?</p>",
+       "options": {
+        "A": "v is a direction that A rotates by 90 degrees",
+        "B": "v is any vector that becomes zero after the transformation A",
+        "C": "v is a direction whose length is always reduced to zero by A",
+        "D": "v is a non-zero direction that A does not rotate away from itself; it is only stretched, shrunk, or reversed by the factor \\lambda"
+       },
+       "answer": "",
+       "explanation": null,
+       "marks": null
+      },
+      {
+       "question": "<p>Why does the covariance matrix satisfy &lt;inlineMath&gt;S_{jk} = S_{kj}&lt;/inlineMath&gt;?</p>",
+       "options": {
+        "A": "Because every covariance matrix has all entries equal to one another",
+        "B": "Because the matrix is always diagonal",
+        "C": "Because the matrix mirrors across the diagonal, reflecting that the covariance between feature j and k is the same as between k and j",
+        "D": "Because standardization forces this symmetry, but centering does not"
+       },
+       "answer": "",
+       "explanation": null,
+       "marks": null
+      },
+      {
+       "question": "<p>For a unit direction u and centered data projected as &lt;inlineMath&gt;z = X_c u&lt;/inlineMath&gt;, the sample variance of z can be written as which expression?</p>",
+       "options": {
+        "A": "Var(z) = u + Su",
+        "B": "Var(z) = \\lambda u",
+        "C": "Var(z) = X\\_c u",
+        "D": "Var(z) = u^TSu"
+       },
+       "answer": "",
+       "explanation": null,
+       "marks": null
+      },
+      {
+       "question": "A high-variance lighting change in an image dominates the top principal components, while a subtle low-variance texture is what actually separates the classes. What does this illustrate about PCA?",
+       "options": {
+        "A": "PCA operationalizes information as variance, so it can discard a low-variance direction even if that direction is highly predictive of the target",
+        "B": "PCA always preserves the features most useful for classification",
+        "C": "PCA cannot be applied to image data for this reason",
+        "D": "High variance always corresponds to useful target signal in PCA"
+       },
+       "answer": "",
+       "explanation": null,
+       "marks": null
+      },
+      {
+       "question": "Among all k-dimensional linear subspaces, what property does the top-k PCA subspace have regarding reconstruction of the original centered data?",
+       "options": {
+        "A": "It maximizes the number of retained original feature columns",
+        "B": "It guarantees zero reconstruction error regardless of how many components are kept",
+        "C": "It minimizes the total squared reconstruction error, which is the same geometry as maximizing retained variance",
+        "D": "It always reconstructs the data using only the lowest-variance directions"
+       },
+       "answer": "",
+       "explanation": null,
+       "marks": null
+      },
+      {
+       "question": "<p>For principal-component scores, &lt;inlineMath&gt;Cov(z_r, z_s) = v_r^TSv_s = \\lambda_s v_r^Tv_s = 0&lt;/inlineMath&gt; for &lt;inlineMath&gt;r \\neq s&lt;/inlineMath&gt;. What does this result establish, and what does it not establish?</p>",
+       "options": {
+        "A": "It establishes that the component scores are statistically independent in every case",
+        "B": "It establishes that the eigenvalues are always equal to zero",
+        "C": "It establishes that all original features must be uncorrelated with each other",
+        "D": "It establishes that different principal-component score columns are uncorrelated (zero linear covariance), but this does not necessarily mean they are statistically independent"
+       },
+       "answer": "",
+       "explanation": null,
+       "marks": null
+      }
+     ]
+    },
+    {
+     "title": "Eigen values, Explained Variance Ratio, Scree Plot, Regularization, Ridge Regres ... - Revision",
+     "questions": [
+      {
+       "question": "<p>The standard OLS slope formula is &lt;inlineMath&gt;m = \\frac{\\sum(y_i-\\bar{y})(x_i-\\bar{x})}{\\sum(x_i-\\bar{x})^2}&lt;/inlineMath&gt;. How does the Ridge Regression slope formula &lt;inlineMath&gt;m = \\frac{\\sum(y_i-\\bar{y})(x_i-\\bar{x})}{\\sum(x_i-\\bar{x})^2 + \\lambda}&lt;/inlineMath&gt; differ from it?</p>",
+       "options": {
+        "A": "The numerator is multiplied by \\lambda",
+        "B": "The formula removes the mean-centering terms entirely",
+        "C": "The denominator is divided by \\lambda instead of added to",
+        "D": "Ridge simply adds \\lambda to the denominator, so because \\lambda \\geq 0, the denominator grows larger, driving the slope down asymptotically toward zero as \\lambda \\to \\infty"
+       },
+       "answer": "",
+       "explanation": null,
+       "marks": null
+      },
+      {
+       "question": "<p>What is the closed-form Normal Equation for Multiple Ridge Regression, given the unregularized OLS solution &lt;inlineMath&gt;W = (X^TX)^{-1}X^TY&lt;/inlineMath&gt;?</p>",
+       "options": {
+        "A": "W = (X^TX + \\lambda I)^{-1}X^TY",
+        "B": "W = (X^TX - \\lambda I)^{-1}X^TY",
+        "C": "W = (X^TX)^{-1}X^TY + \\lambda",
+        "D": "W = \\lambda(X^TX)^{-1}X^TY"
+       },
+       "answer": "",
+       "explanation": null,
+       "marks": null
+      },
+      {
+       "question": "Why is Lasso Regression described as acting like an automatic Feature Selection mechanism?",
+       "options": {
+        "A": "If a feature does not significantly contribute to predicting the target, Lasso forces its coefficient exactly to 0, effectively removing it from the model",
+        "B": "It always keeps every feature's coefficient non-zero, like Ridge Regression",
+        "C": "It requires the user to manually pick which features to remove",
+        "D": "It only works when there is exactly one input feature"
+       },
+       "answer": "",
+       "explanation": null,
+       "marks": null
+      },
+      {
+       "question": "Lasso Regression is described as creating &#39;sparsity&#39; in the resulting model. What does this mean?",
+       "options": {
+        "A": "The model always uses fewer training observations",
+        "B": "The intercept term is always removed",
+        "C": "The MSE term is dropped from the loss function",
+        "D": "Lasso can drive the coefficients of less important features exactly to zero, so the resulting weight vector has multiple zero entries"
+       },
+       "answer": "",
+       "explanation": null,
+       "marks": null
+      },
+      {
+       "question": "An overfitted linear regression model memorizes the noise and exact patterns of the training data rather than the underlying distribution. How is this typically characterized in terms of bias and variance?",
+       "options": {
+        "A": "High Variance, Low Bias",
+        "B": "Low Variance, High Bias",
+        "C": "Low Variance, Low Bias",
+        "D": "High Variance, High Bias"
+       },
+       "answer": "",
+       "explanation": null,
+       "marks": null
+      },
+      {
+       "question": "What is regularization, as introduced to address overfitting in parametric models?",
+       "options": {
+        "A": "A technique that increases the number of input features to capture more patterns",
+        "B": "A mathematical technique that induces an additional penalty into the model to reduce its complexity and prevent overfitting",
+        "C": "A technique that removes the intercept term from the regression equation",
+        "D": "A technique that always increases the slope coefficient to fit the data more closely"
+       },
+       "answer": "",
+       "explanation": null,
+       "marks": null
+      },
+      {
+       "question": "In the Ridge loss function &lt;inlineMath&gt;L_{Ridge} = \\sum_{i=1}^{n}(y_i-(mx_i+b))^2 + \\lambda m^2&lt;/inlineMath&gt;, what does the hyperparameter &lt;inlineMath&gt;\\lambda&lt;/inlineMath&gt; control?",
+       "options": {
+        "A": "The number of input features used by the model",
+        "B": "The mean value of the target variable",
+        "C": "Whether the intercept is included in the model",
+        "D": "The intensity of the penalty applied to the slope m"
+       },
+       "answer": "",
+       "explanation": null,
+       "marks": null
+      },
+      {
+       "question": "<p>When a very large Ridge regularization value such as &lt;inlineMath&gt;\\lambda = 200&lt;/inlineMath&gt; is used, what happens to the model?</p>",
+       "options": {
+        "A": "The model fits the training data perfectly, with no bias at all",
+        "B": "The penalty heavily dominates the loss function, squashing the slope aggressively toward 0 so the regression line becomes essentially flat (y \\approx b), underfitting the data",
+        "C": "The slope becomes exceptionally large, approaching infinity",
+        "D": "The penalty term has no effect on the slope at all"
+       },
+       "answer": "",
+       "explanation": null,
+       "marks": null
+      },
+      {
+       "question": "<p>In a two-feature housing example where bedroom-area and washroom-area rise together, the covariance matrix produces eigenpairs &lt;inlineMath&gt;v_1=(1/\\sqrt{2})[1,1]^T&lt;/inlineMath&gt; with &lt;inlineMath&gt;\\lambda_1=8&lt;/inlineMath&gt; and &lt;inlineMath&gt;v_2=(1/\\sqrt{2})[1,-1]^T&lt;/inlineMath&gt; with &lt;inlineMath&gt;\\lambda_2=0&lt;/inlineMath&gt;. What does this result mean?</p>",
+       "options": {
+        "A": "The two features are unrelated, so PCA is not applicable",
+        "B": "PC2 captures all of the meaningful variation in the data",
+        "C": "PC1 captures all of the variance (100%), since the two features share one underlying degree of freedom and there is no remaining contrast variation",
+        "D": "The eigenvalue of PC1 has no relationship to the variance captured along that direction"
+       },
+       "answer": "",
+       "explanation": null,
+       "marks": null
+      },
+      {
+       "question": "Given eigenvalues 4.80, 2.70, 1.30, 0.70, 0.30, and 0.12 for six principal components in descending order, what is the cumulative explained variance through the first three components?",
+       "options": {
+        "A": "89%",
+        "B": "48%",
+        "C": "76%",
+        "D": "96%"
+       },
+       "answer": "",
+       "explanation": null,
+       "marks": null
+      },
+      {
+       "question": "<p>Given three unregularized OLS coefficients &lt;inlineMath&gt;w_1 = 5000&lt;/inlineMath&gt;, &lt;inlineMath&gt;w_2 = 1000&lt;/inlineMath&gt;, and &lt;inlineMath&gt;w_3 = 1&lt;/inlineMath&gt;, and given that the Ridge penalty term is &lt;inlineMath&gt;\\lambda w^2&lt;/inlineMath&gt;, why does &lt;inlineMath&gt;w_1&lt;/inlineMath&gt; shrink fastest as Ridge regularization is applied?</p>",
+       "options": {
+        "A": "All three coefficients shrink at exactly the same rate",
+        "B": "Because w\\_1 = 5000 contributes 25{,}000{,}000\\lambda to the loss while w\\_3 = 1 only contributes 1\\lambda, the optimization algorithm targets the large coefficient for the most aggressive reduction",
+        "C": "Because smaller coefficients always contribute more to the squared penalty term",
+        "D": "Because \\lambda only affects coefficients above 1000"
+       },
+       "answer": "",
+       "explanation": null,
+       "marks": null
+      },
+      {
+       "question": "<p>Ridge Regression can be viewed as a hard constraint problem: minimize the OLS loss subject to &lt;inlineMath&gt;w_1^2+w_2^2 \\leq r^2&lt;/inlineMath&gt;. Geometrically, why does the technique earn the name &#39;Ridge&#39; Regression?</p>",
+       "options": {
+        "A": "Because the OLS contour ellipse always passes through the origin",
+        "B": "Because the radius r grows without bound as \\lambda increases",
+        "C": "Because the solution is forced to lie on the boundary, or 'ridge,' of the constraint circle, at the point where the OLS contour ellipse is tangent to that boundary",
+        "D": "Because the constraint region has no boundary at all"
+       },
+       "answer": "",
+       "explanation": null,
+       "marks": null
+      },
+      {
+       "question": "A dataset has hundreds of columns, and many are suspected to be useless or highly correlated. Which regularization method is preferred in this scenario, and why?",
+       "options": {
+        "A": "Ridge, because it never removes any features from the model",
+        "B": "Neither method should be used with high-dimensional data",
+        "C": "Ridge, because it is only useful when there is exactly one input feature",
+        "D": "Lasso, because it drops the irrelevant columns, simplifying the model and making it easier to interpret"
+       },
+       "answer": "",
+       "explanation": null,
+       "marks": null
+      },
+      {
+       "question": "According to the practical heuristic for applying Ridge Regression, when does Ridge Regression become genuinely useful?",
+       "options": {
+        "A": "When the number of input features is N \\geq 2, since Ridge manages multicollinearity and overfitting potential in multi-feature spaces",
+        "B": "Only when there is exactly one input feature (Simple Linear Regression)",
+        "C": "Only when the target variable is categorical",
+        "D": "Only when the regularization hyperparameter is set to exactly zero"
+       },
+       "answer": "",
+       "explanation": null,
+       "marks": null
+      },
+      {
+       "question": "Given eigenvalues [6, 2, 1, 0.5] with a total variance of 9.5, the cumulative explained variance ratios are approximately 63.2%, 84.2%, 94.7%, and 100% for k = 1, 2, 3, and 4. What is the smallest k that retains at least 90% of the total variance?",
+       "options": {
+        "A": "k = 1",
+        "B": "k = 2",
+        "C": "k = 3",
+        "D": "k = 4"
+       },
+       "answer": "",
+       "explanation": null,
+       "marks": null
+      },
+      {
+       "question": "<p>For centered observations &lt;inlineMath&gt;x_1=[-1,-1]^T&lt;/inlineMath&gt;, &lt;inlineMath&gt;x_2=[0,0]^T&lt;/inlineMath&gt;, &lt;inlineMath&gt;x_3=[1,1]^T&lt;/inlineMath&gt;, the covariance matrix is &lt;inlineMath&gt;S=\\begin{bmatrix}1 &amp; 1\\\\1 &amp; 1\\end{bmatrix}&lt;/inlineMath&gt; with eigenvalues 2 and 0. What is the explained variance ratio of PC1, and is one-dimensional compression lossless?</p>",
+       "options": {
+        "A": "PC1 explains 50% of the variance, and compression loses half the information",
+        "B": "PC1 explains 100% of the variance, so the centered points can be represented on one line without loss",
+        "C": "PC1 explains 0% of the variance, since the eigenvalue of PC2 is larger",
+        "D": "The explained variance ratio cannot be determined without knowing the eigenvectors"
+       },
+       "answer": "",
+       "explanation": null,
+       "marks": null
+      },
+      {
+       "question": "<p>For the Lasso update equation when &lt;inlineMath&gt;m &gt; 0&lt;/inlineMath&gt;, suppose the OLS part evaluates to &lt;inlineMath&gt;100/50 = 2&lt;/inlineMath&gt;. If the regularization hyperparameter is increased to &lt;inlineMath&gt;\\lambda = 50&lt;/inlineMath&gt;, the numerator becomes &lt;inlineMath&gt;100 - 50 = 50&lt;/inlineMath&gt;. What is the resulting value of &lt;inlineMath&gt;m&lt;/inlineMath&gt;?</p>",
+       "options": {
+        "A": "m = 2",
+        "B": "m = 0",
+        "C": "m = 50/50 = 1",
+        "D": "m = 100"
+       },
+       "answer": "",
+       "explanation": null,
+       "marks": null
+      },
+      {
+       "question": "<p>Continuing the same Lasso example, if &lt;inlineMath&gt;\\lambda&lt;/inlineMath&gt; is increased to 100, the numerator becomes &lt;inlineMath&gt;100-100=0&lt;/inlineMath&gt;, giving &lt;inlineMath&gt;m=0&lt;/inlineMath&gt;. If &lt;inlineMath&gt;\\lambda&lt;/inlineMath&gt; is pushed further to 150, the formula for the &lt;inlineMath&gt;m&gt;0&lt;/inlineMath&gt; case would output a negative number. What does the optimization algorithm do in this situation?</p>",
+       "options": {
+        "A": "It allows m to become negative, since the formula must always be trusted",
+        "B": "It restarts the entire derivation using a different loss function",
+        "C": "It increases \\lambda further until the negative result becomes positive again",
+        "D": "It recognizes that the negative output violates the assumption m>0 used to derive the formula, and halts exactly at m=0"
+       },
+       "answer": "",
+       "explanation": null,
+       "marks": null
+      },
+      {
+       "question": "<p>Why does Lasso (L1) force coefficients exactly to zero, while Ridge (L2) only pushes them close to zero?</p>",
+       "options": {
+        "A": "Because Ridge places \\lambda in the numerator as a subtractive term, while Lasso places it in the denominator as a scaling factor",
+        "B": "Because Lasso's \\lambda acts as a constant subtractive/additive penalty in the numerator of the coefficient update equation, forcefully zeroing the coefficient once \\lambda surpasses the feature's inherent correlation with the target, whereas Ridge's \\lambda sits in the denominator and only asymptotically shrinks the coefficient",
+        "C": "Because Lasso and Ridge use mathematically identical update equations",
+        "D": "Because Ridge's penalty term is undifferentiable at zero, while Lasso's penalty term is always smooth"
+       },
+       "answer": "",
+       "explanation": null,
+       "marks": null
+      },
+      {
+       "question": "<p>For the Lasso case when &lt;inlineMath&gt;m &lt; 0&lt;/inlineMath&gt;, suppose the OLS part is &lt;inlineMath&gt;-100/50 = -2&lt;/inlineMath&gt;. As &lt;inlineMath&gt;\\lambda&lt;/inlineMath&gt; increases to 100, the numerator becomes &lt;inlineMath&gt;-100+100=0&lt;/inlineMath&gt;, giving &lt;inlineMath&gt;m=0&lt;/inlineMath&gt;. If &lt;inlineMath&gt;\\lambda&lt;/inlineMath&gt; is pushed to 150, the formula outputs a positive value of &lt;inlineMath&gt;m=1&lt;/inlineMath&gt;. What does this reveal?</p>",
+       "options": {
+        "A": "That the m<0 formula remains valid for any output, positive or negative",
+        "B": "That Lasso coefficients can freely switch sign without any boundary condition",
+        "C": "That this behavior only occurs for the intercept term, not the slope",
+        "D": "That the positive output violates the starting assumption m<0, so the algorithm clips the value and the coefficient stops exactly at 0, mirroring the same clipping behavior seen for m>0"
+       },
+       "answer": "",
+       "explanation": null,
+       "marks": null
+      }
+     ]
+    },
+    {
+     "title": "Time Series Modelling, Time Series Data, Time Series Components, Trend, Seasonal ... - Revision",
+     "questions": [
+      {
+       "question": "In classical Machine Learning models such as Linear Regression, why does shuffling the order of rows in a dataset of house prices not change the model&#39;s predictions?",
+       "options": {
+        "A": "Because the observations are assumed to be Independent and Identically Distributed (I.I.D.), so the order of rows does not matter",
+        "B": "Because Linear Regression automatically re-sorts the data by timestamp before training",
+        "C": "Because house price datasets always contain a hidden time column",
+        "D": "Because shuffling only affects classification models, not regression models"
+       },
+       "answer": "A",
+       "explanation": "Classical Machine Learning assumes observations are Independent and Identically Distributed (I.I.D.), so each row is an isolated, standalone event and the order of rows does not matter at all.",
+       "marks": 1
+      },
+      {
+       "question": "Why can standard Cross-Validation techniques like K-Fold cause a problem when applied directly to time series data?",
+       "options": {
+        "A": "K-Fold requires more computational power than time series models can handle",
+        "B": "K-Fold only works when the dataset has fewer than 100 rows",
+        "C": "A random split could train on data from a later time (e.g. 2026) to predict an earlier time (e.g. 2024), violating the arrow of time and causing data leakage",
+        "D": "K-Fold cannot be used on any dataset that contains a timestamp column"
+       },
+       "answer": "C",
+       "explanation": "If a time series is randomly split, training data from a later time period could be used to predict an earlier time period, violating the arrow of time. This is called data leakage.",
+       "marks": 1
+      },
+      {
+       "question": "What does the &#39;Seasonality&#39; component of a time series represent?",
+       "options": {
+        "A": "The long-term upward or downward trajectory of the data",
+        "B": "Short-term, repeating cycles tied to specific timeframes, such as electricity usage dropping every weekend",
+        "C": "A constant intercept added to every observation",
+        "D": "The unpredictable forecast error at a single time step"
+       },
+       "answer": "B",
+       "explanation": "Seasonality refers to short-term, repeating cycles tied to specific timeframes, such as the weekend drop in electricity usage or the summer spike in AC sales, repeating at known, fixed frequencies.",
+       "marks": 1
+      },
+      {
+       "question": "In Time Series forecasting, what is a &#39;Lag&#39;?",
+       "options": {
+        "A": "The constant intercept term in a regression equation",
+        "B": "The random shock or forecast error at the current time step",
+        "C": "A past observation, such as yesterday's value being Lag 1 (t-1) and the value from a week ago being Lag 7 (t-7)",
+        "D": "The correlation between two unrelated variables like Height and Weight"
+       },
+       "answer": "C",
+       "explanation": "A Lag is a past observation of the series: if today is time t, yesterday's observation (<inlineMath>t-1</inlineMath>) is Lag 1, and the observation from a week ago (<inlineMath>t-7</inlineMath>) is Lag 7.",
+       "marks": 1
+      },
+      {
+       "question": "What is the Auto Regression equation of order p, denoted AR(p)?",
+       "options": {
+        "A": "y\\_t = c + \\epsilon\\_t + \\theta\\_1 \\epsilon\\_{t-1} + \\dots + \\theta\\_q \\epsilon\\_{t-q}",
+        "B": "y'\\_{t} = y\\_{t} - y\\_{t-1}",
+        "C": "y\\_t = c \\times \\phi\\_1 y\\_{t-1}",
+        "D": "y\\_t = c + \\phi\\_1 y\\_{t-1} + \\phi\\_2 y\\_{t-2} + \\dots + \\phi\\_p y\\_{t-p} + \\epsilon\\_{t}"
+       },
+       "answer": "D",
+       "explanation": "The AR(p) equation is <inlineMath>y_t = c + \\phi_1 y_{t-1} + \\phi_2 y_{t-2} + \\dots + \\phi_p y_{t-p} + \\epsilon_{t}</inlineMath>, regressing the series against p of its own past values.",
+       "marks": 1
+      },
+      {
+       "question": "<p>The Autocorrelation Function (ACF) at lag k measures the correlation between the original series &lt;inlineMath&gt;y_t&lt;/inlineMath&gt; and the shifted series &lt;inlineMath&gt;y_{t-k}&lt;/inlineMath&gt;, yielding a value between -1 and +1. What does a value near -1 indicate?</p>",
+       "options": {
+        "A": "No linear relationship at that lag",
+        "B": "The current value is identical to its value k steps ago",
+        "C": "A strong negative correlation: when the past went up, today tends to go down, i.e. mean-reverting behavior",
+        "D": "The autoregressive order p must equal k"
+       },
+       "answer": "C",
+       "explanation": "A value near -1 means strong negative correlation: when the past went up, today tends to go down, indicating mean-reverting behavior.",
+       "marks": 2
+      },
+      {
+       "question": "What happens if the Auto Regression order p is set far too high, such as p = 365, when forecasting tomorrow&#39;s temperature?",
+       "options": {
+        "A": "The model becomes overly complex, slow, and likely overfits by learning useless noise from a random day many months ago",
+        "B": "The model becomes too simple and misses all weekly patterns",
+        "C": "The model is guaranteed to become perfectly stationary",
+        "D": "The AR model automatically converts into an MA model"
+       },
+       "answer": "A",
+       "explanation": "Setting p too high, such as p = 365, forces the model to learn 365 weights, making it overly complex, slow, and likely to overfit by learning useless noise from a random day months ago.",
+       "marks": 2
+      },
+      {
+       "question": "Today&#39;s temperature is highly correlated with yesterday&#39;s, and yesterday&#39;s was highly correlated with the day before yesterday. Standard Autocorrelation shows that today is correlated with the day before yesterday as well. Why might this be a &#39;ripple effect&#39; rather than a direct relationship, and which tool addresses this?",
+       "options": {
+        "A": "It is a genuine direct relationship, and both ACF and PACF would show the same value",
+        "B": "The relationship is caused entirely by seasonality, and neither ACF nor PACF can measure it",
+        "C": "The day before yesterday may only influence today indirectly by first influencing yesterday; PACF addresses this by removing the effect of the intermediate lag to isolate the direct relationship",
+        "D": "This ripple effect can only be removed by increasing the MA order q"
+       },
+       "answer": "C",
+       "explanation": "The day before yesterday may only influence today indirectly, through its effect on yesterday first  a ripple effect. Standard ACF captures this total (direct plus indirect) effect, while PACF removes the influence of the intermediate lag to isolate the true direct relationship.",
+       "marks": 3
+      }
+     ]
+    },
+    {
+     "title": "OvR (One-vs-Rest), Multiclass Classification, Binary Cross-Entropy, Multinomial  ... - Revision",
+     "questions": [
+      {
+       "question": "For a single observation, the loss formula unfolds into only one active term depending on the actual label. What is the loss when y = 1, and what is it when y = 0?",
+       "options": {
+        "A": "When y = 1: loss = -\\ln(p); when y = 0: loss = -\\ln(1-p)",
+        "B": "When y = 1: loss = p; when y = 0: loss = 1-p, with no logarithm involved",
+        "C": "The loss is always -\\ln(p), regardless of the actual label",
+        "D": "The loss is always zero unless the prediction is exactly wrong"
+       },
+       "answer": "A",
+       "explanation": "When y = 1, only the first term remains active: loss = <inlineMath>-\\ln(p)</inlineMath>. When y = 0, only the second term remains active: loss = <inlineMath>-\\ln(1-p)</inlineMath>.",
+       "marks": 1
+      },
+      {
+       "question": "<p>What is the compact formula for the probability assigned to the observed label of row i, combining both the &lt;inlineMath&gt;y_i=1&lt;/inlineMath&gt; and &lt;inlineMath&gt;y_i=0&lt;/inlineMath&gt; cases?</p>",
+       "options": {
+        "A": "p\\_i + (1-p\\_i)",
+        "B": "p\\_i - (1-p\\_i)",
+        "C": "p\\_i \\times (1-p\\_i)",
+        "D": "p\\_i^{y\\_i} (1-p\\_i)^{1-y\\_i}"
+       },
+       "answer": "D",
+       "explanation": "The probability of the observed label for row i is <inlineMath>p_i^{y_i}(1-p_i)^{1-y_i}</inlineMath>. When <inlineMath>y_i=1</inlineMath>, the <inlineMath>(1-p_i)</inlineMath> part disappears; when <inlineMath>y_i=0</inlineMath>, the <inlineMath>p_i</inlineMath> part disappears.",
+       "marks": 1
+      },
+      {
+       "question": "How should Binary Cross-Entropy (Log Loss) be understood in relation to Maximum Likelihood Estimation?",
+       "options": {
+        "A": "It is an arbitrary penalty unrelated to any probability model",
+        "B": "It is the negative log-likelihood of the Bernoulli model used for binary classification",
+        "C": "It is only used when the Normal distribution is assumed",
+        "D": "It is a completely separate objective that has nothing to do with likelihood"
+       },
+       "answer": "B",
+       "explanation": "Log Loss is not an arbitrary penalty; it is the negative log-likelihood of the Bernoulli model used for binary classification.",
+       "marks": 1
+      },
+      {
+       "question": "How do L2 (Ridge), L1 (Lasso), and Elastic Net regularization differ in their main effect on coefficients?",
+       "options": {
+        "A": "L2 shrinks coefficients toward zero but usually does not make them exactly zero; L1 can force some coefficients exactly to zero; Elastic Net combines both to balance sparsity and smooth shrinkage",
+        "B": "L2 always forces coefficients exactly to zero, while L1 never does",
+        "C": "All three methods produce mathematically identical coefficient values",
+        "D": "Elastic Net is only usable when there is exactly one feature in the model"
+       },
+       "answer": "A",
+       "explanation": "L2/Ridge shrinks coefficients toward zero but usually does not make them exactly zero. L1/Lasso can force some coefficients exactly to zero, useful for feature selection. Elastic Net combines both, balancing sparsity and smooth shrinkage.",
+       "marks": 3
+      },
+      {
+       "question": "<p>For L2 regularization, the derivative of the penalty term &lt;inlineMath&gt;\\lambda\\beta_j^2&lt;/inlineMath&gt; is &lt;inlineMath&gt;2\\lambda\\beta_j&lt;/inlineMath&gt;, so the regularized gradient becomes &lt;inlineMath&gt;\\text{BCE gradient} + 2\\lambda\\beta_j&lt;/inlineMath&gt;. What effect does this extra term have during training?</p>",
+       "options": {
+        "A": "It has no effect on the coefficient values at all",
+        "B": "It pushes every coefficient toward the same fixed positive value",
+        "C": "It only affects the intercept \\beta\\_0, never the feature coefficients",
+        "D": "It pulls \\beta\\_j toward zero, with a stronger pull for larger coefficients, which is why L2 regularization shrinks coefficients smoothly"
+       },
+       "answer": "D",
+       "explanation": "The extra term <inlineMath>2\\lambda\\beta_j</inlineMath> pulls the coefficient toward zero during training, with a stronger pull for larger coefficients, which is why L2 regularization shrinks coefficients smoothly.",
+       "marks": 3
+      },
+      {
+       "question": "<p>When deriving the gradient of the one-row loss with respect to z, the chain rule gives &lt;inlineMath&gt;\\frac{d\\ell}{dz} = \\frac{d\\ell}{dp}\\cdot\\frac{dp}{dz} = \\frac{(p-y)}{p(1-p)}\\times p(1-p)&lt;/inlineMath&gt;. What is the key simplification that results from this cancellation?</p>",
+       "options": {
+        "A": "The result simplifies to \\frac{d\\ell}{dz} = 0 for every observation",
+        "B": "The result simplifies to \\frac{d\\ell}{dz} = p - y, meaning the model's probability error appears directly as the gradient signal",
+        "C": "The result simplifies to \\frac{d\\ell}{dz} = p(1-p), independent of y",
+        "D": "The result simplifies to \\frac{d\\ell}{dz} = y, independent of p"
+       },
+       "answer": "B",
+       "explanation": "The <inlineMath>p(1-p)</inlineMath> terms cancel, leaving <inlineMath>\\frac{d\\ell}{dz} = p - y</inlineMath>. This cancellation is the key simplification: the model's probability error appears directly as the gradient signal.",
+       "marks": 3
+      },
+      {
+       "question": "<p>For an actual positive case (y = 1), the loss at p = 0.90 is about 0.105, while the loss at p = 0.10 is about 2.303 (since &lt;inlineMath&gt;-\\ln(0.10) \\approx 2.303&lt;/inlineMath&gt;). Why is the second loss so much larger?</p>",
+       "options": {
+        "A": "Because the model was confidently wrong: it assigned a low probability to the class that actually occurred, and the logarithm makes confident wrong predictions very expensive",
+        "B": "Because p = 0.10 is mathematically impossible and always produces an error",
+        "C": "Because the loss formula is different when p is below 0.50",
+        "D": "Because y = 1 always produces a fixed loss of 2.303 regardless of p"
+       },
+       "answer": "A",
+       "explanation": "At p = 0.10 for an actual positive case, the model is confidently wrong: it assigned a low probability to the class that actually occurred. The logarithm in the loss formula makes such confident wrong predictions very expensive.",
+       "marks": 3
+      },
+      {
+       "question": "<p>If the regularization strength &lt;inlineMath&gt;\\lambda&lt;/inlineMath&gt; becomes very large in Regularized Logistic Regression, what will the model prioritize, and what is the risk?</p>",
+       "options": {
+        "A": "The model will prioritize fitting the training data perfectly, risking overfitting",
+        "B": "The model will prioritize keeping coefficients small over fitting the data, which risks underfitting",
+        "C": "The model will ignore the BCE term completely and produce undefined predictions",
+        "D": "The model becomes immune to both overfitting and underfitting at any value of \\lambda"
+       },
+       "answer": "B",
+       "explanation": "If <inlineMath>\\lambda</inlineMath> becomes very large, the model cares more about keeping coefficients small than about fitting the data, and the model may underfit.",
+       "marks": 4
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "kind": "Labs",
+   "code": "AML",
+   "lectures": [
+    {
+     "n": 1,
+     "date": "2026-08-10",
+     "title": "Lab - 0",
+     "topics": [],
+     "files": []
+    },
+    {
+     "n": 2,
+     "date": "2026-08-12",
+     "title": "Programming Paradigms, Traditional Programming, Artificial Intelligence, Machine ...",
+     "topics": [
+      "Artificial Intelligence",
+      "Numerical Data",
+      "Machine Learning (ML)",
+      "Supervised Learning",
+      "Unsupervised Learning",
+      "Reinforcement Learning",
+      "Regression",
+      "Data Types",
+      "Categorical Data",
+      "Classification",
+      "Clustering",
+      "Phases of Machine Learning Project",
+      "Deep Learning (DL)",
+      "Semi-Supervised Learning",
+      "Types of ML Tasks",
+      "Programming Paradigms",
+      "Traditional Programming",
+      "Labelled Data",
+      "Unlabelled Data",
+      "Learning Paradigms",
+      "Problem Definition",
+      "Data Collection",
+      "Structured Data",
+      "Unstructured Data",
+      "Semi-Structured Data",
+      "Time Series Data"
+     ],
+     "files": []
+    },
+    {
+     "n": 3,
+     "date": "2026-08-17",
+     "title": "Python-Exploratory Data Analysis (EDA), Handling missing values, Outlier Detecti ...",
+     "topics": [
+      "Python-Exploratory Data Analysis (EDA)",
+      "Bivariate Analysis",
+      "One Hot Encoding",
+      "Data Preprocessing",
+      "Handling missing values",
+      "Outlier Detection",
+      "Multivariate Analysis",
+      "Univariate Analysis",
+      "Class Imbalance",
+      "Data Deletion",
+      "Data Imputation",
+      "Inconsistent Data Resolution",
+      "Robust Scaling",
+      "Categorical Encoding",
+      "Label Encoding",
+      "Ordinal Encoding",
+      "Data Splitting",
+      "Training Data",
+      "Validation Data",
+      "Test Data",
+      "Data Leakage",
+      "Binary Encoding"
+     ],
+     "files": []
+    },
+    {
+     "n": 4,
+     "date": "2026-08-19",
+     "title": "Feature Scaling, Normalization, Standardization, Max Absolute Scaling, Feature E ...",
+     "topics": [
+      "Feature Engineering",
+      "Feature Creation",
+      "Hyperparameter Tuning",
+      "Normalization",
+      "Feature Scaling",
+      "Model Training",
+      "Standardization",
+      "Max Absolute Scaling",
+      "Model Selection",
+      "Convergence",
+      "Model Deployment",
+      "Post-Deployment Monitoring",
+      "Model Drift",
+      "Retraining Cycle"
+     ],
+     "files": []
+    },
+    {
+     "n": 5,
+     "date": "2026-08-24",
+     "title": "Linear Regression, Simple Linear Regression, Ordinary Least Squares (OLS)",
+     "topics": [
+      "Linear Regression",
+      "Simple Linear Regression",
+      "Ordinary Least Squares (OLS)"
+     ],
+     "files": []
+    },
+    {
+     "n": 6,
+     "date": "2026-08-26",
+     "title": "Multiple Linear Regression, Normal Equation",
+     "topics": [
+      "Multiple Linear Regression",
+      "Normal Equation"
+     ],
+     "files": []
+    },
+    {
+     "n": 7,
+     "date": "2026-08-31",
+     "title": "Gradient Descent, Optimization, Gradient, Batch Gradient Descent, Learning Rate, ...",
+     "topics": [
+      "Gradient Descent",
+      "Gradient",
+      "Optimization",
+      "Learning Rate",
+      "Batch Gradient Descent",
+      "Epochs"
+     ],
+     "files": []
+    },
+    {
+     "n": 8,
+     "date": "2026-09-02",
+     "title": "Stochastic Gradient Descent, Mini-batch Gradient Descent",
+     "topics": [
+      "Stochastic Gradient Descent",
+      "Mini-batch Gradient Descent"
+     ],
+     "files": []
+    },
+    {
+     "n": 9,
+     "date": "2026-09-07",
+     "title": "Evaluation Metrics, Regression Metrics, Mean Absolute Error (MAE), Mean Absolute ...",
+     "topics": [
+      "Mean Squared Error (MSE)",
+      "Mean Absolute Error (MAE)",
+      "Regression Metrics",
+      "Evaluation Metrics",
+      "Mean Absolute Percentage Error (MAPE)",
+      "Root Mean Squared Error (RMSE)",
+      "R-Squared Score",
+      "Total Sum of Squares (TSS)",
+      "Residual Sum of Squares (RSS)",
+      "Explained Variation"
+     ],
+     "files": []
+    },
+    {
+     "n": 10,
+     "date": "2026-09-09",
+     "title": "Adjusted R-Squared Score, Classification Metrics, Accuracy, Confusion Matrix, Pr ...",
+     "topics": [
+      "Feature Transformation",
+      "Polynomial Regression",
+      "Classification Metrics",
+      "F1 Score",
+      "Linear regression assumptions",
+      "Confusion Matrix",
+      "Precision",
+      "Recall",
+      "Adjusted R-Squared Score",
+      "Linearity",
+      "Normality of Residuals",
+      "Homoscedasticity",
+      "Independence of Errors",
+      "Multicollinearity",
+      "Accuracy",
+      "Macro Average",
+      "Weighted Average",
+      "Micro Average"
+     ],
+     "files": []
+    },
+    {
+     "n": 11,
+     "date": "2026-09-14",
+     "title": "Model Tuning, Population True Function, White noise, Irreducible Error, Model Es ...",
+     "topics": [
+      "Variance",
+      "Cross-Validation",
+      "Underfitting",
+      "Overfitting",
+      "White noise",
+      "Bias",
+      "Model Tuning",
+      "Population True Function",
+      "Irreducible Error",
+      "Model Estimator",
+      "Bias-Variance Decomposition"
+     ],
+     "files": []
+    },
+    {
+     "n": 12,
+     "date": "2026-09-16",
+     "title": "Feature Selection, Curse of Dimensionality, Filter Methods, Variance Threshold,  ...",
+     "topics": [
+      "Feature Selection",
+      "Pearson Correlation",
+      "Curse of Dimensionality",
+      "Filter Methods",
+      "Variance Threshold",
+      "Wrapper Methods",
+      "Exhaustive Search",
+      "Backward Elimination",
+      "Forward Selection"
+     ],
+     "files": []
+    },
+    {
+     "n": 13,
+     "date": "2026-09-21",
+     "title": "Feature Extraction, Principal Component Analysis (PCA), Orthogonality, Covarianc ...",
+     "topics": [
+      "Principal Component Analysis (PCA)",
+      "Feature Extraction",
+      "Eigen values",
+      "Eigen vectors",
+      "Orthogonality",
+      "Covariance Matrix",
+      "Explained Variance Ratio"
+     ],
+     "files": []
+    },
+    {
+     "n": 14,
+     "date": "2026-09-23",
+     "title": "Scree Plot, Regularization, Ridge Regression, Lasso Regression, Data Sparsity",
+     "topics": [],
+     "files": []
+    },
+    {
+     "n": 15,
+     "date": "2026-09-28",
+     "title": "Scree Plot, Regularization, Ridge Regression, Lasso Regression, Data Sparsity",
+     "topics": [
+      "Lasso Regression",
+      "Ridge Regression",
+      "Regularization",
+      "Data Sparsity",
+      "Scree Plot"
+     ],
+     "files": []
+    },
+    {
+     "n": 16,
+     "date": "2026-09-30",
+     "title": "Time Series Modelling, Time Series Data, Time Series Components, Trend, Seasonal ...",
+     "topics": [
+      "Time Series Modelling",
+      "Time Series Data",
+      "Time Series Components",
+      "Trend",
+      "Seasonality",
+      "Noise",
+      "Stationarity",
+      "Lags",
+      "Auto Regression Model"
+     ],
+     "files": []
+    }
+   ],
+   "assignments": [
+    {
+     "assignment": "Python-Exploratory Data Analysis (EDA), Handling missing values, Outlier Detecti ... - In Class",
+     "title": "Basic Data Preprocessing",
+     "type": "newton-box",
+     "status": "Solved ✓",
+     "difficulty": "Easy",
+     "question": "<p>You are given a synthetic dataset file <strong>employee.csv</strong>&nbsp;containing columns: Name, Age, Salary, Department. The dataset contains missing values and duplicate rows. Use the provided notebook to complete the tasks below.</p>\r\n\r\n<p>Tasks</p>\r\n\r\n<ul>\r\n\t<li>\r\n\t<ul>\r\n\t\t<li><strong>Load data</strong>: Read&nbsp;<strong>employee.csv</strong>&nbsp;into a DataFrame and display the first rows and shape.</li>\r\n\t\t<li><strong>Inspect quality</strong>: Compute and report the total number of missing values and the number of duplicate rows (before any changes).</li>\r\n\t\t<li><strong>Impute missing values</strong>: Fill missing values in Age and Salary using the column mean; show counts of missing values before and after imputation.</li>\r\n\t\t<li><strong>Remove duplicates</strong>: Identify duplicate rows, remove them, and report the DataFrame shape before and after deduplication.</li>\r\n\t</ul>\r\n\t</li>\r\n</ul>",
+     "input": "",
+     "output": "",
+     "example": "",
+     "constraints": ""
+    },
+    {
+     "assignment": "Python-Exploratory Data Analysis (EDA), Handling missing values, Outlier Detecti ... - Post Class",
+     "title": "Data Preprocessing Exercise",
+     "type": "newton-box",
+     "status": "Solved ✓",
+     "difficulty": "Easy",
+     "question": "The file contains booking records across various <strong>properties and platforms</strong>. Each <strong>row</strong>&nbsp;captures details about a <strong>single booking</strong>, from when it was made to its outcome, along with <strong>customer ratings and revenue figures</strong>.<br />\r\nNote:<br />\r\n<strong>revenue_generated</strong>: Total revenue expected from the booking before any cancellations or losses.<br />\r\n<strong>revenue_realized</strong>: Actual revenue received by the hotel after any cancellations or refunds.<br />\r\n<br />\r\n<br />\r\n<strong>Try out the questions given in the form of tasks</strong><br />\r\n<br />\r\n<b>Task 1</b>:<br />\r\nUpdate the function check_duplicate and return the total duplicate count.\r\n<p><br />\r\n<strong>Task 2</strong>:&nbsp;<br />\r\nFind the mean of the revenue_generated.<br />\r\n<br />\r\n<strong>Task 3</strong>:&nbsp;<br />\r\nFind the percentage of null cells that are there in the data</p>\r\n<strong>Task 4:</strong><br />\r\nFind the room category that has the maximum bookings.<br />\r\n<br />\r\n<strong>Task 5:</strong><br />\r\nFind the total booking that got cancelled.<br />\r\n<br />\r\n&nbsp;",
+     "input": "",
+     "output": "",
+     "example": "",
+     "constraints": ""
+    },
+    {
+     "assignment": "Feature Scaling, Normalization, Standardization, Max Absolute Scaling, Robust Sc ... - In Class",
+     "title": "Data Preprocessing",
+     "type": "newton-box",
+     "status": "Solved ✓",
+     "difficulty": "Hard",
+     "question": "<h2>Data Preprocessing Challenge: Customer Engagement Analysis (Simple Version)</h2>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><b>Context:</b> You are a Data Analyst at a tech company specializing in subscription-based services. You&#39;ve been provided with a raw, &quot;messy&quot; dataset containing information about customer engagement and subscription status. Your goal is to preprocess this data to make it suitable for machine learning model training. The key challenges involve handling various data quality issues.</p>\r\n\r\n<p><b>Objective:</b> Clean and prepare the <code>preprocessing_question_data_simple.csv</code> dataset by performing the following steps:</p>\r\n\r\n<ol start=\"1\">\r\n\t<li>\r\n\t<p><b>Load the Dataset</b></p>\r\n\t</li>\r\n\t<li>\r\n\t<p><b>Handle Duplicate Values</b></p>\r\n\t</li>\r\n\t<li>\r\n\t<p><b>Address Missing Values</b></p>\r\n\t</li>\r\n\t<li>\r\n\t<p><b>Encode Categorical Features</b></p>\r\n\t</li>\r\n\t<li>\r\n\t<p><b>Perform Standardization for Numerical Features<br />\r\n\t<br />\r\n\tHandle Missing value</b></p>\r\n\t</li>\r\n</ol>\r\n\r\n<p><b>Dataset Description (<code>preprocessing_question_data_simple.csv</code>):</b></p>\r\n\r\n<ul>\r\n\t<li>\r\n\t<p><code>CustomerID</code>: Unique identifier for each customer. (Should be dropped)</p>\r\n\t</li>\r\n\t<li>\r\n\t<p><code>Age</code>: Customer&#39;s age in years. (Numerical, includes missing values, needs standardization)</p>\r\n\t</li>\r\n\t<li>\r\n\t<p><code>Product_Category</code>: The primary product category the customer engages with. (Nominal Categorical, includes missing values, consistent casing)</p>\r\n\t</li>\r\n\t<li>\r\n\t<p><code>Monthly_Spend</code>: Average monthly expenditure by the customer. (Numerical, includes missing values, has outliers, needs standardization)</p>\r\n\t</li>\r\n\t<li>\r\n\t<p><code>Has_Subscription</code>: Binary target variable (0 = No Subscription, 1 = Has Subscription). (Binary, target variable)</p>\r\n\t</li>\r\n</ul>",
+     "input": "",
+     "output": "",
+     "example": "",
+     "constraints": ""
+    },
+    {
+     "assignment": "Feature Scaling, Normalization, Standardization, Max Absolute Scaling, Robust Sc ... - In Class",
+     "title": "Data Preprocessing pipeline 1",
+     "type": "newton-box",
+     "status": "Solved ✓",
+     "difficulty": "Hard",
+     "question": "<p><strong>Your task is to build a preprocessing pipeline that:</strong></p>\r\n\r\n<ol>\r\n\t<li>Fills missing values in <strong>numeric columns</strong> (<code>Age</code>, <code>Score</code>) using their <strong>mean</strong> with <code>fillna()</code></li>\r\n\t<li>Fills missing values in <strong>categorical columns</strong> (<code>Gender</code>, <code>City</code>) using their <strong>mode</strong> with <code>fillna()</code></li>\r\n\t<li>Applies <strong>Label Encoding</strong> on <code>Gender</code> (binary category)</li>\r\n\t<li>Applies <strong>One-Hot Encoding</strong> on <code>City</code> (multi-class category)</li>\r\n\t<li>Applies <strong>Standard Scaling</strong> on <code>Age</code> and <strong>Min-Max Scaling</strong> on <code>Score</code></li>\r\n\t<li>Prints the <strong>final preprocessed DataFrame</strong></li>\r\n</ol>",
+     "input": "",
+     "output": "",
+     "example": "",
+     "constraints": ""
+    },
+    {
+     "assignment": "Gradient Descent, Optimization, Gradient, Batch Gradient Descent, Learning Rate, ... - In Class",
+     "title": "Batch Gradient Descent for Linear Regression",
+     "type": "code",
+     "status": "Solved ✓",
+     "difficulty": "Medium",
+     "question": "In this problem, you will implement a simplified version of Batch Gradient Descent (BGD).<br />\r\nThe model contains only a weight <code>w</code>. <strong>The bias term is fixed at 0.</strong><br />\r\nModel: <code>y = w &times; x</code><br />\r\n<br />\r\n<strong>What You Need to Implement:&nbsp;</strong>Starting with <code>w = 0</code>, train the model for the given number of epochs.\r\n<pre>\r\n<code>1. Initialize w = 0.\r\n2. Set the random seed to 42 using numpy.\r\n3. For each epoch (repeat `epochs` times):\r\n     * For every data point (x_i, y_i), compute its own gradient contribution:\r\n         prediction_i = w × x_i\r\n         grad_i = 2 × (prediction_i − y_i) × x_i\r\n     * Average all N gradient contributions together:\r\n         dw = (grad_1 + grad_2 + ... + grad_N) / N\r\n     * Update the weight ONCE, using the averaged gradient:\r\n         w = w − learning_rate × dw\r\n4. After all epochs are complete, return w rounded to 2 decimal places.</code></pre>",
+     "input": "The first line contains an integer N, representing the number of data points.\r\nThe next N lines each contain two space-separated numbers x and y.\r\n\r\nx represents the input feature.\r\ny represents the target value.\r\n\r\nThe next line contains a floating point number learning_rate.\r\nThe last line contains an integer epochs, representing the number of times the dataset should be processed.",
+     "output": "Print the final value of w after completing all Batch Gradient Descent updates, rounded to 2 decimal places.",
+     "example": "Example 1:\r\n\r\nInput:\r\n10\r\n1 0.5\r\n2 1\r\n3 1.5\r\n4 2\r\n5 2.5\r\n6 3\r\n7 3.5\r\n8 4\r\n9 4.5\r\n10 5\r\n0.001\r\n500\r\n\r\nOutput:\r\n0.5\r\n\r\nExample 2:\r\n\r\nInput:\r\n3\r\n1 2\r\n2 4\r\n3 6\r\n0.001\r\n100\r\n\r\nOutput:\r\n1.22\r\n\r\n",
+     "constraints": "1 <= N <= 10^4\r\n1 <= epochs <= 10^3\r\n-1000 <= x, y <= 1000\r\n0 < learning_rate <= 1",
+     "my_solution": {
+      "language": "Python (3.12.7) for ML",
+      "code": "import numpy as np\n\ndef train_bgd(x, y, learning_rate, epochs):\n    np.random.seed(42)\n    \n    x = np.array(x, dtype=np.float64)\n    y = np.array(y, dtype=np.float64)\n    \n    w = 0.0\n    N = len(x)\n    \n    for _ in range(epochs):\n        predictions = w * x\n        dw = np.mean(2 * (predictions - y) * x)\n        w = w - learning_rate * dw\n        \n    return round(w, 2)"
+     }
+    },
+    {
+     "assignment": "Gradient Descent, Optimization, Gradient, Batch Gradient Descent, Learning Rate, ... - Post Class",
+     "title": "Compute the Best-Fit Line (Ordinary Least Squares)",
+     "type": "code",
+     "status": "Solved ✓",
+     "difficulty": "Hard",
+     "question": "<p>The regression equation is &lt;inlineMath&gt;\\hat{y}=mx+b&lt;/inlineMath&gt;, where &lt;inlineMath&gt;m&lt;/inlineMath&gt; is the slope and &lt;inlineMath&gt;b&lt;/inlineMath&gt; is the intercept. Compute the slope using:<br />\r\n<br />\r\n&lt;inlineMath&gt;m=\\frac{\\sum_{i=1}^{n}(x_i-\\bar{x})(y_i-\\bar{y})}{\\sum_{i=1}^{n}(x_i-\\bar{x})^2}&lt;/inlineMath&gt;<br />\r\n<br />\r\nCompute the intercept using &lt;inlineMath&gt;b=\\bar{y}-m\\bar{x}&lt;/inlineMath&gt;. Return both values rounded to 2 decimal places. If all values in &lt;inlineMath&gt;x&lt;/inlineMath&gt; are identical (making the denominator zero), return &lt;inlineMath&gt;[-1.0,-1.0]&lt;/inlineMath&gt;.<br />\r\n<br />\r\nDefinitions:<br />\r\n<br />\r\n&bull; &lt;inlineMath&gt;x_i&lt;/inlineMath&gt; is the &lt;inlineMath&gt;i&lt;/inlineMath&gt;-th value of the &lt;inlineMath&gt;X&lt;/inlineMath&gt; variable.<br />\r\n&nbsp; &bull; If &lt;inlineMath&gt;i=1&lt;/inlineMath&gt;, then &lt;inlineMath&gt;x_1&lt;/inlineMath&gt; is the first &lt;inlineMath&gt;X&lt;/inlineMath&gt; value.<br />\r\n&nbsp; &bull; If &lt;inlineMath&gt;i=2&lt;/inlineMath&gt;, then &lt;inlineMath&gt;x_2&lt;/inlineMath&gt; is the second &lt;inlineMath&gt;X&lt;/inlineMath&gt; value.<br />\r\n&nbsp; &bull; And so on.<br />\r\n<br />\r\n&bull; &lt;inlineMath&gt;\\bar{x}&lt;/inlineMath&gt; (pronounced &quot;x bar&quot;) is the mean (average) of all &lt;inlineMath&gt;X&lt;/inlineMath&gt; values.<br />\r\n<br />\r\n&lt;inlineMath&gt;\\bar{x}=\\frac{x_1+x_2+\\cdots+x_n}{n}&lt;/inlineMath&gt;<br />\r\n<br />\r\nSimilarly,<br />\r\n<br />\r\n&bull; &lt;inlineMath&gt;y_i&lt;/inlineMath&gt; is the &lt;inlineMath&gt;i&lt;/inlineMath&gt;-th value of the &lt;inlineMath&gt;Y&lt;/inlineMath&gt; variable.<br />\r\n<br />\r\n&bull; &lt;inlineMath&gt;\\bar{y}&lt;/inlineMath&gt; (pronounced &quot;y bar&quot;) is the mean (average) of all &lt;inlineMath&gt;Y&lt;/inlineMath&gt; values.<br />\r\n<br />\r\n&lt;inlineMath&gt;\\bar{y}=\\frac{y_1+y_2+\\cdots+y_n}{n}&lt;/inlineMath&gt;</p>",
+     "input": "The first line contains an integer n, the number of observations.\r\nThe second line contains n space-separated real numbers representing the array x.\r\nThe third line contains n space-separated real numbers representing the array y.",
+     "output": "Print space-separated numbers:\r\nthe slope (m)\r\nthe intercept (b)\r\nBoth values must be rounded to 2 decimal places.\r\nIf the regression line cannot be computed, print [-1.0,-1.0]",
+     "example": "input :\r\n5\r\n1 2 3 4 5\r\n2 4 5 4 5\r\noutput : \r\n0.60 2.20",
+     "constraints": "1 ≤ n ≤ 10^5\r\nlen(x)==len(y)\r\n-10^6 ≤ x[i],y[i] ≤ 10^6\r\nValues may be integers or floating-point numbers.",
+     "my_solution": {
+      "language": "Python (3.12.7) for ML",
+      "code": "def compute_ols(x, y):\n    n = len(x)\n    if n == 0:\n        return [-1.0, -1.0]\n\n    x_bar = sum(x) / n\n    y_bar = sum(y) / n\n\n    numerator = sum((xi - x_bar) * (yi - y_bar) for xi, yi in zip(x, y))\n    denominator = sum((xi - x_bar) ** 2 for xi in x)\n\n    # If denominator is 0 (all x values are identical)\n    if denominator == 0:\n        return [-1.0, -1.0]\n\n    m = numerator / denominator\n    b = y_bar - m * x_bar\n\n    return [round(m, 2), round(b, 2)]"
+     }
+    },
+    {
+     "assignment": "Gradient Descent, Optimization, Gradient, Batch Gradient Descent, Learning Rate, ... - Post Class",
+     "title": "OLS Method implementation",
+     "type": "code",
+     "status": "Attempted",
+     "difficulty": "Hard",
+     "question": "<p>You are given a training dataset containing multiple input features and a target value for each sample.</p>\r\n\r\n<p>Implement the function <code>fit_multiple_lr_beta(X, y)</code> to calculate the <strong>Multiple Linear Regression</strong> coefficients (<strong>&beta;</strong>) from scratch using the <strong>Ordinary Least Squares (OLS)</strong> Normal Equation.</p>\r\n\r\n<p>For <strong>Multiple Linear Regression (MLR)</strong>, the prediction equation (hypothesis) using the <strong>Ordinary Least Squares (OLS)</strong> method is:</p>\r\n\r\n<p style=\"font-size:18px; text-align:center;\">&nbsp; ŷ = &beta;<sub>0</sub> + &beta;<sub>1</sub>x<sub>1</sub> + &beta;<sub>2</sub>x<sub>2</sub> + &hellip; + &beta;<sub>n</sub>x<sub>n</sub></p>\r\n\r\n<p>Or in matrix notation:</p>\r\n\r\n<p style=\"font-size:18px; text-align:center;\">&nbsp; <strong>ŷ = X&beta;</strong></p>\r\n\r\n<p style=\"text-align:center; font-weight:bold;\">Matrix Representation<br />\r\n<br />\r\n<img src=\"https://quicklatex.com/cache3/ca/ql_7482b6b37b20b633351238dbbf3cd6ca_l3.png\" /><br />\r\n&nbsp;</p>\r\n\r\n<p>The <strong>Normal Equation</strong> used to compute the coefficient vector is:</p>\r\n\r\n<p style=\"font-size:18px; text-align:center;\"><strong>&beta; = (X<sup>T</sup>X)<sup>&minus;1</sup>X<sup>T</sup>y</strong></p>\r\n\r\n<p>Your implementation must perform the computation <strong>step-by-step</strong>:</p>\r\n\r\n<ol>\r\n\t<li>Prepend a column of <strong>1s</strong> to the feature matrix <strong>X</strong> to account for the intercept term (<strong>&beta;<sub>0</sub></strong>).</li>\r\n\t<li>Compute the transpose of the padded matrix (<strong>X<sup>T</sup></strong>).</li>\r\n\t<li>Compute <strong>X<sup>T</sup>X</strong>.</li>\r\n\t<li>Compute the inverse of <strong>X<sup>T</sup>X</strong>.</li>\r\n\t<li>Compute <strong>X<sup>T</sup>y</strong>.</li>\r\n\t<li>Compute the coefficient vector:\r\n\t<p style=\"text-align:center;\"><strong>&beta; = (X<sup>T</sup>X)<sup>&minus;1</sup>X<sup>T</sup>y</strong></p>\r\n\t</li>\r\n</ol>\r\n\r\n<p>Return the coefficient vector <strong>&beta;</strong>.</p>",
+     "input": "The first line contains an integer N, the number of training samples and total number of feature M.\r\nEach of the next N lines contains M feature values followed by the target value.\r\nThe first M values represent the feature vector, and the last value represents the target variable.\r\nThe number of features M is determined automatically from the input.\r\n\r\nFirst input line contain the number of rows and the total features: Here \"5 is number of rows\" and 2 is \"Number of features X\". First n-1 column are the \"X features\" The last column is the \"Target Y\".",
+     "output": "Print the regression coefficients (including the intercept) as a NumPy array rounded to 2 decimal places.",
+     "example": "<h3>Sample Input:</h3>\r\n<pre>\r\n5 2\r\n3 98 60\r\n1 81 44\r\n5 100 51\r\n4 85 55\r\n2 70 40\r\n</pre>\r\n<p><strong>Explanation:</strong></p>\r\n<p>First input line contain the number of rows and the total features: Here 5 is number of rows and 2 is \"Number of features X\". The last column is the \"Target Y\"</p>\r\n<p>Each row contains:</p>\r\n<p>\r\n<code>Feature1 Feature2 Target</code>\r\n</p>\r\n<p>For example,</p>\r\n<p>\r\n<code>3 98 60</code> means:\r\n</p>\r\n<ul>\r\n    <li>Feature 1 = 3</li>\r\n    <li>Feature 2 = 98</li>\r\n    <li>Target = 60</li>\r\n</ul>\r\n<h3>Sample Output:</h3>\r\n<pre>\r\n[6.62 0.31 0.49]\r\n</pre>\r\n<p><strong>Explanation:</strong></p>\r\n<p>The returned coefficient vector is:</p>\r\n<p style=\"text-align:center;\">\r\n    <strong>[&beta;<sub>0</sub> &nbsp;&beta;<sub>1</sub> &nbsp;&beta;<sub>2</sub>]</strong>\r\n</p>\r\n<ul>\r\n    <li><strong>&beta;<sub>0</sub> = 6.62</strong> &rarr; Intercept</li>\r\n    <li><strong>&beta;<sub>1</sub> = 0.31</strong> &rarr; Coefficient of Feature 1</li>\r\n    <li><strong>&beta;<sub>2</sub> = 0.49</strong> &rarr; Coefficient of Feature 2</li>\r\n</ul>",
+     "constraints": "<p><strong>Constraints:</strong></p>\r\n\r\n<ul>\r\n    <li><code>1 &le; X.shape[0] &le; 10<sup>4</sup></code> (Number of properties)</li>\r\n    <li><code>1 &le; X.shape[1] &le; 20</code> (Number of features)</li>\r\n    <li><code>X.shape[0] == len(y)</code></li>\r\n    <li>The matrix <code>X<sup>T</sup>X</code> is guaranteed to be full rank and invertible.</li>\r\n    <li>You may use <code>numpy</code> for matrix operations (e.g., <code>np.hstack</code>, <code>np.linalg.inv</code>, etc.), but you must not use machine learning libraries such as <code>scikit-learn</code> or <code>statsmodels</code>.</li>\r\n</ul>"
+    },
+    {
+     "assignment": "Gradient Descent, Optimization, Gradient, Batch Gradient Descent, Learning Rate, ... - Post Class",
+     "title": "Evaluate a Linear Regression Model",
+     "type": "code",
+     "status": "Attempted",
+     "difficulty": "Hard",
+     "question": "<p>You are given two arrays representing a dataset:</p>\r\n\r\n<ul>\r\n\t<li><code>y_true[i]</code> denotes the actual value of the <em>i-th</em> observation.</li>\r\n\t<li><code>y_pred[i]</code> denotes the predicted value of the <em>i-th</em> observation generated by a regression model.</li>\r\n</ul>\r\n\r\n<p>Your task is to evaluate the regression model by computing the following metrics:</p>\r\n\r\n<p><strong>Mean Absolute Error (MAE)</strong></p>\r\n\r\n<p style=\"text-align:center;\"><strong>MAE = <span style=\"display:inline-block; vertical-align:middle; text-align:center;\"> <span style=\"display:block; border-bottom:1px solid #000;\">1</span> <span style=\"display:block;\">n</span> </span> &nbsp; &sum;<sub>i=1</sub><sup>n</sup> |y<sub>i</sub> &minus; ŷ<sub>i</sub>| </strong></p>\r\n\r\n<p><strong>Mean Squared Error (MSE)</strong></p>\r\n\r\n<p style=\"text-align:center;\"><strong>MSE = <span style=\"display:inline-block; vertical-align:middle; text-align:center;\"> <span style=\"display:block; border-bottom:1px solid #000;\">1</span> <span style=\"display:block;\">n</span> </span> &nbsp; &sum;<sub>i=1</sub><sup>n</sup> (y<sub>i</sub> &minus; ŷ<sub>i</sub>)<sup>2</sup> </strong></p>\r\n\r\n<p>where:</p>\r\n\r\n<ul>\r\n\t<li><strong>y<sub>i</sub></strong> is the actual value.</li>\r\n\t<li><strong>ŷ<sub>i</sub></strong> is the predicted value.</li>\r\n\t<li><strong>n</strong> is the total number of observations.</li>\r\n</ul>\r\n\r\n<p>Return both <strong>MAE</strong> and <strong>MSE</strong>, rounded to <strong>2 decimal places</strong>.</p>",
+     "input": "The first line contains an integer n, the number of observations.\r\nThe second line contains n space-separated real numbers representing the array y_true.\r\nThe third line contains n space-separated real numbers representing the array y_pred.",
+     "output": "Print two space-separated numbers:  MAE MSE. rounded to 2 decimal places.",
+     "example": "Input: \r\n5\r\n2 4 5 4 5\r\n2.8 3.4 4.0 4.6 5.2\r\noutput:\r\n0.64 0.48",
+     "constraints": "1 ≤ n ≤ 10^5\r\nlen(y_true) = len(y_pred) = n\r\n-10^6 ≤ y_true[i], y_pred[i] ≤ 10^6"
+    },
+    {
+     "assignment": "Gradient Descent, Optimization, Gradient, Batch Gradient Descent, Learning Rate, ... - Post Class",
+     "title": "MLR on student data",
+     "type": "newton-box",
+     "status": "Attempted",
+     "difficulty": "Hard",
+     "question": "<h2 data-end=\"267\" data-section-id=\"adebpp\" data-start=\"222\">Student Performance Prediction</h2>\r\n\r\n<p data-end=\"398\" data-start=\"269\">A teacher collected data about students&#39; study habits and wants to predict their <strong data-end=\"364\" data-start=\"350\">Exam Score</strong> using Multiple Linear Regression.</p>\r\n\r\n<p data-end=\"444\" data-start=\"400\">The dataset contains the following features:</p>\r\n\r\n<ul data-end=\"631\" data-start=\"446\">\r\n\t<li data-end=\"493\" data-section-id=\"ifvo3g\" data-start=\"446\"><strong data-end=\"463\" data-start=\"448\">Study_Hours</strong> &ndash; Average study hours per day</li>\r\n\t<li data-end=\"534\" data-section-id=\"1at3js3\" data-start=\"494\"><strong data-end=\"510\" data-start=\"496\">Attendance</strong> &ndash; Attendance percentage</li>\r\n\t<li data-end=\"586\" data-section-id=\"su46sc\" data-start=\"535\"><strong data-end=\"552\" data-start=\"537\">Assignments</strong> &ndash; Number of assignments completed</li>\r\n\t<li data-end=\"631\" data-section-id=\"mhph88\" data-start=\"587\"><strong data-end=\"603\" data-start=\"589\">Exam_Score</strong> &ndash; Final exam score (Target)</li>\r\n</ul>\r\n\r\n<p data-end=\"669\" data-start=\"633\">One value in the dataset is missing.</p>\r\n\r\n<h2 data-end=\"1030\" data-section-id=\"xl9q1n\" data-start=\"1022\">Tasks</h2>\r\n\r\n<ol data-end=\"1753\" data-start=\"1032\">\r\n\t<li data-end=\"1079\" data-section-id=\"g57ner\" data-start=\"1032\">Display the first <strong data-end=\"1063\" data-start=\"1053\">5 rows</strong> of the dataset.</li>\r\n\t<li data-end=\"1137\" data-section-id=\"133uf1e\" data-start=\"1080\">Check whether the dataset contains any missing values.</li>\r\n\t<li data-end=\"1201\" data-section-id=\"rdai9u\" data-start=\"1138\">Replace the missing value using the <strong data-end=\"1185\" data-start=\"1177\">mean</strong> of that column.</li>\r\n\t<li data-end=\"1272\" data-section-id=\"zuz7yq\" data-start=\"1202\">Plot a <strong data-end=\"1228\" data-start=\"1212\">scatter plot</strong> between <strong data-end=\"1252\" data-start=\"1237\">Study_Hours</strong> and <strong data-end=\"1271\" data-start=\"1257\">Exam_Score</strong>.</li>\r\n\t<li data-end=\"1315\" data-section-id=\"p1ozm0\" data-start=\"1273\">Plot a <strong data-end=\"1296\" data-start=\"1283\">histogram</strong> of <strong data-end=\"1314\" data-start=\"1300\">Attendance</strong>.</li>\r\n\t<li data-end=\"1454\" data-section-id=\"1h940vt\" data-start=\"1316\">Train a <strong data-end=\"1357\" data-start=\"1327\">Multiple Linear Regression</strong> model using:\r\n\t<ul data-end=\"1454\" data-start=\"1374\">\r\n\t\t<li data-end=\"1428\" data-section-id=\"ocb2c1\" data-start=\"1374\">Features: <code data-end=\"1399\" data-start=\"1386\">Study_Hours</code>, <code data-end=\"1413\" data-start=\"1401\">Attendance</code>, <code data-end=\"1428\" data-start=\"1415\">Assignments</code></li>\r\n\t\t<li data-end=\"1454\" data-section-id=\"16g0vd1\" data-start=\"1432\">Target: <code data-end=\"1454\" data-start=\"1442\">Exam_Score</code></li>\r\n\t</ul>\r\n\t</li>\r\n\t<li data-end=\"1569\" data-section-id=\"101po2f\" data-start=\"1455\">Print:\r\n\t<ul data-end=\"1569\" data-start=\"1468\">\r\n\t\t<li data-end=\"1515\" data-section-id=\"9l4yh5\" data-start=\"1468\">Model Intercept (rounded to 2 decimal places)</li>\r\n\t\t<li data-end=\"1569\" data-section-id=\"autsjt\" data-start=\"1519\">Model Coefficients (rounded to 2 decimal places)</li>\r\n\t</ul>\r\n\t</li>\r\n\t<li data-end=\"1691\" data-section-id=\"4wdbsk\" data-start=\"1570\">Predict the exam score for a student with:\r\n\t<ul data-end=\"1691\" data-start=\"1619\">\r\n\t\t<li data-end=\"1640\" data-section-id=\"k8hru9\" data-start=\"1619\">Study Hours = <strong data-end=\"1640\" data-start=\"1635\">8</strong></li>\r\n\t\t<li data-end=\"1665\" data-section-id=\"1au7ri3\" data-start=\"1644\">Attendance = <strong data-end=\"1665\" data-start=\"1659\">90</strong></li>\r\n\t\t<li data-end=\"1691\" data-section-id=\"exqn5g\" data-start=\"1669\">Assignments = <strong data-end=\"1691\" data-start=\"1685\">10</strong></li>\r\n\t</ul>\r\n\t</li>\r\n\t<li data-end=\"1753\" data-section-id=\"jr8q2x\" data-start=\"1692\">Print the predicted score rounded to <strong data-end=\"1752\" data-start=\"1732\">2 decimal places</strong>.</li>\r\n</ol>",
+     "input": "",
+     "output": "",
+     "example": "",
+     "constraints": ""
+    },
+    {
+     "assignment": "Stochastic Gradient Descent, Mini-batch Gradient Descent, Evaluation Metrics, Re ... - In Class",
+     "title": "SGD",
+     "type": "code",
+     "status": "Attempted",
+     "difficulty": "Easy",
+     "question": "<style type=\"text/css\">.sgd-container {\r\n    font-family: Arial, sans-serif;\r\n    line-height: 1.8;\r\n    color: #222;\r\n}\r\n\r\n.section-title {\r\n    margin-top: 28px;\r\n    margin-bottom: 10px;\r\n}\r\n\r\n.info-box {\r\n    border: 1px solid #ddd;\r\n    border-radius: 8px;\r\n    padding: 12px;\r\n    background: #fafafa;\r\n    margin: 10px 0;\r\n}\r\n\r\n.step-space {\r\n    margin-bottom: 30px;\r\n}\r\n</style>\r\n<div class=\"sgd-container\">\r\n<h2>Stochastic Gradient Descent (SGD) for Linear Regression</h2>\r\n\r\n<p>In this problem, you will implement a simplified version of <b>Stochastic Gradient Descent (SGD)</b>.</p>\r\n\r\n<p>The model contains only a weight <b>w</b>. The bias term is fixed at <b>0</b>.</p>\r\n\r\n<div class=\"info-box\"><b>Model:</b> y = w &times; x</div>\r\n\r\n<div align=\"center\"><img alt=\"Gradient Descent Animation\" src=\"https://baptiste-monpezat.github.io/4e5a14da749976ec2770eaded04098d4/gradient_descent.gif\" width=\"500\" /><br />\r\n<small>Visualization of gradient descent moving toward a better solution. </small></div>\r\n\r\n<h3 class=\"section-title\">What You Need to Implement</h3>\r\n\r\n<p>Starting with <b>w = 0</b>, train the model for the given number of epochs. At the beginning of each epoch, shuffle the training examples before processing them.</p>\r\n\r\n<p>To ensure that everyone gets the same result, use the following rule:</p>\r\n\r\n<div class=\"info-box\">Set the random seed to <b>42</b> before every shuffle.</div>\r\n\r\n<p><strong>Algorithm:</strong></p>\r\n\r\n<ol>\r\n\t<li>Initialize <code>w = 0</code>.</li>\r\n\t<li><strong>Set</strong> the random seed to 42 using <font face=\"monospace\">numpy</font>.</li>\r\n\t<li>For each epoch (repeat <code>epochs</code> times):\r\n\t<ul>\r\n\t\t<li>Create an array of indices <code>[0, 1, 2, ..., N-1]</code>.</li>\r\n\t\t<li>Shuffle the indices <strong>in-place</strong> using&nbsp;<code>shuffle function from</code>&nbsp;<code>np.random</code>.</li>\r\n\t\t<li>For each index <code>i</code> in the shuffled order:\r\n\t\t<ul>\r\n\t\t\t<li>Compute the prediction: <code>prediction = w &times; X[i]</code></li>\r\n\t\t\t<li>Compute the gradient: <code>dw = 2 &times; (prediction &minus; Y[i]) &times; X[i]</code></li>\r\n\t\t\t<li>Update the weight immediately: <code>w = w &minus; learning_rate &times; dw</code></li>\r\n\t\t</ul>\r\n\t\t</li>\r\n\t</ul>\r\n\t</li>\r\n\t<li>After all epochs are complete, return <code>w</code> rounded to 2 decimal places.</li>\r\n</ol>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<div class=\"step-space\">\r\n<h3 class=\"section-title\">&nbsp;</h3>\r\n</div>\r\n</div>",
+     "input": "The first line contains an integer N, representing the number of data points.\r\nThe next N lines each contain two space-separated numbers x and y.\r\nx represents the input feature.\r\ny represents the target value.\r\nThe next line contains a floating point number learning_rate.\r\nThe last line contains an integer epochs, representing the number of times the dataset should be processed.",
+     "output": "Print the final value of w and b after completing all SGD updates.\r\nPrint both values separated by a single space.\r\nRound both values to 2 decimal places.",
+     "example": "Example 1:\r\n\r\nInput:\r\n10\r\n1 0.5\r\n2 1\r\n3 1.5\r\n4 2\r\n5 2.5\r\n6 3\r\n7 3.5\r\n8 4\r\n9 4.5\r\n10 5\r\n0.001\r\n500\r\n\r\nOutput:\r\n0.5\r\n\r\nExample 2:\r\n\r\nInput:\r\n3\r\n1 2\r\n2 4\r\n3 6\r\n0.001\r\n100\r\n\r\nOutput:\r\n1.88",
+     "constraints": "1 <= N <= 10^4\r\n1 <= epochs <= 10^3\r\n-1000 <= x, y <= 1000\r\n0 < learning_rate <= 1"
+    },
+    {
+     "assignment": "Stochastic Gradient Descent, Mini-batch Gradient Descent - Post Class",
+     "title": "Mini-Batch Gradient Descent for Linear Regression",
+     "type": "code",
+     "status": "Attempted",
+     "difficulty": "Easy",
+     "question": "In this problem, you will implement a simplified version of Mini-Batch Gradient Descent.<br />\r\nThe model contains only a weight <code>w</code>. The bias term is fixed at 0.<br />\r\nModel: <code>y = w &times; x</code><br />\r\n<br />\r\nStarting with <code>w = 0</code>, train the model for the given number of epochs. At the beginning of each epoch, shuffle the training examples before splitting them into mini-batches.\r\n<p><strong>Algorithm</strong>:</p>\r\n\r\n<pre>\r\n<code>1. Initialize w = 0.\r\n2. Set the random seed to 42 using numpy.\r\n3. For each epoch (repeat `epochs` times):\r\n     * Create an array of indices [0, 1, 2, ..., N-1].\r\n     * Shuffle the indices in-place using the shuffle function from np.random.\r\n     * Split the shuffled indices into consecutive groups of size `batch_size`.\r\n       (If N is not evenly divisible by batch_size, the last group is simply smaller.)\r\n     * For each group of indices:\r\n          * For every index i in the group, compute its gradient contribution:\r\n              prediction = w × X[i]\r\n              grad_i = 2 × (prediction − Y[i]) × X[i]\r\n          * Average the gradients of just this group:\r\n              dw = (sum of grad_i in this group) / (number of indices in this group)\r\n          * Update the weight ONCE for this group:\r\n              w = w − learning_rate × dw\r\n3. After all epochs are complete, return w rounded to 2 decimal places.</code></pre>\r\n\r\n<pre>\r\n<span style=\"font-family: sans-serif, Arial, Verdana, &quot;Trebuchet MS&quot;, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;;\">Note how this generalizes the other two: </span><code>batch_size = 1</code><span style=\"font-family: sans-serif, Arial, Verdana, &quot;Trebuchet MS&quot;, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;;\"> makes every group a single sample, which is exactly SGD. </span><code>batch_size = N</code><span style=\"font-family: sans-serif, Arial, Verdana, &quot;Trebuchet MS&quot;, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;;\"> makes there be only one group containing everything, which is exactly Batch GD.</span></pre>",
+     "input": "The first line contains an integer N, representing the number of data points.\r\nThe next N lines each contain two space-separated numbers x and y.\r\n\r\nx represents the input feature.\r\ny represents the target value.\r\n\r\nThe next line contains a floating point number learning_rate.\r\nThe next line contains an integer batch_size.\r\nThe last line contains an integer epochs, representing the number of times the dataset should be processed.",
+     "output": "Print the final value of w after completing all Mini-Batch Gradient Descent updates, rounded to 2 decimal places.",
+     "example": "\r\nInput:\r\n10\r\n1 0.5\r\n2 1\r\n3 1.5\r\n4 2\r\n5 2.5\r\n6 3\r\n7 3.5\r\n8 4\r\n9 4.5\r\n10 5\r\n0.001\r\n2\r\n500\r\n\r\nOutput:\r\n0.5\r\n",
+     "constraints": "1 <= N <= 10^4\r\n1 <= batch_size <= N\r\n1 <= epochs <= 10^3\r\n-1000 <= x, y <= 1000\r\n0 < learning_rate <= 1"
+    },
+    {
+     "assignment": "Evaluation Metrics, Regression Metrics, Mean Absolute Error (MAE), Mean Absolute ... - In Class",
+     "title": "Regression Error Metrics R2",
+     "type": "code",
+     "status": "Solved ✓",
+     "difficulty": "Easy",
+     "question": "<p data-end=\"450\" data-start=\"298\">In regression analysis, evaluating how well a model explains the variability in the target variable is just as important as measuring prediction errors.<br />\r\nGiven two arrays:</p>\r\n\r\n<ul>\r\n\t<li data-end=\"450\" data-start=\"298\"><font face=\"monospace\">actual</font>: the true target values</li>\r\n\t<li data-end=\"450\" data-start=\"298\"><font face=\"monospace\">predicted</font>: the predicted target values</li>\r\n</ul>\r\n\r\n<p data-end=\"595\" data-start=\"549\">compute the following&nbsp; metrics:</p>\r\n\r\n<ol data-end=\"656\" data-start=\"597\">\r\n\t<li data-end=\"637\" data-section-id=\"4hbbde\" data-start=\"597\"><strong data-end=\"637\" data-start=\"600\">R&sup2; (Coefficient of Determination)</strong></li>\r\n\t<li data-end=\"656\" data-section-id=\"9jv1d1\" data-start=\"638\"><strong data-end=\"656\" data-start=\"641\">Adjusted R&sup2;</strong></li>\r\n</ol>\r\n\r\n<p data-end=\"693\" data-start=\"658\">The metrics are defined as follows:<br />\r\n<strong>Compute the Residual Sum of Squares (RSS)</strong></p>\r\n\r\n<p data-end=\"693\" data-start=\"658\" style=\"text-align: center;\">&lt;inlineMath&gt;RSS=\\sum_{i=1}^{n}(y_i-\\hat{y}_i)^2&lt;/inlineMath&gt;</p>\r\n\r\n<p data-end=\"693\" data-start=\"658\">where</p>\r\n\r\n<ul>\r\n\t<li data-end=\"693\" data-start=\"658\">&lt;inlineMath&gt;y_i&lt;/inlineMath&gt; is the actual value.</li>\r\n\t<li data-end=\"693\" data-start=\"658\">&lt;inlineMath&gt;\\hat{y}_i&lt;/inlineMath&gt; is the predicted value.</li>\r\n</ul>\r\n\r\n<h3 data-end=\"993\" data-section-id=\"1ed6wgn\" data-start=\"943\"><strong>Compute the Total Sum of Squares (TSS)</strong></h3>\r\n\r\n<p data-end=\"1039\" data-start=\"995\">First compute the mean of the actual values.</p>\r\n\r\n<p data-end=\"1102\" data-start=\"1041\" style=\"text-align: center;\">&lt;inlineMath&gt;\\bar{y}=\\frac{1}{n}\\sum_{i=1}^{n}y_i&lt;/inlineMath&gt;</p>\r\n\r\n<p data-end=\"1102\" data-start=\"1041\">Then,</p>\r\n\r\n<p data-end=\"1102\" data-start=\"1041\" style=\"text-align: center;\">&lt;inlineMath&gt;TSS=\\sum_{i=1}^{n}(y_i-\\bar{y})^2&lt;/inlineMath&gt;</p>\r\n\r\n<h3 data-end=\"1198\" data-section-id=\"edsb1k\" data-start=\"1176\"><strong>&nbsp;Compute R&sup2;</strong></h3>\r\n\r\n<p data-end=\"1246\" data-start=\"1200\" style=\"text-align: center;\">&lt;inlineMath&gt;R^2=1-\\frac{RSS}{TSS}&lt;/inlineMath&gt;</p>\r\n\r\n<p data-end=\"1261\" data-start=\"1248\">Special Case:</p>\r\n\r\n<ul data-end=\"1333\" data-start=\"1263\">\r\n\t<li data-end=\"1333\" data-section-id=\"1yyo30u\" data-start=\"1263\">If &lt;inlineMath&gt;TSS=0&lt;/inlineMath&gt;, return <strong data-end=\"1315\" data-start=\"1307\">None</strong> for both metrics.</li>\r\n</ul>\r\n\r\n<h3 data-end=\"1371\" data-section-id=\"l6zv3n\" data-start=\"1340\">&nbsp;<strong>Compute Adjusted R&sup2;</strong></h3>\r\n\r\n<p data-end=\"1440\" data-start=\"1373\">Given the number of predictor variables &lt;inlineMath&gt;p&lt;/inlineMath&gt;,</p>\r\n\r\n<p data-end=\"1522\" data-start=\"1442\" style=\"text-align: center;\">&lt;inlineMath&gt;Adjusted;R^2=1-\\left(\\frac{(1-R^2)(n-1)}{n-p-1}\\right)&lt;/inlineMath&gt;</p>\r\n\r\n<p data-end=\"1522\" data-start=\"1442\">If&nbsp; &lt;inlineMath&gt;n-p-1\\le0&lt;/inlineMath&gt;.&nbsp; return <strong data-end=\"1579\" data-start=\"1571\">None</strong> for Adjusted R&sup2;.<br />\r\nRound every numeric answer to <strong data-end=\"1653\" data-start=\"1633\">2 decimal places</strong>.</p>",
+     "input": "The input consists of:\r\nFirst line contains an integer n, the number of observations.\r\nSecond line contains n space-separated actual values.\r\nThird line contains n space-separated predicted values.\r\nFourth line contains an integer p, the number of predictor variables.",
+     "output": "Print two values separated by a space in the following order:\r\nR² Adjusted_R²\r\nIf TSS = 0, print\r\nNone None\r\nIf Adjusted R² cannot be computed because <inlineMath>n-p-1\\le0</inlineMath>\r\nprint\r\nR² None",
+     "example": "input:\r\n5\r\n3 5 7 9 11\r\n2.8 5.3 6.8 9.2 10.9\r\n1\r\noutput:\r\n0.99 0.99",
+     "constraints": "<inlineMath>1\\le n\\le10^5</inlineMath>\r\n<inlineMath>1\\le p\\le100</inlineMath>\r\nBoth arrays have equal length.\r\nValues may be integers or floating-point numbers.\r\nTime Complexity: <inlineMath>O(n)</inlineMath>\r\nAuxiliary Space: <inlineMath>O(1)</inlineMath>",
+     "my_solution": {
+      "language": "Python (3.12.7) for ML",
+      "code": "# def regression_goodness_of_fit(actual, predicted, p):\n#     n = len(actual)\n\n#     if n != len(predicted):\n#         raise ValueError(\"Input arrays must have equal length.\")\n\n#     # Mean of actual values\n#      #write your code here \n#     mean_actual = sum(actual) / n\n#     # Compute RSS and TSS\n#     rss = 0.0\n#     tss = 0.0\n\n#     for a, pred in zip(actual, predicted):\n#         #write your code here \n#     # If TSS is zero, R² is undefined\n#         rss += (a-pred) ** 2\n#         tss += (a-mean_actual) ** 2\n#     if tss == 0:\n#         return None, None                                                           #write your code here \n\n#     # Compute R²\n#     #write your code here \n#     r2 = round(1-(rss/tss),2)\n\n#     # Compute Adjusted R²\n#     #write your code here\n#     if n - p - 1 <= 0:\n#         adjusted_r2 = None \n#     else:\n#         raw_adj_r2 = 1 - ((1 - (rss/tss)) * (n-1) / (n-p-1))\n#         adjusted_r2 = raw_adj_r2\n\n#     if adjusted_r2 is not None:\n#         adjusted_r2 = round(adjusted_r2, 2)\n\n#     return r2, adjusted_r2\ndef regression_goodness_of_fit(actual, predicted, p):\n    n = len(actual)\n\n    if n != len(predicted):\n        raise ValueError(\"Input arrays must have equal length.\")\n\n    # Mean of actual values\n    mean_actual = sum(actual) / n\n\n    # Compute RSS and TSS\n    rss = 0.0\n    tss = 0.0\n\n    for a, pred in zip(actual, predicted):\n        rss += (a - pred) ** 2\n        tss += (a - mean_actual) ** 2\n\n    # If TSS is zero, R² is undefined\n    if tss == 0:\n        return None, None\n\n    # Compute R²\n    r2_val = 1 - (rss / tss)\n    r2 = round(r2_val, 2)\n\n    # Compute Adjusted R²\n    if n - p - 1 <= 0:\n        adjusted_r2 = None\n    else:\n        # Standard Adjusted R2 formula: 1 - [(1 - R2) * (n - 1) / (n - p - 1)]\n        adj_val = 1 - ((1 - r2_val) * (n - 1) / (n - p - 1))\n        adjusted_r2 = round(adj_val, 2)\n\n    return r2, adjusted_r2"
+     }
+    },
+    {
+     "assignment": "Evaluation Metrics, Regression Metrics, Mean Absolute Error (MAE), Mean Absolute ... - Post Class",
+     "title": "Regression Error Metrics Calculator",
+     "type": "code",
+     "status": "Attempted",
+     "difficulty": "Easy",
+     "question": "<p>A Machine Learning engineer has trained a regression model to predict students&#39; final examination marks. Before deploying the model, the engineer needs to evaluate how well the model performs on unseen data.<br />\r\nYour task is to implement a function that computes the following four widely used regression evaluation metrics:</p>\r\n\r\n<ul>\r\n\t<li>Mean Absolute Error (MAE)</li>\r\n\t<li>Mean Squared Error (MSE)</li>\r\n\t<li>Root Mean Squared Error (RMSE)</li>\r\n\t<li>Mean Absolute Percentage Error (MAPE)</li>\r\n</ul>\r\n\r\n<p>Each metric measures prediction error differently. Together, they provide a comprehensive assessment of a regression model&#39;s performance.<br />\r\nImplement the function according to the mathematical definitions provided below.<br />\r\n<strong>Mathematical Definitions</strong><br />\r\nLet &lt;inlineMath&gt;n&lt;/inlineMath&gt; be the number of observations.<br />\r\nLet &lt;inlineMath&gt;y_i&lt;/inlineMath&gt; be the actual value of the &lt;inlineMath&gt;i^{th}&lt;/inlineMath&gt; observation.<br />\r\nLet &lt;inlineMath&gt;\\hat{y}_i&lt;/inlineMath&gt; be the predicted value of the &lt;inlineMath&gt;i^{th}&lt;/inlineMath&gt; observation.<br />\r\n<strong>Mean Absolute Error (MAE)</strong><br />\r\nMean Absolute Error (MAE) measures the average magnitude of prediction errors without considering their direction.</p>\r\n\r\n<p style=\"text-align: center;\">&lt;inlineMath&gt;MAE=\\frac{1}{n}\\sum_{i=1}^{n}\\left|y_i-\\hat{y}_i\\right|&lt;/inlineMath&gt;</p>\r\n\r\n<p>&nbsp; Interpretation</p>\r\n\r\n<ul>\r\n\t<li>Lower MAE indicates better prediction accuracy.</li>\r\n\t<li>MAE is expressed in the same unit as the target variable.</li>\r\n</ul>\r\n\r\n<p><strong>Mean Squared Error (MSE)</strong><br />\r\nMean Squared Error (MSE) squares every prediction error before averaging.</p>\r\n\r\n<p style=\"text-align: center;\">&lt;inlineMath&gt;MSE=\\frac{1}{n}\\sum_{i=1}^{n}\\left(y_i-\\hat{y}_i\\right)^2&lt;/inlineMath&gt;</p>\r\n\r\n<p>&nbsp;Interpretation</p>\r\n\r\n<ul>\r\n\t<li>Large prediction errors receive significantly larger penalties than smaller errors.</li>\r\n\t<li>MSE is commonly used as the optimization objective for many regression algorithms.</li>\r\n</ul>\r\n\r\n<p><strong>&nbsp;Root Mean Squared Error (RMSE)</strong><br />\r\nRoot Mean Squared Error (RMSE) is the square root of the Mean Squared Error.</p>\r\n\r\n<p style=\"text-align: center;\">&lt;inlineMath&gt;RMSE=(MSE)^{1/2}&lt;/inlineMath&gt;</p>\r\n\r\n<p>&nbsp; Interpretation</p>\r\n\r\n<ul>\r\n\t<li>RMSE is expressed in the original unit of the target variable.</li>\r\n\t<li>It retains the large-error sensitivity of MSE.</li>\r\n</ul>\r\n\r\n<p><strong>Mean Absolute Percentage Error (MAPE)</strong><br />\r\nFor each observation, the Absolute Percentage Error (APE) is defined as</p>\r\n\r\n<p style=\"text-align: center;\">&lt;inlineMath&gt;APE_i=\\frac{\\left|y_i-\\hat{y}_i\\right|}{\\left|y_i\\right|}\\times100&lt;/inlineMath&gt;</p>\r\n\r\n<p>The Mean Absolute Percentage Error (MAPE) is computed as</p>\r\n\r\n<p style=\"text-align: center;\">&lt;inlineMath&gt;MAPE=\\frac{1}{k}\\sum_{i=1}^{k}APE_i&lt;/inlineMath&gt;</p>\r\n\r\n<p>where<br />\r\n&lt;inlineMath&gt;k&lt;/inlineMath&gt; represents the number of observations whose actual value is not equal to &lt;inlineMath&gt;0&lt;/inlineMath&gt;.<br />\r\nSince division by zero is undefined, observations whose actual value is equal to &lt;inlineMath&gt;0&lt;/inlineMath&gt; must not be included while computing MAPE.</p>",
+     "input": "The input format would be:\r\n<inlineMath>n</inlineMath> is the number of observations.\r\nThe second line contains <inlineMath>n</inlineMath> space-separated actual values.\r\nThe third line contains <inlineMath>n</inlineMath> space-separated predicted values.",
+     "output": "Return four values in the following order seprated by space :\r\nMAE MSE RMSE MAPE\r\n\r\nwhere\r\nThe first value represents the Mean Absolute Error (MAE).\r\nThe second value represents the Mean Squared Error (MSE).\r\nThe third value represents the Root Mean Squared Error (RMSE).\r\nThe fourth value represents the Mean Absolute Percentage Error (MAPE).",
+     "example": "Input:\r\n5\r\n40 50 60 70 80\r\n45 52 58 72 78\r\n\r\noutput :\r\n2.60 8.20 2.86 5.04",
+     "constraints": "\r\n<inlineMath>1 \\le n \\le 10^5</inlineMath>, where <inlineMath>n</inlineMath> is the number of observations.\r\n<inlineMath>\\texttt{len(actual)}=\\texttt{len(predicted)}=n</inlineMath>.\r\nEach element in ,actual and predicted may be an integer or a floating-point number.\r\nEach value satisfies <inlineMath>-10^6 \\le \\text{value} \\le 10^6</inlineMath>.\r\nActual values may contain one or more zeros. While computing MAPE, observations having actual value equal to <inlineMath>0</inlineMath> should be ignored.\r\n"
+    },
+    {
+     "assignment": "Model Tuning, Population True Function, White noise, Irreducible Error, Model Es ... - In Class",
+     "title": "Regression Analysis and Polynomial regression",
+     "type": "newton-box",
+     "status": "Attempted",
+     "difficulty": "Medium",
+     "question": "<p data-end=\"1341\" data-start=\"1228\">The relationship between temperature and ice cream sales is often nonlinear. Your task is to investigate this by:</p>\r\n\r\n<ol data-end=\"1685\" data-start=\"1346\">\r\n\t<li data-end=\"1388\" data-section-id=\"1ayy220\" data-start=\"1346\">Training a <strong data-end=\"1381\" data-start=\"1360\">Linear Regression</strong> model.</li>\r\n\t<li data-end=\"1450\" data-section-id=\"1msvtri\" data-start=\"1391\">Training a <strong data-end=\"1443\" data-start=\"1405\">Polynomial Regression (Degree = 2)</strong> model.</li>\r\n\t<li data-end=\"1530\" data-section-id=\"gwhj0\" data-start=\"1453\">Comparing both models using <strong data-end=\"1496\" data-start=\"1484\">R&sup2; Score</strong> and <strong data-end=\"1529\" data-start=\"1501\">Mean Squared Error (MSE)</strong>.</li>\r\n\t<li data-end=\"1595\" data-section-id=\"102u103\" data-start=\"1533\">Determining which model provides a better fit for the data.</li>\r\n\t<li data-end=\"1685\" data-section-id=\"v6njcd\" data-start=\"1598\">Explaining why Polynomial Regression outperforms Linear Regression for this dataset.</li>\r\n</ol>",
+     "input": "",
+     "output": "",
+     "example": "",
+     "constraints": ""
+    },
+    {
+     "assignment": "Model Tuning, Population True Function, White noise, Irreducible Error, Model Es ... - In Class",
+     "title": "Polynomial Regression Detective with Shinchan",
+     "type": "code",
+     "status": "Attempted",
+     "difficulty": "Hard",
+     "question": "<p>Shinchan Nohara loves exploring the world around him. One sunny afternoon, he notices that the number of ants visiting his backyard seems to change with the temperature. He decides to become a &ldquo;Data Detective&rdquo; and records pairs of data:&nbsp;<strong>temperature (X)</strong>&nbsp;and&nbsp;<strong>ant count (y)</strong>&nbsp;. He collects measurements on multiple days and splits them into a training set and a testing set.</p>\r\n\r\n<p>Shinchan wants to find a mathematical model that can predict ant counts from temperature. He thinks polynomial curves of different degrees might fit the data. He asks you to help him with the following tasks:</p>\r\n\r\n<ul>\r\n\t<li>\r\n\t<p>For each polynomial degree in a given list (e.g., 1, 3, 5, 10), fit a polynomial regression model on the training data.</p>\r\n\t</li>\r\n\t<li>\r\n\t<p>Compute the&nbsp;<strong>Mean Squared Error (MSE)</strong>&nbsp;on both the training and testing sets.</p>\r\n\t</li>\r\n\t<li>\r\n\t<p>Determine which degree gives the&nbsp;<strong>best generalization</strong>&nbsp;&ndash; the one with the&nbsp;<strong>lowest test MSE</strong>&nbsp;(if there is a tie, choose the smallest degree).</p>\r\n\t</li>\r\n\t<li>\r\n\t<p>Classify each model as:</p>\r\n\r\n\t<ul>\r\n\t\t<li>\r\n\t\t<p><strong>Underfitting</strong>&nbsp;&ndash; if both training and test MSEs are high (&gt; 0.3) and they are very close (difference &lt; 0.05).</p>\r\n\t\t</li>\r\n\t\t<li>\r\n\t\t<p><strong>Overfitting</strong>&nbsp;&ndash; if the training MSE is very low (&lt; 0.1) but the test MSE is high (&gt; 0.15).</p>\r\n\t\t</li>\r\n\t\t<li>\r\n\t\t<p><strong>Good</strong>&nbsp;&ndash; otherwise.</p>\r\n\t\t</li>\r\n\t</ul>\r\n\t</li>\r\n</ul>\r\n\r\n<p>Your task is to write a Python function that performs this analysis and returns the results in a specific format. Shinchan is counting on you!</p>\r\n\r\n<h1>Note-1: Classification Rules</h1>\r\n\r\n<p>Apply the following rules&nbsp;<strong>in order</strong>&nbsp;for each polynomial degree, using the&nbsp;<strong>unrounded</strong>&nbsp;MSE values:</p>\r\n\r\n<h2>Underfitting</h2>\r\n\r\n<pre>\r\ntrain_mse &gt; 0.3 and test_mse &gt; 0.3 and abs(train_mse - test_mse) &lt; 0.05</pre>\r\n\r\n<h2>Overfitting (if not underfit)</h2>\r\n\r\n<pre>\r\ntrain_mse &lt; 0.1 and test_mse &gt; 0.15</pre>\r\n\r\n<h2>Good</h2>\r\n\r\n<p>Otherwise.<br />\r\n&nbsp;</p>\r\n\r\n<h1>Note 2: Best Degree Rule</h1>\r\n\r\n<p>The best polynomial degree is the one with the&nbsp;<strong>smallest unrounded test MSE</strong>.<br />\r\nIf multiple degrees have the same test MSE (within floating‑point precision), choose the&nbsp;<strong>smallest degree</strong>.</p>\r\n\r\n<p>Equivalent logic:</p>\r\n\r\n<pre>\r\nbest_idx = min(\r\n    range(len(raw_test_mses)),\r\n    key=lambda i: (raw_test_mses[i], degrees[i])\r\n)\r\nbest_degree = degrees[best_idx]</pre>",
+     "input": "The input is provided through standard input (stdin) as a single JSON object.\r\n\r\nThe JSON object contains the following keys:\r\n\r\n\"X_train\": a list of lists, where each inner list contains one numeric feature value.\r\n\r\n\"y_train\": a list of numeric target values corresponding to X_train.\r\n\r\n\"X_test\": a list of lists with the same structure as X_train.\r\n\r\n\"y_test\": a list of numeric target values corresponding to X_test.\r\n\r\n\"degrees\": a list of integer polynomial degrees to evaluate.",
+     "output": "Your function must return a Python dictionary containing the following keys:\r\n\r\n\"best_degree\": integer — the degree with the minimum actual test MSE.\r\n\r\n\"train_mses\": list of floats — the training MSE for each degree, rounded to 4 decimal places, in the same order as degrees.\r\n\r\n\"test_mses\": list of floats — the testing MSE for each degree, rounded to 4 decimal places, in the same order as degrees.\r\n\r\n\"classifications\": list of strings — \"underfit\", \"overfit\", or \"good\" for each degree, in the same order as degrees.\r\n\r\nThe returned dictionary is converted to JSON and printed to stdout by the provided post‑function code.",
+     "example": "Input (sinusoidal data, degrees [1, 3, 5, 10]):\r\n\r\n{\r\n  \"X_train\": [[-2.0], [-1.5], [-1.0], [-0.5], [0.0], [0.5], [1.0], [1.5], [2.0]],\r\n  \"y_train\": [-0.9093, -0.9975, -0.8415, -0.4794, 0.0, 0.4794, 0.8415, 0.9975, 0.9093],\r\n  \"X_test\": [[-1.75], [-0.75], [0.25], [1.25], [1.75]],\r\n  \"y_test\": [-0.9840, -0.6816, 0.2474, 0.9490, 0.9840],\r\n  \"degrees\": [1, 3, 5, 10]\r\n}\r\n\r\nExpected Output:\r\n\r\n{\r\n  \"best_degree\": 3,\r\n  \"train_mses\": [0.4562, 0.0653, 0.0241, 0.0038],\r\n  \"test_mses\": [0.4398, 0.0711, 0.0895, 0.2136],\r\n  \"classifications\": [\"underfit\", \"good\", \"good\", \"overfit\"]\r\n}\r\n\r\nExplanation\r\n\r\nDegree 1: train=0.4562, test=0.4398, both >0.3, diff=0.0164 <0.05 → underfit.\r\n\r\nDegree 3: lowest test MSE (0.0711) → best_degree=3, classified as good.\r\n\r\nDegree 5: test MSE 0.0895, not overfit → good.\r\n\r\nDegree 10: train=0.0038 <0.1, test=0.2136 >0.15 → overfit.\r\n\r\n",
+     "constraints": "5 <= n_train <= 500\r\n\r\n4 <= n_test <= 200\r\n\r\n2 <= len(degrees) <= 6\r\n\r\n1 <= degree <= 15\r\n\r\nEach element of X_train and X_test contains exactly one numeric feature.\r\n\r\nFeature values and target values are within [-10, 10].\r\n\r\nReturned MSE values must be rounded to 4 decimal places."
+    },
+    {
+     "assignment": "Model Tuning, Population True Function, White noise, Irreducible Error, Model Es ... - Post Class",
+     "title": "Bias-Variance Tradeoff",
+     "type": "newton-box",
+     "status": "Attempted",
+     "difficulty": "Medium",
+     "question": "<p>A synthetic dataset has been created. Implement a machine learning model (linear regression) on this dataset. Analyse the mse_train and mse_test values and infer whether it is case of underfitting or overfitting.</p>",
+     "input": "",
+     "output": "",
+     "example": "",
+     "constraints": ""
+    },
+    {
+     "assignment": "Model Tuning, Population True Function, White noise, Irreducible Error, Model Es ... - Post Class",
+     "title": "High variance",
+     "type": "newton-box",
+     "status": "Attempted",
+     "difficulty": "Medium",
+     "question": "A company aims to develop a predictive model to forecast customer spending based on their age. To achieve this, they decide to employ a polynomial regression model with a high degree (e.g., degree 10 or higher). While this approach allows for capturing intricate relationships in the data, it also leads to overfitting, where the model learns not only the underlying patterns but also the noise present in the training dataset.<br />\r\n<br />\r\nTo effectively demonstrate this scenario, the following steps will be undertaken:<br />\r\nModel Implementation: Fit polynomial regression models of varying degrees, particularly focusing on a high-degree polynomial to illustrate overfitting.<br />\r\nVisualization: Generate visualizations that depict:<br />\r\nThe training data points along with the fitted polynomial curve.<br />\r\nThe model&#39;s predictions on both the training and test datasets<br />\r\nMetrics such as Mean Squared Error (MSE) and R&sup2; for both training and test sets to quantitatively assess the degree of overfitting.",
+     "input": "",
+     "output": "",
+     "example": "",
+     "constraints": ""
+    },
+    {
+     "assignment": "Feature Extraction, Principal Component Analysis (PCA), Orthogonality, Covarianc ... - In Class",
+     "title": "PCA Implementation from scratch",
+     "type": "code",
+     "status": "Attempted",
+     "difficulty": "Hard",
+     "question": "You are given a dataset with <code data-end=\"295\" data-start=\"292\">n</code> samples and <code data-end=\"311\" data-start=\"308\">m</code> features. Use PCA to shrink the dataset into fewer dimensions. Then, keep the top <em data-end=\"115\" data-start=\"112\">k</em> eigenvectors, which represent the most important patterns in the data, and return the data projected onto those <em data-end=\"231\" data-start=\"228\">k</em> dimensions.\r\n<h3 data-end=\"499\" data-start=\"473\">PCA Steps to Implement</h3>\r\n\r\n<ol data-end=\"771\" data-start=\"500\">\r\n\t<li data-end=\"561\" data-start=\"500\">\r\n\t<p data-end=\"561\" data-start=\"503\">Standardise the data using StandardScaler.</p>\r\n\t</li>\r\n\t<li data-end=\"618\" data-start=\"562\">\r\n\t<p data-end=\"618\" data-start=\"565\">Compute the covariance matrix of the Standardised data.</p>\r\n\t</li>\r\n\t<li data-end=\"720\" data-start=\"619\">\r\n\t<p data-end=\"720\" data-start=\"622\">Find the top <code data-end=\"638\" data-start=\"635\">k</code> eigenvectors of the covariance matrix corresponding to the largest eigenvalues.</p>\r\n\t</li>\r\n\t<li data-end=\"771\" data-start=\"721\">\r\n\t<p data-end=\"771\" data-start=\"724\">Project the data onto these <code data-end=\"755\" data-start=\"752\">k</code> eigenvectors.<br />\r\n\t&nbsp;</p>\r\n\t</li>\r\n</ol>",
+     "input": "First line: three integers n m k\r\n\r\nn = number of rows (samples)\r\n\r\nm = number of columns (features)\r\n\r\nk = number of principal components to retain\r\n\r\nNext n lines: each line contains m space-separated floats representing a row of the dataset.",
+     "output": "n lines, each containing k space-separated floats (rounded to 4 decimal places).",
+     "example": "<b> Input </b> \r\n10 2 1\r\n2.5 2.4\r\n0.5 0.7\r\n2.2 2.9\r\n1.9 2.2\r\n3.1 3.0\r\n2.3 2.7\r\n2.0 1.6\r\n1.0 1.1\r\n1.5 1.6\r\n1.1 0.9\r\n\r\n\r\n<b> Output </b> \r\n1.0864\r\n-2.3089\r\n1.2419\r\n0.3408\r\n2.1843\r\n1.1607\r\n-0.0926\r\n-1.4821\r\n-0.5672\r\n-1.5633\r\n\r\n",
+     "constraints": "1 ≤ n ≤ 200\r\n1 ≤ m ≤ 50\r\n1 ≤ k ≤ m"
+    },
+    {
+     "assignment": "Feature Extraction, Principal Component Analysis (PCA), Orthogonality, Covarianc ... - Post Class",
+     "title": "PCA variance",
+     "type": "newton-box",
+     "status": "Attempted",
+     "difficulty": "Hard",
+     "question": "You are given a dataset, scaled using StandardScaler. Your task is to implement the function get_n_components(X) that determines the optimal number of principal components needed to explain at least 96% of the variance in the dataset using PCA.",
+     "input": "",
+     "output": "",
+     "example": "",
+     "constraints": ""
+    },
+    {
+     "assignment": "Scree Plot, Regularization, Ridge Regression, Lasso Regression, Data Sparsity - In Class",
+     "title": "Regularization",
+     "type": "newton-box",
+     "status": "Attempted",
+     "difficulty": "Easy",
+     "question": "Implement L1 (Lasso) and L2 (Ridge) regularization techniques using scikit-learn. Tune the regularization parameter and observe its effect on the model&#39;s performance.",
+     "input": "",
+     "output": "",
+     "example": "",
+     "constraints": null
+    },
+    {
+     "assignment": "Time Series Modelling, Time Series Data, Time Series Components, Trend, Seasonal ... - In Class",
+     "title": "Logistic Forcasting Problem",
+     "type": "newton-box",
+     "status": "Solved ✓",
+     "difficulty": "Medium",
+     "question": "Scenario: Forecast Readiness Assessment<br />\r\n<br />\r\nYou are working as a junior data analyst in a logistics company.<br />\r\n<br />\r\nBefore building forecasting models, your team asks a critical question:\r\n<ul>\r\n\t<li>Does the data contain enough predictable structure (trend or seasonality),&nbsp;</li>\r\n</ul>\r\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;or is it dominated by noise?<br />\r\n<br />\r\nYour task is to <strong>numerically evaluate</strong>&nbsp;whether forecasting this time series is<br />\r\n<strong>meaningful or risky</strong>.<br />\r\n<br />\r\nYou must justify your answer using <strong>decomposition and variance analysis</strong>.<br />\r\n<br />\r\n<strong>Objective</strong><br />\r\n<br />\r\n1. Decompose the given time series into:<br />\r\n&nbsp; &nbsp;- Trend<br />\r\n&nbsp; &nbsp;- Seasonality<br />\r\n&nbsp; &nbsp;- Noise<br />\r\n2. Quantify how much variance is explained by signal (trend + seasonality).<br />\r\n3. Decide whether the data is:<br />\r\n&nbsp; &nbsp;- Forecast-friendly<br />\r\n&nbsp; &nbsp;- Or noise-dominated<br />\r\n<br />\r\n&nbsp;",
+     "input": "",
+     "output": "",
+     "example": "",
+     "constraints": ""
+    },
+    {
+     "assignment": "Time Series Modelling, Time Series Data, Time Series Components, Trend, Seasonal ... - In Class",
+     "title": "Time Series Forecasting",
+     "type": "code",
+     "status": "Attempted",
+     "difficulty": "Medium",
+     "question": "A public health department monitors the monthly demand for a vaccine across the city. Historical records indicate that vaccine demand has gradually increased over time due to population growth and expanded immunization programs. Analysts have confirmed that the historical data does not exhibit any recurring seasonal behaviour.<br />\r\nTo ensure uninterrupted vaccine availability, the department plans to maintain a safety stock of 10% above the expected demand for each of the next three months.<br />\r\nUsing the historical vaccine demand data, develop an appropriate forecasting solution to estimate the demand for the next three months. Based on the forecast, calculate the recommended stock level by adding 10% to each predicted demand.<br />\r\nReturn a DataFrame containing the forecasted demand and the recommended stock quantity for each month. Round all numeric values to two decimal places.",
+     "input": "A JSON object representing monthly vaccine demand.\r\n{\"Demand\":[2500,2530,2565,2600,2635,2675,2710,2745,2780,2820,2855,2890]}",
+     "output": "Forecast,Recommended_Stock\r\n2918.42,3210.26\r\n2947.53,3242.28\r\n2975.61,3273.17",
+     "example": "<>Input<>\r\n{\"Demand\":[2500,2530,2565,2600,2635,2675,2710,2745,2780,2820,2855,2890]}\r\n<>Output<>\r\nForecast,Recommended_Stock\r\n2918.42,3210.26\r\n2947.53,3242.28\r\n2975.61,3273.17",
+     "constraints": "The dataset contains at least 12 monthly observations.\r\nDemand contains numeric values only.\r\nForecast exactly 3 future observations.\r\nRecommended stock = Forecast × 1.10.\r\nReturn a DataFrame containing:Forecast, Recommended_Stock\r\nRound all values to 2 decimal places."
+    },
+    {
+     "assignment": "Time Series Modelling, Time Series Data, Time Series Components, Trend, Seasonal ... - Post Class",
+     "title": "Trends,",
+     "type": "newton-box",
+     "status": "Attempted",
+     "difficulty": "Easy",
+     "question": "<p data-end=\"500\" data-start=\"458\">You are given a time series that contains:</p>\r\n\r\n<ul data-end=\"586\" data-start=\"503\">\r\n\t<li data-end=\"526\" data-start=\"503\">\r\n\t<p data-end=\"526\" data-start=\"505\">A long-term <strong data-end=\"526\" data-start=\"517\">trend</strong></p>\r\n\t</li>\r\n\t<li data-end=\"563\" data-start=\"529\">\r\n\t<p data-end=\"563\" data-start=\"531\">A repeating <strong data-end=\"563\" data-start=\"543\">seasonal pattern</strong></p>\r\n\t</li>\r\n\t<li data-end=\"584\" data-start=\"566\">\r\n\t<p data-end=\"584\" data-start=\"568\">Random <strong data-end=\"584\" data-start=\"575\">noise</strong></p>\r\n\t</li>\r\n</ul>\r\n\r\n<p data-end=\"659\" data-start=\"589\">Your task is <strong data-end=\"627\" data-start=\"602\">not just to visualize</strong>, but to <strong data-end=\"658\" data-start=\"636\">numerically verify</strong>:</p>\r\n\r\n<p data-end=\"753\" data-start=\"664\"><strong data-end=\"753\" data-start=\"664\">How much of the variation in the data is explained by trend and seasonality combined?</strong><br />\r\n<br />\r\n&nbsp;</p>\r\n\r\n<h2 data-end=\"847\" data-start=\"819\">Objective&nbsp;</h2>\r\n\r\n<p data-end=\"1020\" data-start=\"849\">Compute the <strong data-end=\"931\" data-start=\"864\">percentage of total variance explained by (Trend + Seasonality)</strong></p>",
+     "input": "",
+     "output": "",
+     "example": "",
+     "constraints": ""
+    },
+    {
+     "assignment": "Time Series Modelling, Time Series Data, Time Series Components, Trend, Seasonal ... - Post Class",
+     "title": "Seasonal pattern",
+     "type": "newton-box",
+     "status": "Attempted",
+     "difficulty": "Easy",
+     "question": "<strong>You are given a time series that contains:</strong>\r\n<ul>\r\n\t<li>A weak long-term trend</li>\r\n\t<li>A strong repeating seasonal pattern</li>\r\n\t<li>A moderate amount of noise</li>\r\n</ul>\r\n<br />\r\n<strong>Your task is to determine numerically:</strong><br />\r\n<br />\r\n&nbsp;&nbsp;&nbsp;&nbsp;Does seasonality explain more variation than trend?",
+     "input": "",
+     "output": "",
+     "example": "",
+     "constraints": ""
+    }
+   ],
+   "quizzes": [
+    {
+     "title": "Feature Selection, Curse of Dimensionality, Filter Methods, Variance Threshold,  ... - Revision",
+     "questions": [
+      {
+       "question": "If a dataset has p features and each feature&#39;s range is divided into b equal bins, how many possible grid cells result?",
+       "options": {
+        "A": "b^p",
+        "B": "p \\times b",
+        "C": "p^b",
+        "D": "b + p"
+       },
+       "answer": "A",
+       "explanation": "Dividing the range of every feature into b equal bins with p features gives <inlineMath>b^p</inlineMath> possible grid cells, illustrating how high-dimensional space grows much faster than the number of observations.",
+       "marks": 1
+      },
+      {
+       "question": "What does a filter method do during the feature screening step?",
+       "options": {
+        "A": "It repeatedly trains the final predictive model on many candidate subsets",
+        "B": "It evaluates a feature using a simple rule without repeatedly training the final predictive model",
+        "C": "It always requires the target variable to be present",
+        "D": "It searches all possible subsets exhaustively"
+       },
+       "answer": "B",
+       "explanation": "A filter method acts like an admission gate: it evaluates a feature using a simple rule and decides whether that feature deserves to enter the modeling stage, without repeatedly training the final predictive model.",
+       "marks": 1
+      },
+      {
+       "question": "What is the correct order of steps in the wrapper-method loop?",
+       "options": {
+        "A": "Evaluate a subset, then generate it, then train the model on it",
+        "B": "Train the model on all features once, then remove the target variable",
+        "C": "Generate a candidate subset, train the model on it, evaluate it, then generate the next candidate",
+        "D": "Stop the search immediately after generating the first candidate subset"
+       },
+       "answer": "C",
+       "explanation": "The wrapper loop generates a candidate subset, trains the chosen model on it, evaluates it using validation or cross-validation, and then generates the next candidate subset according to the search strategy.",
+       "marks": 1
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

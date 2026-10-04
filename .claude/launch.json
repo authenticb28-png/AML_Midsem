@@ -1,0 +1,19 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "aml-site",
+      "runtimeExecutable": "/opt/homebrew/bin/python3",
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "8791",
+        "--bind",
+        "127.0.0.1",
+        "--directory",
+        "/Users/atanuadhikari/Documents/Newton Notes/Advanced Machine Learning/aml-exam-prep"
+      ],
+      "port": 8791
+    }
+  ]
+}
