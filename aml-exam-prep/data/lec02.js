@@ -278,8 +278,8 @@ We square so negative and positive errors do not cancel. Goal: MSE → 0 (as sma
 The modelling loop is iterative: select an algorithm → set hyperparameters → train (forward pass → loss → gradient descent) → check convergence → repeat.
 :::`,
     formulas: [
-      { name: 'Mean squared error', tex: R`\text{MSE} = \frac{1}{n}\sum_{i=1}^{n}(y_i-\hat y_i)^2`, sym: '$n$ points, $y_i$ true, $\hat y_i$ predicted. Units: (units of y)².', when: 'Training loss for regression; evaluation (with RMSE).' },
-      { name: 'Gradient-descent step (preview of L5)', tex: R`w \leftarrow w - \alpha\,\frac{\partial\,\text{Loss}}{\partial w}`, sym: '$\alpha$ = learning rate (hyperparameter).', when: 'The "backward pass" of the loop.' }
+      { name: 'Mean squared error', tex: R`\text{MSE} = \frac{1}{n}\sum_{i=1}^{n}(y_i-\hat y_i)^2`, sym: R`$n$ points, $y_i$ true, $\hat y_i$ predicted. Units: (units of y)².`, when: 'Training loss for regression; evaluation (with RMSE).' },
+      { name: 'Gradient-descent step (preview of L5)', tex: R`w \leftarrow w - \alpha\,\frac{\partial\,\text{Loss}}{\partial w}`, sym: R`$\alpha$ = learning rate (hyperparameter).`, when: 'The "backward pass" of the loop.' }
     ],
     plots: [
       { id: 'P02-lossbowl', title: 'Gradient descent on a 1-D loss curve', notice: 'Steps are large where the slope is steep and shrink automatically near the minimum, because each step is proportional to the slope.',

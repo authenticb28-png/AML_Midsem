@@ -136,7 +136,7 @@ DL ⊂ ML ⊂ AI. ML, Search, NLP, CV and Robotics are sub-domains inside AI. De
 :::`,
     formulas: [
       { name: 'Nesting of fields', tex: R`\text{DL} \subset \text{ML} \subset \text{AI}`, sym: 'Every DL model is an ML model; every ML system is an AI system; not the other way round.', when: 'MCQs that ask "which is a subset of which" or "is search ML?".' },
-      { name: 'Deep network (idea)', tex: R`\hat y = f_L(\dots f_2(f_1(\mathbf x)))`, sym: '$f_\ell$ = one hidden layer; $L$ = depth.', when: 'Explaining what "deep" means: many stacked layers.' }
+      { name: 'Deep network (idea)', tex: R`\hat y = f_L(\dots f_2(f_1(\mathbf x)))`, sym: R`$f_\ell$ = one hidden layer; $L$ = depth.`, when: 'Explaining what "deep" means: many stacked layers.' }
     ],
     plots: [
       { id: 'P00-venn', title: 'Visualizing the ecosystem: AI ⊃ ML ⊃ DL', notice: 'Search algorithms sit inside AI but **outside** ML: AI includes non-learning systems.',
@@ -192,7 +192,7 @@ The presence or absence of a ground-truth label decides the learning paradigm. L
 Labelled = input + correct answer. Unlabelled = input only.
 :::`,
     formulas: [
-      { name: 'Labelled dataset', tex: R`D = \{(\mathbf x_i, y_i)\}_{i=1}^{n}`, sym: '$\mathbf x_i$ features, $y_i$ label (ground truth).', when: 'Supervised learning (regression, classification).' },
+      { name: 'Labelled dataset', tex: R`D = \{(\mathbf x_i, y_i)\}_{i=1}^{n}`, sym: R`$\mathbf x_i$ features, $y_i$ label (ground truth).`, when: 'Supervised learning (regression, classification).' },
       { name: 'Unlabelled dataset', tex: R`D = \{\mathbf x_i\}_{i=1}^{n}`, sym: 'Features only.', when: 'Unsupervised learning (clustering, PCA in L11).' }
     ],
     plots: [
@@ -249,7 +249,7 @@ One key question: **Do you have labels?** And: does an agent need to **explore a
 *Source:* Géron, *Hands-On ML* (3rd ed.) ch.1 "Self-supervised learning"; Devlin et al. 2019 (BERT).`,
     formulas: [
       { name: 'Supervised goal', tex: R`\text{learn } f:\ \mathbf x \mapsto y \ \text{ from } \{(\mathbf x_i,y_i)\}`, sym: 'mapping from inputs to labels', when: 'Regression and classification.' },
-      { name: 'Reinforcement goal', tex: R`\max_{\pi}\ \mathbb E\Big[\sum_{t} r_t\Big]`, sym: '$\pi$ = policy (how the agent acts); $r_t$ = reward at step $t$.', when: 'Agent + environment + rewards; no fixed dataset.' }
+      { name: 'Reinforcement goal', tex: R`\max_{\pi}\ \mathbb E\Big[\sum_{t} r_t\Big]`, sym: R`$\pi$ = policy (how the agent acts); $r_t$ = reward at step $t$.`, when: 'Agent + environment + rewards; no fixed dataset.' }
     ],
     plots: [
       { id: 'P00-paradigms', title: 'Choosing the paradigm: two questions', notice: 'The first question is always about **labels**. RL is separate because it has no dataset at all.',

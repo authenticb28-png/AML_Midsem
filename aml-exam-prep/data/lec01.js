@@ -425,8 +425,8 @@ The worksheet takes $Q_1$, $Q_3$ as **medians of the lower/upper halves** (gives
 Min-Max for bounded/clean data, Z-score for Gaussian, Robust for outliers, Max-Abs for sparse.
 :::`,
     formulas: [
-      { name: 'Min-Max', tex: R`X' = \frac{X - X_{\min}}{X_{\max} - X_{\min}} \in [0,1]`, sym: '$X_{\min}, X_{\max}$ from the **training** data.', when: 'Bounded data without outliers (pixels, neural nets).' },
-      { name: 'Z-score (standardisation)', tex: R`z = \frac{X-\mu}{\sigma},\quad \sigma=\sqrt{\tfrac1n\textstyle\sum (X_i-\mu)^2}`, sym: '$\mu$ mean, $\sigma$ **population** std (as in the worksheet and `StandardScaler`).', when: 'Roughly normal features; GD, PCA, regularisation.' },
+      { name: 'Min-Max', tex: R`X' = \frac{X - X_{\min}}{X_{\max} - X_{\min}} \in [0,1]`, sym: R`$X_{\min}, X_{\max}$ from the **training** data.`, when: 'Bounded data without outliers (pixels, neural nets).' },
+      { name: 'Z-score (standardisation)', tex: R`z = \frac{X-\mu}{\sigma},\quad \sigma=\sqrt{\tfrac1n\textstyle\sum (X_i-\mu)^2}`, sym: R`$\mu$ mean, $\sigma$ **population** std (as in the worksheet and \`StandardScaler\`).`, when: 'Roughly normal features; GD, PCA, regularisation.' },
       { name: 'Max-Abs', tex: R`X' = \frac{X}{\max_i |X_i|} \in [-1,1]`, sym: 'Keeps 0 at 0 and keeps the sign.', when: 'Sparse data (bag-of-words).' },
       { name: 'Robust', tex: R`X' = \frac{X - \operatorname{median}}{Q_3 - Q_1}`, sym: 'IQR = $Q_3-Q_1$ (middle 50%).', when: 'Heavy outliers you cannot drop.' }
     ],
