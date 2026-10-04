@@ -78,7 +78,7 @@ Columns: ID | Lecture | Section title (worksheet sections covered) | Page(s) | D
 | L05.3 | L5 | Deriving the BGD update for MSE (S3) [C] | 5 | D05-msegrad | – | ∇L = (2/m)Xᵀ(Xθ−y) | PRACTICE P4 (gradient) | – | ☐ |
 | L05.4 | L5 | Worked NST example: epoch 1 & 2, feature scaling (S4) [C] | 5–7 | – | – | same | Epoch 1 worked, PRACTICE P4 epoch 2 | L05_bgd.py | ☐ |
 | L05.5 | L5 | Epochs & the training loop (S5) [C] | 7–8 | – | P05-loop | – | PRACTICE P5 | L05_bgd.py | ☐ |
-| L05.6 | L5 | Learning rate, tuning, validation loss, BGD pros/cons (S6) [C] | 8–10 | – | P05-lr, P05-valbars | L_val = (1/m_val)Σ(y−ŷ)² | Guided dry run, PRACTICE P6 | L05_lr_tuning.py, L05_lab_bgd_w.py | ☐ |
+| L05.6 | L5 | Learning rate, tuning, validation loss, BGD pros/cons (S6) [C] | 8–10 | – | P05-lr2, P05-valbars | L_val = (1/m_val)Σ(y−ŷ)² | Guided dry run, PRACTICE P6 | L05_lr_tuning.py, L05_lab_bgd_w.py | ☐ |
 | L06.1 | L6 | Revision & BGD limitations (S1) [C] | 1–2 | – | – | J(θ)=(1/m)ΣJi | PRACTICE P1 | – | ☐ |
 | L06.2 | L6 | SGD: update rule, workflow, shuffling, LR, misconceptions (S2) [C] | 2–4 | – | – | θt+1 = θt − α∇J_it(θt) | PRACTICE P2 | – | ☐ |
 | L06.3 | L6 | BGD vs SGD maths & visual intuition (S3–S4) [C] | 4–5 | – | P06-paths, P06-losscurves | O(md) vs O(d) per update | Think & Discuss | – | ☐ |
