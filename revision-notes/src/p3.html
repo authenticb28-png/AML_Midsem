@@ -1,0 +1,243 @@
+
+<!-- ===================================================== 9 -->
+<section class="topic">
+<h2><span class="num">9</span>Bias, Variance &amp; the Tradeoff</h2>
+<p><b>Big idea:</b> a model's expected test error splits into three parts: <span class="hl">Bias² (too simple) + Variance (too sensitive to the sample) + σ² (noise nobody can remove)</span>.</p>
+
+<h3>The setup</h3>
+<div class="box formula"><span class="tag">Data-generating model</span>
+$$Y = f(X) + \varepsilon,\qquad E(\varepsilon) = 0,\qquad \text{Var}(\varepsilon) = \sigma^2 = E(\varepsilon^2) - [E(\varepsilon)]^2 = E(\varepsilon^2)$$
+<p class="small">f = the true (population) function; ε = white noise → <b>irreducible error</b>. No model can remove it.</p>
+</div>
+<ul>
+<li>The fitted model $\hat f$ depends on <b>which training sample</b> you got → $\hat f(x)$ is a <span class="hl">random variable</span> (an <b>estimator</b>: sample mean, linear regression, decision tree…). Fit on many samples → many different $\hat f$'s.</li>
+</ul>
+<div class="box formula"><span class="tag">Bias, variance, decomposition</span>
+$$\text{Bias} = E[\hat f(x)] - f(x) \qquad \text{Var} = E\big[(\hat f(x) - E[\hat f(x)])^2\big]$$
+$$\boxed{\text{MSE} = E[(Y - \hat f(x))^2] = \text{Bias}^2 + \text{Var} + \sigma^2}$$
+</div>
+
+<div class="box deriv"><span class="tag">Derivation of the decomposition (write $\hat f = \hat f(x)$, $\bar f = E[\hat f]$)</span>
+<ol class="steps">
+<li>$E[(Y - \hat f)^2] = E[(f + \varepsilon - \hat f)^2]$ <span class="why">replace Y by f + ε</span></li>
+<li>$= E[(f - \hat f)^2] + 2E[\varepsilon(f - \hat f)] + E[\varepsilon^2]$ <span class="why">expand $(A + \varepsilon)^2 = A^2 + 2A\varepsilon + \varepsilon^2$ with $A = f - \hat f$</span></li>
+<li>Middle term = $2E[\varepsilon]\,E[f - \hat f] = 2\cdot 0 \cdot(\dots) = 0$ <span class="why">new noise ε is independent of the trained model, and E(ε) = 0</span>; last term = σ².</li>
+<li>$E[(f - \hat f)^2] = E[(f - \bar f + \bar f - \hat f)^2]$ <span class="why">add and subtract the average prediction $\bar f$</span></li>
+<li>$= (f - \bar f)^2 + 2(f - \bar f)E[\bar f - \hat f] + E[(\bar f - \hat f)^2]$ <span class="why">expand; $(f - \bar f)$ is a fixed number, so it comes out of E</span></li>
+<li>$E[\bar f - \hat f] = \bar f - E[\hat f] = 0$ → middle term vanishes. <span class="why">definition of $\bar f$</span></li>
+<li>$= \underbrace{(\bar f - f)^2}_{\text{Bias}^2} + \underbrace{E[(\hat f - \bar f)^2]}_{\text{Var}}$ → total = <span class="hl">Bias² + Var + σ²</span></li>
+</ol>
+</div>
+<div class="box ex"><span class="tag">Worked</span>
+<p>(a) E[f̂(x)] = 12, f(x) = 10 → Bias = 12 − 10 = 2. (b) Bias² = 1, Var = 9, σ² = 2 → MSE = 1 + 9 + 2 = 12; <span class="hl">Variance dominates</span> → overfitting. (c) Three models predict 9, 11, 13 at x where f = 10: mean = 11 → Bias = 1; Var = ((−2)² + 0² + 2²)/3 = 8/3 = 2.67.</p>
+</div>
+
+<h3>Underfit vs overfit</h3>
+<table>
+<tr><th></th><th>High bias (underfit)</th><th>High variance (overfit)</th></tr>
+<tr><td>Model</td><td>too simple (line for y = x²)</td><td>too complex (degree-15 curve)</td></tr>
+<tr><td>Fits on 3 samples</td><td>all <b>similar</b>, all wrong</td><td>each passes through its points; <b>very different</b> from each other</td></tr>
+<tr><td>Train error</td><td>high</td><td>very low</td></tr>
+<tr><td>Validation error</td><td>high (close to train)</td><td>high (<b>big gap</b>)</td></tr>
+<tr><td>Fix</td><td>more complex model, more features</td><td>more data, regularisation, simpler model, feature selection</td></tr>
+<tr><td>Dartboard</td><td>tight cluster, off-centre</td><td>scattered around the centre</td></tr>
+</table>
+<p><b>Tradeoff (U-curve):</b> as complexity ↑, bias² ↓ and variance ↑; total error is U-shaped → <span class="hl">pick the complexity at the bottom of the validation curve</span> (not where bias = 0). σ² just lifts the whole curve.</p>
+
+<h3>In practice: split, cross-validate, learning curves</h3>
+<ul>
+<li>We can't see f, so we estimate generalisation with a <b>validation set</b>. A big train–validation gap → variance; both high → bias.</li>
+<li><span class="hl">k-fold CV:</span> split the training data into k folds; train on k − 1 folds, validate on the remaining one; repeat k times so every point is validated exactly once. Score = average of the k errors. Each model trains on $n\frac{k-1}{k}$ rows (5-fold on 1000 → 800). Fold scores varying a lot → high variance.</li>
+<li><b>Learning curves</b> (error vs training size): high bias → both curves plateau high and close (<span class="hlp">more data won't help</span>); high variance → big gap that shrinks with more data (more data helps).</li>
+</ul>
+<h3>Hyperparameter tuning (grid / random search)</h3>
+<p>Choose hyperparameters by the mean CV score on the training set, refit the winner on all training data, test once. <b>Grid search</b> tries every combination: fits = k × (product of list sizes), e.g. 5 degrees × 4 λ × 5 folds = 100 fits. <b>Random search</b> tries n_iter sampled combinations: fits = k × n_iter; usually as good with far fewer fits. Search λ on a log scale; put scalers inside a Pipeline (no leakage).</p>
+<div class="box trap"><span class="tag">⚠ Exam traps</span>
+<ul>
+<li>MSE = <b>Bias²</b> + Var + σ² (bias is squared; variance is not).</li>
+<li>Irreducible error can't be reduced by a more complex model.</li>
+<li>An underfit model is <b>stable</b> (low variance) — consistently wrong.</li>
+</ul>
+</div>
+</section>
+
+<!-- ===================================================== 10 -->
+<section class="topic">
+<h2><span class="num">10</span>Feature Selection</h2>
+<p><b>Big idea:</b> keep the <span class="hl">original columns that actually help</span> and drop the rest → less overfitting, faster training, easier explanation. (Selection keeps columns; PCA creates new ones.)</p>
+
+<h3>Why: the curse of dimensionality</h3>
+<div class="box formula"><span class="tag">Grid cells</span>
+$$\#\text{cells} = b^{p} \qquad (b \text{ bins per feature},\ p \text{ features})$$
+<p class="small">b = 10, p = 6 → 10⁶ cells. The data can't fill them: most cells are empty, so points are far apart and models overfit. <span class="hlp">It's bᵖ, not p × b.</span></p>
+</div>
+
+<h3>Filter methods (score each feature with a simple rule — no model training)</h3>
+<ol>
+<li><b>Duplicate columns</b> → drop copies.</li>
+<li><b>Variance threshold</b> → drop near-constant columns. $\text{Var} = \frac1n\sum(x_i - \bar x)^2$; for a 0/1 feature with fraction q of ones, $\text{Var} = q(1-q)$ (10% ones → 0.1 × 0.9 = 0.09). <span class="hlp">Variance ≠ relevance</span> (a student ID has huge variance and no meaning); variance depends on units.</li>
+<li><b>Pearson correlation with the target</b> → keep features with large |r|.</li>
+<li><b>Correlation between inputs</b> → from a pair with |r| ≈ 1, drop one (redundant).</li>
+</ol>
+<div class="box formula"><span class="tag">Pearson correlation</span>
+$$r = \frac{\sum(x_i - \bar x)(y_i - \bar y)}{\sqrt{\sum(x_i - \bar x)^2}\,\sqrt{\sum(y_i - \bar y)^2}} \in [-1, 1]$$
+</div>
+<div class="box ex"><span class="tag">Worked: r = 0 although y depends perfectly on x</span>
+<p>x = −2, −1, 0, 1, 2 and y = x² = 4, 1, 0, 1, 4. x̄ = 0, ȳ = 10/5 = 2.</p>
+<ol class="steps">
+<li>(x − x̄)(y − ȳ): (−2)(2) = −4, (−1)(−1) = 1, (0)(−2) = 0, (1)(−1) = −1, (2)(2) = 4.</li>
+<li>Sum = −4 + 1 + 0 − 1 + 4 = <b>0</b> → r = 0.</li>
+</ol>
+<p><span class="hl">Pearson only sees linear relationships</span> — a correlation filter would wrongly drop x. (r = 0 does not mean independent.)</p>
+<p class="small">Normal case: x = 1, 2, 3 and y = 2, 4, 7 → Sxy = 5, Sxx = 2, Syy = 12.667 → r = 5/√(2 × 12.667) = 0.993.</p>
+</div>
+
+<h3>Wrapper methods (train and evaluate the model on subsets)</h3>
+<p class="center"><b>generate a candidate subset → train the model → evaluate on validation/CV → generate the next subset</b></p>
+<table>
+<tr><th>Method</th><th>How</th><th>Models trained</th></tr>
+<tr><td>Exhaustive</td><td>every non-empty subset</td><td>$2^p - 1$ (p = 12 → 4095)</td></tr>
+<tr><td>Forward selection</td><td>start empty; each round add the feature that helps most</td><td>$p + (p-1) + \dots + 1 = \frac{p(p+1)}{2}$</td></tr>
+<tr><td>Backward elimination</td><td>start with all; each round remove the least useful</td><td>≈ $\frac{p(p+1)}{2}$</td></tr>
+<tr><td>RFE</td><td>fit, drop the feature with the smallest importance, refit…</td><td>one fit per feature removed</td></tr>
+</table>
+<p class="small">Why p(p+1)/2: round 1 tries p features, round 2 tries the remaining p − 1, …, last round 1 → 1 + 2 + … + p = p(p+1)/2 (p = 10 → 55, vs 1023 exhaustive). Choose the best subset <b>along the path</b>, not the last one.</p>
+<table>
+<tr><th></th><th>Filter</th><th>Wrapper</th><th>Embedded</th></tr>
+<tr><td>Uses model?</td><td>no</td><td>yes, many times</td><td>during training (Lasso, tree importance)</td></tr>
+<tr><td>Speed</td><td>fast</td><td>slow</td><td>medium</td></tr>
+<tr><td>Weakness</td><td>misses interactions/non-linear</td><td>expensive; can overfit the selection</td><td>model-specific</td></tr>
+</table>
+<div class="box key"><span class="tag">Workflow / leakage</span>
+<p><span class="hl">Split first → filter on train → wrapper with validation/CV → test once.</span> Selecting features on the full dataset before CV is leakage.</p>
+</div>
+</section>
+
+<!-- ===================================================== 11 -->
+<section class="topic">
+<h2><span class="num">11</span>Principal Component Analysis (PCA)</h2>
+<p><b>Big idea:</b> <span class="hl">rotate the axes so the first new axis (PC1) points along the direction of greatest spread (variance), PC2 the next greatest at right angles, …</span>. Keep the top k → fewer dimensions with most of the information (information = variance). PCA is <b>unsupervised</b> (never uses y) and builds <b>new</b> features (extraction), unlike selection.</p>
+
+<h3>Steps</h3>
+<ol>
+<li><b>Centre:</b> $X_c = X - \mathbf 1\boldsymbol\mu^T$ (subtract each column's training mean → every column has mean 0). <b>Standardise</b> too if units differ (cm vs ₹), otherwise the big-unit feature dominates PC1.</li>
+<li><b>Covariance matrix:</b> $S = \frac{1}{n-1}X_c^TX_c$ (p × p, symmetric: $S_{jk} = S_{kj}$; diagonal = variances).</li>
+<li><b>Eigen-decomposition:</b> solve $S\mathbf v = \lambda\mathbf v$. Eigenvectors v = PC directions (unit length, orthogonal); eigenvalues λ = variance along each PC.</li>
+<li><b>Sort</b> λ descending; keep the top k eigenvectors $W_k$.</li>
+<li><b>Project:</b> $Z = X_cW_k$ (n × k scores).</li>
+</ol>
+
+<div class="box deriv"><span class="tag">Derivation — variance along a direction is uᵀSu, and the best u is an eigenvector</span>
+<ol class="steps">
+<li>Projection of a centred point onto a unit vector u: $z_i = \mathbf u^T\mathbf x_i$ <span class="why">the coordinate of the point along u (u must have length 1)</span></li>
+<li>Mean of the $z_i$ = 0 (data centred), so $\text{Var}(z) = \frac{1}{n-1}\sum z_i^2$</li>
+<li>$= \frac{1}{n-1}\sum (\mathbf u^T\mathbf x_i)(\mathbf x_i^T\mathbf u) = \mathbf u^T\Big[\frac{1}{n-1}\sum\mathbf x_i\mathbf x_i^T\Big]\mathbf u = \mathbf u^TS\mathbf u$ <span class="why">$z_i^2 = z_i\cdot z_i$ and a number equals its transpose; u comes out of the sum</span></li>
+<li>Maximise $\mathbf u^TS\mathbf u$ subject to $\mathbf u^T\mathbf u = 1$ (Lagrange): $\frac{\partial}{\partial\mathbf u}[\mathbf u^TS\mathbf u - \lambda(\mathbf u^T\mathbf u - 1)] = 2S\mathbf u - 2\lambda\mathbf u = 0$ <span class="why">identity 3 from Topic 4, twice</span></li>
+<li>$\Rightarrow S\mathbf u = \lambda\mathbf u$ → u must be an <span class="hl">eigenvector</span>; then Var = $\mathbf u^TS\mathbf u = \lambda\mathbf u^T\mathbf u = \lambda$ → the <span class="hl">largest eigenvalue's eigenvector gives the most variance = PC1</span>.</li>
+</ol>
+</div>
+
+<div class="box formula"><span class="tag">PCA formulas</span>
+$$|S - \lambda I| = 0 \ \ (\text{2×2: } \lambda^2 - \text{tr}(S)\lambda + \det S = 0) \qquad \text{EVR}_j = \frac{\lambda_j}{\sum_\ell\lambda_\ell} \qquad \sum_j\lambda_j = \text{trace}(S)$$
+</div>
+
+<div class="box ex"><span class="tag">Worked: points (2,1), (3,3), (4,5)</span>
+<ol class="steps">
+<li>Mean = (3, 3). Centred: (−1, −2), (0, 0), (1, 2).</li>
+<li>$S = \frac{1}{2}\begin{bmatrix}1+0+1 & 2+0+2\\ 2+0+2 & 4+0+4\end{bmatrix} = \begin{bmatrix}1&2\\2&4\end{bmatrix}$ <span class="why">entry (j,k) = Σ(product of centred column j and column k)/(n − 1)</span></li>
+<li>trace = 5, det = 1·4 − 2·2 = 0 → $\lambda^2 - 5\lambda + 0 = 0$ → λ = 5, 0.</li>
+<li>Eigenvector for λ = 5: $(1 - 5)v_1 + 2v_2 = 0$ → $v_2 = 2v_1$ → v = (1, 2)/√5 = (0.447, 0.894). <span class="why">normalise to length 1</span></li>
+<li>EVR(PC1) = 5/(5 + 0) = <b>100%</b> (the points lie on a line → 1-D is lossless).</li>
+<li>Score of (−1, −2): z = (−1·1 − 2·2)/√5 = −5/√5 = −2.236.</li>
+</ol>
+<p class="small">Another: S = [[3,1],[1,3]] → λ² − 6λ + 8 = 0 → λ = 4, 2; PC1 = (1,1)/√2, EVR = 4/6 = 66.7%.</p>
+</div>
+
+<h3>Choosing k, and limits</h3>
+<ul>
+<li><b>Cumulative EVR</b>: smallest k reaching the target (e.g. ≥ 90%). λ = 6, 2, 1, 0.5 → 63.2%, 84.2%, 94.7% → k = 3. <b>Scree plot</b>: λ vs component; look for the elbow.</li>
+<li>Reconstruction: $\hat X_c = ZW_k^T$; the top-k PCs give the <span class="hl">smallest reconstruction error</span> (same as maximum variance).</li>
+<li>PC scores are <b>uncorrelated</b> ($\text{Cov}(z_r, z_s) = 0$) but <span class="hlp">not necessarily independent</span>.</li>
+<li><b>When PCA fails:</b> a low-variance direction can be the predictive one (it's unsupervised); curved structure (linear PCA can't unroll it); unscaled features; outliers. Fitting PCA before CV = leakage.</li>
+<li><b>SVD route</b> (what sklearn does): $X_c = U\Sigma V^T$ → directions = columns of V, $\lambda_j = s_j^2/(n-1)$, scores = UΣ.</li>
+</ul>
+<div class="box trap"><span class="tag">⚠ Exam traps</span>
+<ul>
+<li><code>np.linalg.eigh</code> returns eigenvalues in <b>ascending</b> order — reverse before picking the top k.</li>
+<li>Eigenvector sign is arbitrary (v and −v are the same PC).</li>
+<li>Eigenvalue = variance (not std). sklearn PCA centres but does <b>not</b> standardise.</li>
+</ul>
+</div>
+</section>
+
+<!-- ===================================================== 12 -->
+<section class="topic">
+<h2><span class="num">12</span>Regularization (Ridge L2, Lasso L1, Elastic Net)</h2>
+<p><b>Big idea:</b> overfitted models have <b>huge coefficients</b> (a slope of 4500 swings ŷ wildly for a tiny change in x). <span class="hl">Add a penalty on coefficient size to the loss</span> → smaller, calmer coefficients → a bit more bias, much less variance.</p>
+<div class="box formula"><span class="tag">Penalised losses</span>
+$$\text{Ridge: } \sum(y_i - \hat y_i)^2 + \lambda\sum_{j\ge1}w_j^2 \qquad \text{Lasso: } \sum(y_i - \hat y_i)^2 + \lambda\sum_{j\ge1}|w_j|$$
+<p class="small">λ ≥ 0 sets the strength (λ = 0 → OLS; λ → ∞ → all slopes → 0, a flat line = underfit). The intercept is <b>not</b> penalised.</p>
+</div>
+
+<div class="box deriv"><span class="tag">Derivation — Ridge slope in 1-D</span>
+<ol class="steps">
+<li>Same trick as OLS: $c = \bar y - m\bar x$, so with $a_i = x_i - \bar x$, $b_i = y_i - \bar y$: $E(m) = \sum(b_i - ma_i)^2 + \lambda m^2$</li>
+<li>$\frac{dE}{dm} = -2\sum a_ib_i + 2m\sum a_i^2 + 2\lambda m$ <span class="why">OLS part from Topic 3, plus the derivative of λm² = 2λm</span></li>
+<li>Set to 0: $m\left(\sum a_i^2 + \lambda\right) = \sum a_ib_i$</li>
+<li>$\boxed{m_{\text{ridge}} = \dfrac{S_{xy}}{S_{xx} + \lambda}}$ <span class="why">λ sits in the <b>denominator</b> → m shrinks toward 0 but never reaches exactly 0</span></li>
+</ol>
+</div>
+<div class="box deriv"><span class="tag">Derivation — Ridge normal equation (many features)</span>
+<ol class="steps">
+<li>$L = (\mathbf y - X\mathbf w)^T(\mathbf y - X\mathbf w) + \lambda\mathbf w^T\mathbf w$</li>
+<li>$\nabla L = -2X^T\mathbf y + 2X^TX\mathbf w + 2\lambda\mathbf w$ <span class="why">OLS gradient (Topic 4) + derivative of $\lambda\mathbf w^T\mathbf w$ = 2λw (identity 3 with A = I)</span></li>
+<li>Set to 0: $(X^TX + \lambda I)\mathbf w = X^T\mathbf y$ <span class="why">$\lambda\mathbf w = \lambda I\mathbf w$, then factor out w</span></li>
+<li>$\boxed{\mathbf w_{\text{ridge}} = (X^TX + \lambda I)^{-1}X^T\mathbf y}$ <span class="why">adding λI also makes the matrix invertible even with collinear features</span></li>
+</ol>
+</div>
+<div class="box deriv"><span class="tag">Derivation — Lasso slope in 1-D (why exact zeros)</span>
+<ol class="steps">
+<li>$E(m) = \sum(b_i - ma_i)^2 + \lambda|m|$. |m| has a kink at 0, so handle m &gt; 0 and m &lt; 0 separately.</li>
+<li>Case m &gt; 0 (|m| = m): $\frac{dE}{dm} = -2S_{xy} + 2mS_{xx} + \lambda = 0$ → $m = \frac{S_{xy} - \lambda/2}{S_{xx}}$. <span class="why">the worksheet absorbs the ½ into λ and writes $m = \frac{S_{xy} - \lambda}{S_{xx}}$</span></li>
+<li>Case m &lt; 0 (|m| = −m): $m = \frac{S_{xy} + \lambda}{S_{xx}}$ (worksheet form).</li>
+<li><span class="hl">λ is subtracted in the numerator</span> → once λ ≥ |S_xy| the formula would cross 0 and break its own sign assumption → the algorithm <b>stops at exactly m = 0</b>. That's sparsity = automatic feature selection.</li>
+</ol>
+</div>
+<div class="box ex"><span class="tag">Worked: S_xy = 100, S_xx = 50 (OLS m = 2)</span>
+<table>
+<tr><th>λ</th><th>Ridge m = 100/(50 + λ)</th><th>Lasso m = (100 − λ)/50</th></tr>
+<tr><td>0</td><td>2</td><td>2</td></tr>
+<tr><td>50</td><td>1</td><td>1</td></tr>
+<tr><td>100</td><td>0.667</td><td><b>0</b></td></tr>
+<tr><td>150</td><td>0.5 (never 0)</td><td>formula −1 → <b>clipped to 0</b></td></tr>
+</table>
+<p class="small">m &lt; 0 case: S_xy = −100 → λ = 100 gives 0; λ = 150 gives +1, which breaks m &lt; 0 → also clipped to 0.</p>
+</div>
+
+<h3>Ridge vs Lasso vs Elastic Net</h3>
+<table>
+<tr><th></th><th>Ridge (L2)</th><th>Lasso (L1)</th><th>Elastic Net</th></tr>
+<tr><td>Penalty</td><td>$\lambda\sum w_j^2$</td><td>$\lambda\sum|w_j|$</td><td>$\lambda_1\sum|w_j| + \lambda_2\sum w_j^2$</td></tr>
+<tr><td>Effect</td><td>shrinks all, <b>never exactly 0</b></td><td><b>exact zeros</b> (feature selection)</td><td>zeros + groups correlated features</td></tr>
+<tr><td>Closed form</td><td>yes</td><td>no (coordinate descent)</td><td>no</td></tr>
+<tr><td>Shape (2-D)</td><td>circle $w_1^2 + w_2^2 \le r^2$</td><td>diamond $|w_1| + |w_2| \le r$ (corners on axes)</td><td>between the two</td></tr>
+<tr><td>Best when</td><td>all features useful; multicollinearity</td><td>many useless features; interpretability</td><td>many features + correlated groups</td></tr>
+</table>
+<ul>
+<li><b>Geometry:</b> the OLS error ellipses expand until they first touch the constraint region. A circle has no corners → the touch point is rarely on an axis. A diamond has <b>corners on the axes</b> → the touch point is often a corner → <span class="hl">a coefficient is exactly 0</span>.</li>
+<li>Ridge shrinks big coefficients fastest (w = 5000 adds 25,000,000λ to the loss; w = 1 adds only λ).</li>
+<li>With correlated features, Lasso keeps one arbitrarily; Ridge/Elastic Net share the weight.</li>
+<li>Elastic Net in sklearn: <code>ElasticNet(alpha, l1_ratio)</code>; l1_ratio = 1 → Lasso, 0 → Ridge.</li>
+</ul>
+<div class="box key"><span class="tag">Practice rules</span>
+<p><span class="hl">Standardise features first</span> (the penalty depends on scale). Don't penalise the intercept. <span class="hl">Choose λ by cross-validation</span> on a log grid (0.001, 0.01, 0.1, 1, 10, 100): train error rises with λ, validation error falls then rises — take the bottom. Logistic regression: the L2 penalty adds 2λβⱼ to the gradient; sklearn's C = 1/λ.</p>
+</div>
+<div class="box trap"><span class="tag">⚠ Exam traps</span>
+<ul>
+<li>λ in the <b>numerator</b> (Lasso, subtracts → zeros) vs the <b>denominator</b> (Ridge, divides → shrink).</li>
+<li>Lasso formula going past 0 → answer 0, not the negative number.</li>
+<li>Ridge adds λI to XᵀX (not to Xᵀy). Ridge increases bias slightly and reduces variance.</li>
+<li>Overfitting = <b>high variance, low bias</b>.</li>
+</ul>
+</div>
+</section>

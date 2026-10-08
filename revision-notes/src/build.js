@@ -1,0 +1,10 @@
+const {chromium}=require('playwright');const fs=require('fs');const path=require('path');
+(async()=>{const dir=process.argv[2], out=process.argv[3];
+const parts=fs.readdirSync(dir).filter(f=>/^p\d.*\.html$/.test(f)).sort();
+fs.writeFileSync(path.join(dir,'notes.html'),parts.map(f=>fs.readFileSync(path.join(dir,f),'utf8')).join('\n'));
+const b=await chromium.launch();const p=await b.newPage();
+await p.goto('file://'+path.join(dir,'notes.html'));await p.waitForSelector('body[data-ready]');await p.evaluate(()=>document.fonts.ready);await p.waitForTimeout(500);
+const errs=await p.evaluate(()=>[...document.querySelectorAll('.katex-error')].map(e=>e.title||e.textContent));
+console.log('katex errors:',errs.length);errs.slice(0,10).forEach(e=>console.log(' ',e));
+await p.pdf({path:out,format:'A4',printBackground:true,preferCSSPageSize:true});
+await b.close();})();

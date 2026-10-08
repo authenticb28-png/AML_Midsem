@@ -1,0 +1,254 @@
+
+<!-- ===================================================== 13 -->
+<section class="topic">
+<h2><span class="num">13</span>Time Series Analysis</h2>
+<p><b>Big idea:</b> ordinary ML assumes rows are <b>I.I.D.</b> (shuffle them and nothing changes). In a time series <span class="hl">order is the information</span>: today depends on yesterday.</p>
+<ul>
+<li><span class="hl">No shuffled K-fold:</span> a random split could train on 2026 to predict 2024 → leakage. Use a forward-chaining split (TimeSeriesSplit): train on 1..t, test on t+1..t+h, growing the window.</li>
+<li>Classical models assume <b>equally spaced</b> time steps.</li>
+</ul>
+
+<h3>Components</h3>
+<div class="box formula"><span class="tag">Additive decomposition</span>
+$$y_t = T_t + S_t + R_t$$
+<p class="small"><b>Trend</b> T = long-term direction. <b>Seasonality</b> S = repeating cycles at a <b>fixed, known</b> period (weekend dips, summer AC sales). <b>Noise / residual</b> R = random, unpredictable. If a model's residuals look like pure noise, it has captured everything learnable.</p>
+</div>
+
+<h3>Stationarity</h3>
+<div class="box formula"><span class="tag">Weak stationarity — all three must hold</span>
+$$E[y_t] = \mu \ (\text{constant mean}) \qquad \text{Var}(y_t) = \sigma^2 \ (\text{constant variance}) \qquad \text{Cov}(y_t, y_{t-k}) = \gamma_k \ (\text{depends only on lag } k)$$
+</div>
+<p>AR/MA models need stationary data. A trend breaks condition 1; growing spread breaks condition 2. (ADF test: null = non-stationary; p &lt; 0.05 → stationary.)</p>
+
+<h3>Lags and differencing</h3>
+<div class="box formula"><span class="tag">Lag and differences</span>
+$$\text{lag } k = y_{t-k} \qquad \Delta y_t = y_t - y_{t-1} \qquad \Delta_s y_t = y_t - y_{t-s}\ (\text{seasonal}) \qquad \hat y_{t+1} = y_t + \widehat{\Delta y}_{t+1}$$
+</div>
+<div class="box ex"><span class="tag">Worked: series 10, 13, 15, 20</span>
+<ol class="steps">
+<li>First differences: 13 − 10 = 3, 15 − 13 = 2, 20 − 15 = 5 → [—, 3, 2, 5] (the first value is lost).</li>
+<li>Second difference (difference of the differences): 2 − 3 = −1, 5 − 2 = 3.</li>
+<li>Lag-1 column = [—, 10, 13, 15].</li>
+</ol>
+<p><span class="hl">First differencing removes a (linear) trend; seasonal differencing (lag s) removes seasonality; log stabilises growing variance.</span> "Last week" = lag 1 for weekly data, lag 7 for daily data.</p>
+</div>
+
+<h3>AR(p) — Auto-Regression</h3>
+<div class="box formula"><span class="tag">AR(p)</span>
+$$y_t = c + \phi_1y_{t-1} + \phi_2y_{t-2} + \dots + \phi_py_{t-p} + \varepsilon_t \qquad \text{AR(1) long-run mean } \mu = \frac{c}{1-\phi_1}$$
+</div>
+<p>Regress the series on its own past p values. p too large (p = 365 for tomorrow's temperature) → 365 weights → slow, overfits noise.</p>
+<div class="box ex"><span class="tag">Worked</span>
+<p>AR(1): $y_t = 2 + 0.6y_{t-1}$, $y_{t-1} = 10$ → forecast 2 + 6 = <b>8</b> (forecast sets ε = 0); long-run mean = 2/(1 − 0.6) = 5. &nbsp; AR(2): $5 + 0.5(20) - 0.2(10) = 5 + 10 - 2 = $ <b>13</b>. Multi-step: earlier forecasts become the inputs.</p>
+</div>
+
+<h3>ACF and PACF</h3>
+<div class="box formula"><span class="tag">Sample ACF at lag k</span>
+$$\rho_k = \frac{\sum_{t=k+1}^{N}(y_t - \bar y)(y_{t-k} - \bar y)}{\sum_{t=1}^{N}(y_t - \bar y)^2} \in [-1, 1] \qquad \text{significance band } \pm\frac{1.96}{\sqrt N}$$
+</div>
+<div class="box ex"><span class="tag">Worked: y = 1, 2, 3, 4, 5, lag 1</span>
+<ol class="steps">
+<li>ȳ = 3; deviations: −2, −1, 0, 1, 2. Denominator = 4 + 1 + 0 + 1 + 4 = 10.</li>
+<li>Pair each value with the one before it: (−1)(−2) + (0)(−1) + (1)(0) + (2)(1) = 2 + 0 + 0 + 2 = 4.</li>
+<li>$\rho_1 = 4/10 = $ <b>0.4</b>.</li>
+</ol>
+</div>
+<ul>
+<li><b>ACF</b> = total correlation with lag k (direct + "ripple" through the lags in between). ρ ≈ +1: today follows the past; ρ ≈ −1: mean-reverting.</li>
+<li><b>PACF</b> = <span class="hl">direct</span> correlation with lag k after removing the effect of the lags in between. (Day-before-yesterday → yesterday → today is a ripple; PACF removes it.)</li>
+</ul>
+
+<h3>MA(q) — Moving Average of shocks</h3>
+<div class="box formula"><span class="tag">MA(q)</span>
+$$y_t = c + \varepsilon_t + \theta_1\varepsilon_{t-1} + \dots + \theta_q\varepsilon_{t-q} \qquad \varepsilon_t = y_t - \hat y_t \ (\text{shock / forecast error})$$
+<p class="small">Uses past <b>errors (shocks)</b>, not past values — not a rolling mean. e.g. $50 + \varepsilon_t + 0.5\varepsilon_{t-1}$ with ε_t = 2, ε_{t−1} = −4 → 50 + 2 − 2 = 50.</p>
+</div>
+<table>
+<tr><th>Model</th><th>ACF</th><th>PACF</th></tr>
+<tr><td><b>AR(p)</b></td><td>tails off slowly</td><td><span class="hl">cuts off after lag p</span></td></tr>
+<tr><td><b>MA(q)</b></td><td><span class="hl">cuts off after lag q</span></td><td>tails off</td></tr>
+</table>
+<p><b>Memory aid:</b> <span class="hl">PACF → p (AR), ACF → q (MA).</span> ARIMA(p, d, q): d = number of differences. A spike at lag 7 in daily data = weekly seasonality.</p>
+<div class="box trap"><span class="tag">⚠ Exam traps</span>
+<ul>
+<li>First differencing removes trend, not seasonality.</li>
+<li>Stationarity ≠ constant values; it's constant statistical properties.</li>
+<li>Noise (a component) vs a random shock (one specific unpredictable event).</li>
+</ul>
+</div>
+</section>
+
+<!-- ===================================================== 14 -->
+<section class="topic">
+<h2><span class="num">14</span>Maximum Likelihood Estimation &amp; Logistic Regression</h2>
+<h3>Probability vs likelihood</h3>
+<div class="box key"><span class="tag">Same formula, different question</span>
+<p><b>Probability</b>: parameter fixed (p = 0.5), ask about data ("chance of 7 heads in 10?"). <b>Likelihood</b>: data fixed (we saw 7 heads), ask about the parameter ("which p explains this best?"). <span class="hl">MLE: choose the parameter that makes the observed data most likely</span>: $\hat\theta = \arg\max_\theta L(\theta; D)$.</p>
+</div>
+<div class="box formula"><span class="tag">Binomial likelihood</span>
+$$L(p) = \binom{n}{k}p^k(1-p)^{n-k}$$
+</div>
+<div class="box ex"><span class="tag">Worked: 7 heads in 10 tosses</span>
+<p>$\binom{10}{7} = 120$. L(0.5) = 120 × 0.5¹⁰ = 0.117. L(0.7) = 120 × 0.7⁷ × 0.3³ = 120 × 0.0824 × 0.027 = <b>0.267</b> (largest). L(0.9) = 120 × 0.478 × 0.001 = 0.057. → p = 0.7 explains the data best.</p>
+</div>
+<div class="box deriv"><span class="tag">Derivation — the Bernoulli MLE is p̂ = k/n</span>
+<ol class="steps">
+<li>$L(p) \propto p^k(1-p)^{n-k}$ <span class="why">the constant $\binom nk$ doesn't change where the maximum is</span></li>
+<li>$\ell(p) = \ln L = k\ln p + (n-k)\ln(1-p)$ <span class="why">take logs (the max is in the same place; products become sums): $\ln a^k = k\ln a$</span></li>
+<li>$\frac{d\ell}{dp} = \frac{k}{p} - \frac{n-k}{1-p}$ <span class="why">$\frac{d}{dp}\ln(1-p) = \frac{-1}{1-p}$ (chain rule)</span></li>
+<li>$\frac{k}{p} = \frac{n-k}{1-p}$ → $k(1-p) = (n-k)p$ <span class="why">set to 0, cross-multiply</span></li>
+<li>$k - kp = np - kp$ → $k = np$ → $\boxed{\hat p = k/n}$ <span class="why">the −kp cancels on both sides</span> (7/10 = 0.7 ✔)</li>
+</ol>
+</div>
+
+<h3>Logistic regression: score → probability</h3>
+<ul>
+<li>Accuracy is a step function (no gradient) and doesn't reward confidence. We need probabilities.</li>
+<li><b>Linear score</b> $z = \beta_0 + \beta_1x_1 + \beta_2x_2$ (any real number; not a probability). <span class="hl">Decision boundary: z = 0</span> (a line/plane).</li>
+<li>A step function (z ≥ 0 → 1) has zero gradient almost everywhere → can't learn. Use the smooth <b>sigmoid</b>.</li>
+</ul>
+<div class="box formula"><span class="tag">Sigmoid</span>
+$$\hat p = P(y = 1 \mid \mathbf x) = \sigma(z) = \frac{1}{1 + e^{-z}} \qquad P(y=0) = 1 - \hat p \qquad z = \ln\frac{\hat p}{1 - \hat p}\ (\text{logit})$$
+<table class="center">
+<tr><th>z</th><td>−2</td><td>−1</td><td>0</td><td>1</td><td>2</td><td>large +</td><td>large −</td></tr>
+<tr><th>σ(z)</th><td>0.119</td><td>0.269</td><td><b>0.5</b></td><td>0.731</td><td>0.881</td><td>→ 1</td><td>→ 0</td></tr>
+</table>
+<p class="small">σ(−z) = 1 − σ(z). Threshold 0.5 ⇔ z = 0. e.g. z = −1 + 0.5(2) + 0.25(4) = 1 → p̂ = 0.731 → class 1.</p>
+</div>
+
+<h3>From likelihood to Binary Cross-Entropy (BCE)</h3>
+<div class="box deriv"><span class="tag">Derivation — BCE is the negative log-likelihood</span>
+<ol class="steps">
+<li>One row: P(observed label) = $\hat p_i^{\,y_i}(1 - \hat p_i)^{1-y_i}$ <span class="why">if y = 1 → p̂ (the second factor becomes ^0 = 1); if y = 0 → 1 − p̂</span></li>
+<li>All rows (independent): $L(\boldsymbol\beta) = \prod_{i=1}^{n}\hat p_i^{\,y_i}(1 - \hat p_i)^{1-y_i}$ <span class="why">multiply the probabilities</span></li>
+<li>$\ell = \ln L = \sum_i\big[y_i\ln\hat p_i + (1 - y_i)\ln(1 - \hat p_i)\big]$ <span class="why">log of a product = sum of logs</span></li>
+<li>Maximise ℓ ⇔ minimise $-\ell$. Average over n: $\boxed{\text{BCE} = -\frac1n\sum_i\big[y_i\ln\hat p_i + (1 - y_i)\ln(1 - \hat p_i)\big]}$</li>
+</ol>
+<p><span class="hl">Per row: y = 1 → loss = −ln p̂; y = 0 → loss = −ln(1 − p̂).</span></p>
+</div>
+<div class="box ex"><span class="tag">Worked: how BCE behaves (y = 1)</span>
+<p>p̂ = 0.9 → −ln 0.9 = 0.105 (good). p̂ = 0.5 → 0.693. p̂ = 0.1 → −ln 0.1 = <b>2.303</b> (<span class="hl">confidently wrong is very expensive</span>). Two rows y = [1, 0], p̂ = [0.8, 0.3]: (−ln 0.8 − ln 0.7)/2 = (0.223 + 0.357)/2 = <b>0.290</b>.</p>
+</div>
+<ul>
+<li>BCE is convex but has <b>no closed form</b> → train with gradient descent (Topic 15).</li>
+<li>Regularised: J = BCE + λ·R(β). Large λ → underfitting.</li>
+<li>Equal accuracy does not mean equal likelihood (confidence matters).</li>
+</ul>
+<div class="box trap"><span class="tag">⚠ Exam traps</span>
+<ul>
+<li>For a y = 0 row use 1 − p̂ (not p̂).</li>
+<li>z is a score, not a probability. Use the natural log.</li>
+<li>Log-likelihood −20 beats −35 (larger is better).</li>
+</ul>
+</div>
+</section>
+
+<!-- ===================================================== 15 -->
+<section class="topic">
+<h2><span class="num">15</span>GD on Logistic Regression &amp; Multiclass</h2>
+<p><b>Big idea:</b> the BCE gradient simplifies beautifully to <span class="hl">(p̂ − y)·x</span> — "error × input", the same shape as linear regression.</p>
+<p class="center"><b>chain:</b> $\beta_j \ \to\ z = \boldsymbol\beta^T\mathbf x \ \to\ \hat p = \sigma(z) \ \to\ L$ &nbsp;&nbsp; so &nbsp;&nbsp; $\frac{\partial L}{\partial\beta_j} = \frac{\partial L}{\partial\hat p}\cdot\frac{\partial\hat p}{\partial z}\cdot\frac{\partial z}{\partial\beta_j}$</p>
+
+<div class="box deriv"><span class="tag">Link 1 — ∂L/∂p̂</span>
+<ol class="steps">
+<li>$L = -[y\ln\hat p + (1-y)\ln(1-\hat p)]$</li>
+<li>$\frac{\partial L}{\partial\hat p} = -\frac{y}{\hat p} + \frac{1-y}{1-\hat p}$ <span class="why">$\frac{d}{d\hat p}\ln\hat p = \frac1{\hat p}$; $\frac{d}{d\hat p}\ln(1-\hat p) = -\frac{1}{1-\hat p}$, and the two minus signs make it +</span></li>
+<li>$= \frac{-y(1-\hat p) + (1-y)\hat p}{\hat p(1-\hat p)}$ <span class="why">common denominator</span></li>
+<li>$= \frac{-y + y\hat p + \hat p - y\hat p}{\hat p(1-\hat p)} = \boxed{\frac{\hat p - y}{\hat p(1-\hat p)}}$ <span class="why">expand; +yp̂ and −yp̂ cancel</span></li>
+</ol>
+</div>
+<div class="box deriv"><span class="tag">Link 2 — sigmoid derivative σ′ = σ(1 − σ)</span>
+<ol class="steps">
+<li>$\sigma(z) = (1 + e^{-z})^{-1}$</li>
+<li>$\sigma'(z) = -1\cdot(1 + e^{-z})^{-2}\cdot(-e^{-z}) = \frac{e^{-z}}{(1 + e^{-z})^2}$ <span class="why">power rule, then chain rule: derivative of $e^{-z}$ is $-e^{-z}$</span></li>
+<li>$= \frac{1}{1 + e^{-z}}\cdot\frac{e^{-z}}{1 + e^{-z}}$ <span class="why">split into two fractions</span></li>
+<li>$\frac{e^{-z}}{1 + e^{-z}} = \frac{(1 + e^{-z}) - 1}{1 + e^{-z}} = 1 - \sigma(z)$ <span class="why">add and subtract 1 on top</span></li>
+<li>$\boxed{\sigma'(z) = \sigma(z)\,(1 - \sigma(z))} = \hat p(1-\hat p)$ <span class="why">largest at z = 0: 0.5 × 0.5 = 0.25</span></li>
+</ol>
+</div>
+<div class="box deriv"><span class="tag">Link 3 and the result</span>
+<ol class="steps">
+<li>$\frac{\partial z}{\partial\beta_j} = x_j$ <span class="why">$z = \beta_0 + \beta_1x_1 + \dots$; only the βⱼ term contains βⱼ (x₀ = 1)</span></li>
+<li>$\frac{\partial L}{\partial\beta_j} = \frac{\hat p - y}{\hat p(1-\hat p)}\cdot\hat p(1-\hat p)\cdot x_j$ <span class="why">multiply the three links</span></li>
+<li>$\boxed{\frac{\partial L}{\partial\beta_j} = (\hat p - y)\,x_j}$ <span class="why">the $\hat p(1-\hat p)$ cancels — so $\frac{\partial L}{\partial z} = \hat p - y$</span></li>
+<li>All n rows: $\boxed{\nabla J = \frac1n X^T(\hat{\mathbf p} - \mathbf y)}$, &nbsp; $\boldsymbol\beta \leftarrow \boldsymbol\beta - \alpha\nabla J$ <span class="why">average over rows; <span class="hlp">1/n, no factor 2</span> (unlike MSE)</span></li>
+</ol>
+</div>
+<div class="box ex"><span class="tag">Worked: one batch update (worksheet)</span>
+<p>Rows (x = 1, y = 0) and (x = 2, y = 1); β₀ = β₁ = 0; α = 0.4.</p>
+<ol class="steps">
+<li>z = 0 for both → p̂ = σ(0) = 0.5, 0.5. Errors p̂ − y = +0.5, −0.5.</li>
+<li>$\partial J/\partial\beta_0 = \frac{(0.5)(1) + (-0.5)(1)}{2} = 0$; $\partial J/\partial\beta_1 = \frac{(0.5)(1) + (-0.5)(2)}{2} = \frac{-0.5}{2} = -0.25$.</li>
+<li>β₀ = 0 − 0.4(0) = 0; β₁ = 0 − 0.4(−0.25) = <b>0.10</b> (update both simultaneously).</li>
+<li>Check: new z = 0.1, 0.2 → p̂ = 0.525, 0.550. BCE: −ln(1 − 0.525) = 0.744, −ln 0.550 = 0.598 → mean <b>0.671</b> &lt; 0.693 = ln 2 (the starting loss with β = 0). Loss fell ✔.</li>
+</ol>
+</div>
+
+<h3>Multiclass: One-vs-Rest (OvR)</h3>
+<ul>
+<li>K classes → train <span class="hl">K binary logistic models</span>, each "class k vs everything else". Parameters = K(d + 1).</li>
+<li>Predict: compute all K sigmoid scores, pick the <b>largest</b>. The K scores <span class="hlp">need not sum to 1</span>.</li>
+</ul>
+<h3>Multiclass: Softmax (multinomial logistic regression)</h3>
+<div class="box formula"><span class="tag">Softmax and cross-entropy</span>
+$$\hat p_k = \frac{e^{z_k}}{\sum_{j=1}^{K}e^{z_j}} \qquad L = -\sum_{k}y_k\ln\hat p_k = -\ln\hat p_{\text{true class}} \qquad \frac{\partial L}{\partial z_k} = \hat p_k - y_k$$
+</div>
+<div class="box ex"><span class="tag">Worked: logits (2, 1, 0)</span>
+<ol class="steps">
+<li>$e^2 = 7.389$, $e^1 = 2.718$, $e^0 = 1$ → sum = 11.107.</li>
+<li>p̂ = 7.389/11.107 = <b>0.665</b>, 2.718/11.107 = <b>0.245</b>, 1/11.107 = <b>0.090</b> (sum = 1 ✔).</li>
+<li>True class = 2nd → CE = −ln 0.245 = <b>1.41</b>; if true = 1st → −ln 0.665 = 0.41.</li>
+</ol>
+<p><span class="hl">Adding the same constant to all logits changes nothing</span> → compute with $e^{z_k - \max z}$ to avoid overflow. Multiplying the logits does change the result. K = 2 softmax = sigmoid of $z_1 - z_2$.</p>
+</div>
+<table>
+<tr><th></th><th>OvR</th><th>Softmax</th></tr>
+<tr><td>Models</td><td>K separate binary models</td><td>one joint model</td></tr>
+<tr><td>Outputs sum to 1?</td><td>no</td><td><b>yes</b></td></tr>
+<tr><td>Loss</td><td>K binary BCEs</td><td>multiclass cross-entropy</td></tr>
+</table>
+
+<h3>Odds, log-odds, boundaries, regularisation</h3>
+<div class="box formula"><span class="tag">Odds</span>
+$$\text{odds} = \frac{p}{1-p} \qquad \ln\frac{p}{1-p} = z = \beta_0 + \boldsymbol\beta^T\mathbf x \qquad \text{odds ratio} = e^{\beta_j}$$
+<p class="small">p = 0.8 → odds 4 → log-odds ln 4 = 1.386. One unit more of xⱼ adds βⱼ to the <b>log-odds</b> (multiplies the odds by $e^{\beta_j}$) — not to the probability.</p>
+</div>
+<ul>
+<li>Assumptions: independent rows, log-odds linear in the features, little multicollinearity.</li>
+<li>Linear z → straight boundary. Add x₁², x₂² → <b>curved</b> boundary (a circle/ellipse) — still logistic regression.</li>
+<li>Regularisation: J = BCE + λΣβⱼ² (L2 adds 2λβⱼ to the gradient → shrinks big weights) or λΣ|βⱼ| (L1 → zeros). Scale features; don't penalise β₀. sklearn C = 1/λ.</li>
+</ul>
+<div class="box trap"><span class="tag">⚠ Exam traps</span>
+<ul>
+<li>The gradient is (p̂ − y)x when you <b>subtract</b> α × gradient. With (y − p̂) you'd go uphill.</li>
+<li>The starting BCE with β = 0 is always ln 2 = 0.693.</li>
+<li>OvR scores don't sum to 1; softmax probabilities do.</li>
+</ul>
+</div>
+</section>
+
+<!-- ===================================================== glance -->
+<section class="topic">
+<h2><span class="num">★</span>Formulas at a glance</h2>
+<table class="small">
+<tr><th>Topic</th><th>Must-know formulas</th></tr>
+<tr><td>Preprocess</td><td>$\frac{x-\min}{\max-\min}$ · $\frac{x-\mu}{\sigma}$ (σ ÷ n) · $\frac{x}{\max|x|}$ · $\frac{x-\text{med}}{\text{IQR}}$ · fences $Q_1 - 1.5\text{IQR}$, $Q_3 + 1.5\text{IQR}$ · binary cols $\lceil\log_2N\rceil$</td></tr>
+<tr><td>SLR</td><td>$m = \frac{\sum(x-\bar x)(y-\bar y)}{\sum(x-\bar x)^2}$ · $c = \bar y - m\bar x$ · line passes through $(\bar x, \bar y)$ · $\sum e_i = 0$</td></tr>
+<tr><td>MLR</td><td>$L = \mathbf e^T\mathbf e$ · $\nabla L = -2X^T\mathbf y + 2X^TX\boldsymbol\beta$ · $X^TX\boldsymbol\beta = X^T\mathbf y$ · $\boldsymbol\beta = (X^TX)^{-1}X^T\mathbf y$ · cost $O(p^3)$</td></tr>
+<tr><td>BGD</td><td>$\boldsymbol\theta \leftarrow \boldsymbol\theta - \alpha\nabla L$ · $\nabla L = \frac2mX^T(X\boldsymbol\theta - \mathbf y)$ · 1 update/epoch · diverges if α too big</td></tr>
+<tr><td>SGD / MB</td><td>per-row grad $[e,\ ex]$, e = ŷ − y · updates/epoch: 1, m, ⌈m/b⌉ · cost/update O(md), O(d) · unbiased but noisy</td></tr>
+<tr><td>Metrics</td><td>MAE, MSE, RMSE ≥ MAE, MAPE (÷ actual) · $R^2 = 1 - \frac{RSS}{TSS}$ · $R^2_{adj} = 1 - (1-R^2)\frac{n-1}{n-p-1}$ · P = TP/(TP+FP) · R = TP/(TP+FN) · F1 = 2PR/(P+R) · Acc = (TP+TN)/all · micro-F1 = accuracy</td></tr>
+<tr><td>Poly / assump.</td><td>degree n → n+1 cols · funnel = heteroscedastic, U = non-linear · $Xc = 0 \Rightarrow \det X^TX = 0$ · VIF = $\frac{1}{1-R_j^2}$ · DW ≈ 2</td></tr>
+<tr><td>Bias–var</td><td>Bias = E[f̂] − f · MSE = Bias² + Var + σ² · k-fold trains on n(k−1)/k · grid fits = k × Π(list sizes)</td></tr>
+<tr><td>Selection</td><td>cells = bᵖ · Var(binary) = q(1−q) · Pearson r · exhaustive 2ᵖ − 1 · forward/backward p(p+1)/2</td></tr>
+<tr><td>PCA</td><td>$S = \frac{1}{n-1}X_c^TX_c$ · $S\mathbf v = \lambda\mathbf v$ · $\lambda^2 - \text{tr}\,\lambda + \det = 0$ · Var(uᵀx) = uᵀSu · EVR = λⱼ/Σλ · Z = X_cW · λ = s²/(n−1)</td></tr>
+<tr><td>Regular.</td><td>Ridge $m = \frac{S_{xy}}{S_{xx}+\lambda}$, $(X^TX + \lambda I)^{-1}X^T\mathbf y$ · Lasso $m = \frac{S_{xy} - \lambda}{S_{xx}}$ → clip at 0 · EN = L1 + L2</td></tr>
+<tr><td>Time series</td><td>$y_t = T + S + R$ · stationary: const μ, σ², γₖ · Δy = yₜ − yₜ₋₁ · AR(p) · MA(q) · ρₖ formula · PACF→p, ACF→q</td></tr>
+<tr><td>MLE / LR</td><td>$\hat p = k/n$ · $\sigma(z) = \frac{1}{1+e^{-z}}$ · boundary z = 0 · BCE $= -\frac1n\sum[y\ln\hat p + (1-y)\ln(1-\hat p)]$</td></tr>
+<tr><td>GD-LR / multi</td><td>σ′ = σ(1−σ) · ∂L/∂βⱼ = (p̂ − y)xⱼ · ∇J = Xᵀ(p̂ − y)/n · OvR K models, K(d+1) params · softmax $e^{z_k}/\sum e^{z_j}$ · CE = −ln p̂_true · odds = p/(1−p)</td></tr>
+</table>
+<div class="box key"><span class="tag">Numbers worth remembering</span>
+<p>σ(0) = 0.5 · σ(1) = 0.731 · σ(2) = 0.881 · ln 2 = 0.693 · ln 4 = 1.386 · −ln 0.1 = 2.303 · −ln 0.9 = 0.105 · e = 2.718 · e² = 7.389 · e⁻¹ = 0.368 · softmax(2,1,0) = (0.665, 0.245, 0.090) · √2 = 1.414</p>
+</div>
+<p class="center" style="font-family:'Caveat';font-size:30px;color:#7a1020;margin-top:14px">All the best for the mid-sem! ✿</p>
+</section>

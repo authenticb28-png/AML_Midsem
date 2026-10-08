@@ -1,0 +1,313 @@
+
+<!-- ===================================================== 1 -->
+<section class="topic">
+<h2><span class="num">1</span>ML Project Lifecycle — Part 1</h2>
+<p><b>Big idea:</b> an ML project is a pipeline of phases. <span class="hl">Phases 1–4: Problem definition → Data collection → EDA → Preprocessing.</span> (Part 2 covers phases 5–11.)</p>
+
+<h3>Phase 1 — Problem definition (5-step blueprint)</h3>
+<table>
+<tr><th>Step</th><th>What it means</th></tr>
+<tr><td>1. Understand the problem</td><td>Find the exact pain point (e.g. premium users cancelling = <b>churn</b>).</td></tr>
+<tr><td>2. Set quantifiable goals</td><td>A <span class="hl">measurable</span> target: "reduce churn by 10% in 2 quarters", not "make it better".</td></tr>
+<tr><td>3. Assess ML feasibility</td><td>Is ML even needed? Is there data? <span class="hlg">"Don't use ML" is a valid answer</span> (if a SQL rule solves it).</td></tr>
+<tr><td>4. Identify constraints</td><td>Budget, latency (&lt;10 ms?), privacy laws (GDPR) — legal limits are <b>constraints</b>.</td></tr>
+<tr><td>5. Stakeholder alignment</td><td>Everyone agrees what "success" means.</td></tr>
+</table>
+<div class="box formula"><span class="tag">Rigorous problem statement</span>
+<p class="center">"Using <b>[data]</b>, predict <b>[target]</b> within <b>[time window]</b>, achieving <b>[metric ≥ k]</b>."</p>
+<p class="small">e.g. "Using clickstream + purchase data, predict which users stop shopping within 3 months."</p>
+</div>
+
+<h3>Phase 2 — Data collection</h3>
+<p>Sources: SQL warehouses, public repositories (Kaggle, UCI), APIs, web scraping, manual labelling. <span class="hl">Garbage In = Garbage Out</span>: the model can't be better than its data.</p>
+<div class="two">
+<table>
+<tr><th>Structure</th><th>Example</th></tr>
+<tr><td>Structured</td><td>SQL table (rows × columns)</td></tr>
+<tr><td>Unstructured</td><td>images, audio, free text</td></tr>
+<tr><td><span class="hl">Semi-structured</span></td><td><b>JSON, XML</b> (keys/tags, no fixed schema)</td></tr>
+<tr><td>Time-series</td><td>indexed by time (daily prices)</td></tr>
+</table>
+<table>
+<tr><th>Feature type</th><th>Example</th></tr>
+<tr><td>Nominal (no order)</td><td>city, colour, blood group</td></tr>
+<tr><td>Ordinal (order)</td><td>HS &lt; Bachelor &lt; Master &lt; PhD</td></tr>
+<tr><td>Numerical discrete</td><td>no. of rooms</td></tr>
+<tr><td>Numerical continuous</td><td>income, temperature</td></tr>
+</table>
+</div>
+<p><span class="hlp">A number used as an ID (roll no., PIN, phone) is nominal, not numerical.</span></p>
+
+<h3>Phase 3 — Exploratory Data Analysis (EDA)</h3>
+<ul>
+<li><b>Univariate</b> (1 variable): distribution, mean, median, outliers → histogram, box plot.</li>
+<li><b>Bivariate</b> (2 variables): relationship → scatter plot, correlation.</li>
+<li><b>Multivariate</b> (many): interactions → correlation heatmap, pair plot.</li>
+<li>Histogram = one <b>numerical</b> variable; bar chart = <b>categorical</b> counts. Box plot shows the <span class="hl">median</span> (not mean).</li>
+<li><b>Class imbalance:</b> 95% "no fraud" → a model that always says "no" gets <span class="hl">95% accuracy but catches 0 fraud</span>. Majority accuracy $= n_{\text{majority}}/n$.</li>
+</ul>
+<div class="box formula"><span class="tag">Quartiles, IQR, outlier fences</span>
+$$\text{IQR} = Q_3 - Q_1 \qquad \text{outlier if } x < Q_1 - 1.5\,\text{IQR} \ \text{ or } \ x > Q_3 + 1.5\,\text{IQR}$$
+<p class="small">$Q_1$ = median of the lower half, $Q_3$ = median of the upper half (median itself excluded when n is odd).</p>
+</div>
+<div class="box ex"><span class="tag">Worked: fences</span>
+<p>Data: 10, 20, 30, 40, 100 (sorted, n = 5). Median = 30 (middle value).</p>
+<ol class="steps">
+<li>Lower half = 10, 20 → $Q_1 = (10+20)/2 = 15$. Upper half = 40, 100 → $Q_3 = (40+100)/2 = 70$.</li>
+<li>$\text{IQR} = 70 - 15 = 55$; $1.5 \times 55 = 82.5$.</li>
+<li>Lower fence $= 15 - 82.5 = -67.5$; upper fence $= 70 + 82.5 = 152.5$. Nothing lies outside, so <b>no outlier</b> by this rule (100 is large but inside the fence).</li>
+</ol>
+</div>
+
+<h3>Phase 4 — Preprocessing</h3>
+<h4>(a) Missing values</h4>
+<table>
+<tr><th>Method</th><th>Use when</th></tr>
+<tr><td>Delete rows</td><td>very few rows missing</td></tr>
+<tr><td>Delete column</td><td>column mostly empty (&gt; ~80%)</td></tr>
+<tr><td><b>Mean</b> imputation</td><td>numerical, no outliers</td></tr>
+<tr><td><b>Median</b> imputation</td><td>numerical <span class="hl">with outliers / skew</span> (median is robust)</td></tr>
+<tr><td><b>Mode</b> imputation</td><td><span class="hl">categorical</span> (mean of "IT" and "HR" is meaningless)</td></tr>
+</table>
+<p>Mean of a column with gaps uses only the <b>observed</b> values: [2, ?, 4, ?, 9] → mean = 15/3 = 5 → [2, 5, 4, 5, 9].</p>
+<h4>(b) Inconsistent data</h4>
+<p>Duplicates (drop), inconsistent spellings/case ("delhi", "Delhi"), mixed units (kg vs g) → standardise.</p>
+
+<h4>(c) Feature scaling — 4 scalers</h4>
+<div class="box formula"><span class="tag">Scaling formulas</span>
+<div class="two">
+<div>$$\text{Min-Max: } x' = \frac{x - x_{\min}}{x_{\max} - x_{\min}} \in [0,1]$$
+$$\text{Z-score: } z = \frac{x - \mu}{\sigma}$$</div>
+<div>$$\text{Max-Abs: } x' = \frac{x}{\max|x|} \in [-1,1]$$
+$$\text{Robust: } x' = \frac{x - \text{median}}{\text{IQR}}$$</div>
+</div>
+<p class="small">σ here is the <b>population</b> std: $\sigma = \sqrt{\frac1n\sum (x_i-\mu)^2}$ (divide by n). StandardScaler also divides by n.</p>
+</div>
+<div class="box ex"><span class="tag">Worked: scale x = 30 in the column 10, 20, 30, 40, 100</span>
+<ol class="steps">
+<li><b>Min-Max:</b> $(30 - 10)/(100 - 10) = 20/90 = 0.222$.</li>
+<li><b>Z-score:</b> $\mu = (10+20+30+40+100)/5 = 200/5 = 40$. Deviations: −30, −20, −10, 0, 60. Squares: 900, 400, 100, 0, 3600 → sum 5000. $\sigma^2 = 5000/5 = 1000$, $\sigma = \sqrt{1000} = 31.62$. $z = (30 - 40)/31.62 = -0.316$.</li>
+<li><b>Max-Abs:</b> $30/100 = 0.3$.</li>
+<li><b>Robust:</b> median 30, IQR 55 (from above): $(30 - 30)/55 = 0$.</li>
+</ol>
+<p><span class="hlg">Why Robust exists:</span> the outlier 100 squashes Min-Max (all normal values crowd near 0); median and IQR ignore the extreme value.</p>
+</div>
+<p><span class="hl">Who needs scaling?</span> Gradient descent, KNN, SVM, PCA, regularised models. <b>Trees don't.</b> Fit the scaler on <b>train only</b>, then transform test with the same numbers.</p>
+
+<h4>(d) Categorical encoding</h4>
+<table>
+<tr><th>Encoding</th><th>How</th><th>Use for</th><th>Columns</th></tr>
+<tr><td>Label</td><td>each category → integer (sklearn: <b>alphabetical</b>)</td><td>target labels / trees</td><td>1</td></tr>
+<tr><td>Ordinal</td><td>integers in an order <b>you</b> give</td><td>ordered categories</td><td>1</td></tr>
+<tr><td>One-hot</td><td>one 0/1 column per category</td><td>nominal, few categories</td><td>N</td></tr>
+<tr><td>Binary</td><td>id → binary digits, one column per bit</td><td>nominal, many categories</td><td>$\lceil\log_2 N\rceil$</td></tr>
+</table>
+<div class="box ex"><span class="tag">Worked: binary encoding of 5 animals</span>
+<p>N = 5, ids 0–4 → $\lceil \log_2 5 \rceil = \lceil 2.32\rceil = 3$ columns. Cat = 0 = 000, Dog = 1 = 001, Cow = 2 = 010, Hen = 3 = 011, Bird = 4 = 100. (One-hot would need 5.) <span class="hlp">If ids start at 1, Bird = 5 = 101 still needs 3 bits, but N = 8 would need 4.</span></p>
+</div>
+<div class="box trap"><span class="tag">⚠ Exam traps</span>
+<ul>
+<li>JSON / XML = <b>semi-structured</b>.</li>
+<li>Label-encoding a nominal feature for linear models/KNN invents a fake order ("Red &lt; Green").</li>
+<li>LabelEncoder on ['low','high','medium'] gives high = 0, low = 1, medium = 2 (alphabetical).</li>
+<li>EDA comes <b>before</b> preprocessing.</li>
+</ul>
+</div>
+</section>
+
+<!-- ===================================================== 2 -->
+<section class="topic">
+<h2><span class="num">2</span>ML Project Lifecycle — Part 2</h2>
+<table>
+<tr><th>Phase</th><th>Name</th><th>One line</th></tr>
+<tr><td>5</td><td>Data splitting</td><td>train / validation / test — the "golden barrier"</td></tr>
+<tr><td>6</td><td>Feature engineering</td><td>create better inputs</td></tr>
+<tr><td>7</td><td>Baseline</td><td>the simplest model you must beat</td></tr>
+<tr><td>8</td><td>Modelling loop</td><td>select, tune, train</td></tr>
+<tr><td>9</td><td>Offline evaluation</td><td>score once on the test set; map to business value</td></tr>
+<tr><td>10</td><td>Deployment</td><td>ship the model</td></tr>
+<tr><td>11</td><td>Post-deployment</td><td>monitor, detect drift, retrain</td></tr>
+</table>
+
+<h3>Parameters vs hyperparameters</h3>
+<div class="box key"><span class="tag">Key</span>
+<p><b>Parameters</b> are learned <b>during</b> training (weights $w$, intercept $w_0$). <b>Hyperparameters</b> are set <b>before</b> training by you (learning rate α, max_depth, n_estimators, λ, degree, batch size). <span class="hl">Hyperparameters are tuned on the validation set</span>, never on the test set.</p>
+</div>
+
+<h3>Phase 5 — Splitting and data leakage</h3>
+<ul>
+<li>Typical split <b>70 / 15 / 15</b>. Train = learn parameters; validation = choose hyperparameters/model; test = <span class="hl">one final, untouched check</span>.</li>
+<li><b>Data leakage</b> = information from validation/test (or from the future) sneaks into training → scores look great, real performance is worse.</li>
+<li><span class="hlp">Leak examples:</span> scaling or imputing with the mean of the <i>whole</i> dataset before splitting; tuning on the test set; a feature computed from the target; using future values in time series.</li>
+<li><span class="hl">Golden rule: split first, then fit every preprocessing step (imputer, scaler, encoder, feature selection) on train only.</span></li>
+</ul>
+
+<h3>Phase 6 &amp; 7 — Feature engineering and baseline</h3>
+<p>Feature creation: interactions $x_1 \times x_2$, ratios, date parts (day of week), polynomial terms. Baseline: <b>regression</b> → always predict $\bar y_{\text{train}}$; <b>classification</b> → always predict the majority class. A new model is useful only if it clearly beats the baseline.</p>
+
+<h3>Phase 8 — The modelling loop</h3>
+<p class="center"><b>initialise weights → predict (forward) → compute loss → compute gradient → update weights → check convergence → repeat</b></p>
+<div class="box formula"><span class="tag">Loss + update (preview of L5)</span>
+$$\text{MSE} = \frac1n\sum_{i=1}^{n}(y_i - \hat y_i)^2 \qquad\qquad w \leftarrow w - \alpha\,\frac{\partial\,\text{Loss}}{\partial w}$$
+</div>
+<p><b>Converged</b> = the loss stops changing (not "loss = 0"). Learning rate too big → overshoots/diverges; too small → painfully slow.</p>
+
+<h3>Phase 9 — Offline evaluation and business mapping</h3>
+<p>Evaluate the locked model on the test set (MAE, RMSE, R² for regression). Then translate into money:</p>
+<div class="box ex"><span class="tag">Worked: is the better model worth it?</span>
+<p>Baseline MAE = 12, new MAE = 11 (1 unit better). 1 unit of error costs ₹80,000 per farm; 500 farms; training costs ₹15 lakh.</p>
+<ol class="steps">
+<li>Saving = improvement × cost per unit × volume = $1 \times 80{,}000 \times 500 = ₹4{,}00{,}00{,}000$ (4 crore).</li>
+<li>4 crore ≫ 15 lakh → <b>deploy</b>. <span class="hlg">Always convert the metric gain into money before deciding.</span></li>
+</ol>
+</div>
+
+<h3>Phase 10 — Deployment</h3>
+<p>Save the model (<b>.pkl</b> pickle) → serve via an <b>API</b> (Flask/FastAPI), the <b>cloud</b> (SageMaker, Azure), or the <b>edge</b> (phone/IoT). <b>Batch</b> predictions = periodic, many rows (nightly recommendations); <b>real-time</b> = instant per request (fraud at checkout). Chosen by latency need.</p>
+
+<h3>Phase 11 — Post-deployment</h3>
+<ul>
+<li><span class="hl">Model drift</span>: accuracy falls because the world changed (e.g. 2020 pandemic vs a 2010–2019 travel model). The code is fine; the data changed.</li>
+<li><b>Monitoring</b> (Prometheus, MLflow) watches live data and metrics.</li>
+<li><b>Periodic retraining</b> = on a schedule, regardless of performance. <b>Triggered retraining</b> = when a metric drops below a threshold τ.</li>
+<li>"Deploy and walk away" is always wrong for ML. The macro loop goes back to the start.</li>
+</ul>
+<div class="box trap"><span class="tag">⚠ Exam traps</span>
+<ul>
+<li>Learning rate is a <b>hyperparameter</b>, even though it controls training.</li>
+<li>Imputing/scaling before splitting = leakage, even if the model never "sees" test rows.</li>
+<li>R² can be negative on the test set (worse than predicting the mean).</li>
+</ul>
+</div>
+</section>
+
+<!-- ===================================================== 3 -->
+<section class="topic">
+<h2><span class="num">3</span>Simple Linear Regression (OLS)</h2>
+<p><b>Big idea:</b> fit the straight line $\hat y = mx + c$ that makes the <span class="hl">sum of squared vertical errors as small as possible</span>. OLS gives the answer in one formula (closed form) — no iteration.</p>
+
+<h3>Residuals and choosing the loss</h3>
+<div class="box formula"><span class="tag">Residual</span>
+$$e_i = y_i - \hat y_i = y_i - (mx_i + c) \qquad (\text{actual} - \text{predicted, a vertical gap})$$
+</div>
+<table>
+<tr><th>Loss</th><th>Problem / property</th></tr>
+<tr><td>$\sum e_i$ (signed)</td><td>+ and − errors <b>cancel</b>; total 0 doesn't mean a good fit</td></tr>
+<tr><td>$\sum |e_i|$ (absolute)</td><td>robust to outliers, but has a <b>kink at 0</b> (not differentiable there) → no clean formula</td></tr>
+<tr><td>$\sum e_i^2$ (squared) ✔</td><td>smooth everywhere, so set derivatives to 0 → closed form. <span class="hlp">But it amplifies outliers</span> (error 10 counts 100×)</td></tr>
+</table>
+<div class="box formula"><span class="tag">OLS loss (error surface)</span>
+$$E(m, c) = \sum_{i=1}^{n}(y_i - mx_i - c)^2$$
+<p class="small">It is a convex <b>bowl</b> over the (m, c) plane → exactly one lowest point, found where $\frac{\partial E}{\partial m} = 0$ and $\frac{\partial E}{\partial c} = 0$.</p>
+</div>
+
+<div class="box deriv"><span class="tag">Derivation 1 — the intercept c</span>
+<ol class="steps">
+<li>$E = \sum (y_i - mx_i - c)^2$ <span class="why">start from the loss</span></li>
+<li>$\frac{\partial E}{\partial c} = \sum 2(y_i - mx_i - c)\cdot(-1)$ <span class="why">chain rule: derivative of (stuff)² is 2·stuff·(derivative of stuff); the derivative of $(y_i - mx_i - c)$ w.r.t. c is −1</span></li>
+<li>$-2\sum (y_i - mx_i - c) = 0$ <span class="why">set to zero for the minimum</span></li>
+<li>$\sum y_i - m\sum x_i - \sum c = 0$ <span class="why">divide by −2 and split the sum into three sums</span></li>
+<li>$\sum y_i - m\sum x_i - nc = 0$ <span class="why">c is the same for all n rows, so $\sum c = nc$ (<span class="hlp">not c!</span>)</span></li>
+<li>$c = \frac{\sum y_i}{n} - m\,\frac{\sum x_i}{n}$ <span class="why">move nc to the right, divide by n</span></li>
+<li>$\boxed{c = \bar y - m\bar x}$ <span class="why">$\frac{\sum y_i}{n} = \bar y$, $\frac{\sum x_i}{n} = \bar x$</span></li>
+</ol>
+<p><span class="hlg">Meaning:</span> put $x = \bar x$ in the line: $\hat y = m\bar x + \bar y - m\bar x = \bar y$. <span class="hl">The OLS line always passes through $(\bar x, \bar y)$.</span> Also step 3 says $\sum e_i = 0$: residuals sum to zero.</p>
+</div>
+
+<div class="box deriv"><span class="tag">Derivation 2 — the slope m</span>
+<ol class="steps">
+<li>$y_i - mx_i - c = y_i - mx_i - \bar y + m\bar x$ <span class="why">substitute $c = \bar y - m\bar x$ (this removes c, leaving one unknown)</span></li>
+<li>$= (y_i - \bar y) - m(x_i - \bar x)$ <span class="why">group the y-terms and the m-terms</span></li>
+<li>Let $a_i = x_i - \bar x$ and $b_i = y_i - \bar y$. Then $E(m) = \sum (b_i - m a_i)^2$. <span class="why">short names for the deviations from the mean</span></li>
+<li>$\frac{dE}{dm} = \sum 2(b_i - m a_i)\cdot(-a_i)$ <span class="why">chain rule again; the derivative of $(b_i - ma_i)$ w.r.t. m is $-a_i$</span></li>
+<li>$-2\sum (a_ib_i - m a_i^2) = 0$ <span class="why">multiply out $(b_i - ma_i)(-a_i)$ and set to 0</span></li>
+<li>$\sum a_ib_i = m\sum a_i^2$ <span class="why">divide by −2, move the m-term to the other side</span></li>
+<li>$\boxed{m = \dfrac{\sum (x_i - \bar x)(y_i - \bar y)}{\sum (x_i - \bar x)^2} = \dfrac{S_{xy}}{S_{xx}} = \dfrac{\text{Cov}(x,y)}{\text{Var}(x)}}$</li>
+</ol>
+<p class="small">Minimum check: $\frac{d^2E}{dm^2} = 2\sum a_i^2 > 0$ → bowl opens upward → minimum.</p>
+</div>
+
+<div class="box formula"><span class="tag">OLS recipe</span>
+<p>① $\bar x, \bar y$ → ② $a_i = x_i - \bar x$, $b_i = y_i - \bar y$ → ③ $S_{xy} = \sum a_ib_i$, $S_{xx} = \sum a_i^2$ → ④ $m = S_{xy}/S_{xx}$ → ⑤ $c = \bar y - m\bar x$.</p>
+<p class="small">Shortcut form: $m = \dfrac{n\sum x_iy_i - \sum x_i\sum y_i}{n\sum x_i^2 - (\sum x_i)^2}$ (same answer, no means needed).</p>
+</div>
+
+<div class="box ex"><span class="tag">Worked: x = 1,2,3,4,5 and y = 2,4,5,4,5 (the course lab)</span>
+<p>$\bar x = 15/5 = 3$, $\bar y = 20/5 = 4$.</p>
+<table>
+<tr><th>x</th><th>y</th><th>a = x − 3</th><th>b = y − 4</th><th>a·b</th><th>a²</th></tr>
+<tr><td>1</td><td>2</td><td>−2</td><td>−2</td><td>4</td><td>4</td></tr>
+<tr><td>2</td><td>4</td><td>−1</td><td>0</td><td>0</td><td>1</td></tr>
+<tr><td>3</td><td>5</td><td>0</td><td>1</td><td>0</td><td>0</td></tr>
+<tr><td>4</td><td>4</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
+<tr><td>5</td><td>5</td><td>2</td><td>1</td><td>2</td><td>4</td></tr>
+<tr><th colspan="4">sums (check: Σa = 0, Σb = 0)</th><th>6</th><th>10</th></tr>
+</table>
+<p>$m = 6/10 = 0.6$, &nbsp; $c = 4 - 0.6\times 3 = 2.2$ → <span class="hl">$\hat y = 0.6x + 2.2$</span>. Prediction at x = 6: $0.6\times6 + 2.2 = 5.8$.</p>
+</div>
+<div class="box trap"><span class="tag">⚠ Exam traps</span>
+<ul>
+<li>Compute <b>m first</b>, then c. The denominator is $\sum(x-\bar x)^2$ — x only (it's NOT the covariance).</li>
+<li>All x equal → $S_{xx} = 0$ → slope <b>undefined</b> (the lab returns [−1.0, −1.0]).</li>
+<li>Why substitute c first? To reduce 2 unknowns to 1, not because "c must come first in ML".</li>
+<li>One outlier can swing the slope a lot (squared loss). Absolute loss is the robust one.</li>
+<li>Two inputs → a <b>plane</b> $\hat y = m_1x_1 + m_2x_2 + c$ (3 parameters). Parameters = features + 1.</li>
+</ul>
+</div>
+</section>
+
+<!-- ===================================================== 4 -->
+<section class="topic">
+<h2><span class="num">4</span>Multiple Linear Regression (OLS)</h2>
+<p><b>Big idea:</b> same as SLR but with p features. Write everything with matrices and get <span class="hl">the Normal Equation $\boldsymbol\beta = (X^TX)^{-1}X^T\mathbf y$</span>.</p>
+
+<div class="box formula"><span class="tag">Model in matrix form</span>
+$$\hat y_i = \beta_0 + \beta_1x_{i1} + \dots + \beta_px_{ip} \qquad\Longleftrightarrow\qquad \hat{\mathbf y} = X\boldsymbol\beta$$
+$$X = \begin{bmatrix}1 & x_{11} & \cdots & x_{1p}\\ 1 & x_{21} & \cdots & x_{2p}\\ \vdots & & & \vdots \\ 1 & x_{n1} & \cdots & x_{np}\end{bmatrix}_{n\times(p+1)} \quad \boldsymbol\beta = \begin{bmatrix}\beta_0\\ \vdots\\ \beta_p\end{bmatrix}_{(p+1)\times 1}$$
+<p class="small">The <b>column of 1s</b> carries the intercept. Sizes: $X^TX$ is $(p+1)\times(p+1)$, $X^T\mathbf y$ is $(p+1)\times 1$ — they do not depend on n. <span class="hl">p features → p + 1 parameters.</span></p>
+</div>
+
+<div class="box deriv"><span class="tag">Derivation — the Normal Equation</span>
+<ol class="steps">
+<li>$\mathbf e = \mathbf y - X\boldsymbol\beta$ <span class="why">residual vector (n × 1)</span></li>
+<li>$L = \mathbf e^T\mathbf e = \sum e_i^2 = (\mathbf y - X\boldsymbol\beta)^T(\mathbf y - X\boldsymbol\beta)$ <span class="why">eᵀe = sum of squares (a single number). Note eeᵀ would be an n×n matrix — wrong</span></li>
+<li>$= (\mathbf y^T - \boldsymbol\beta^TX^T)(\mathbf y - X\boldsymbol\beta)$ <span class="why">transpose of a difference = difference of transposes; $(X\boldsymbol\beta)^T = \boldsymbol\beta^TX^T$ (order flips)</span></li>
+<li>$= \mathbf y^T\mathbf y - \mathbf y^TX\boldsymbol\beta - \boldsymbol\beta^TX^T\mathbf y + \boldsymbol\beta^TX^TX\boldsymbol\beta$ <span class="why">multiply out like (a − b)(c − d)</span></li>
+<li>$= \mathbf y^T\mathbf y - 2\mathbf y^TX\boldsymbol\beta + \boldsymbol\beta^TX^TX\boldsymbol\beta$ <span class="why">the two middle terms are the same 1×1 number (a number equals its own transpose), so they add up to −2 of it</span></li>
+<li>Use the 3 identities: $\frac{\partial}{\partial\boldsymbol\beta}(\text{const}) = \mathbf 0$, &nbsp; $\frac{\partial}{\partial\boldsymbol\beta}(\mathbf a^T\boldsymbol\beta) = \mathbf a$, &nbsp; $\frac{\partial}{\partial\boldsymbol\beta}(\boldsymbol\beta^TA\boldsymbol\beta) = 2A\boldsymbol\beta$ (A symmetric) <span class="why">$\mathbf y^T\mathbf y$ has no β; $\mathbf y^TX\boldsymbol\beta = (X^T\mathbf y)^T\boldsymbol\beta$ so $\mathbf a = X^T\mathbf y$; $A = X^TX$ is symmetric</span></li>
+<li>$\nabla L = \mathbf 0 - 2X^T\mathbf y + 2X^TX\boldsymbol\beta$ <span class="why">differentiate term by term (<span class="hlp">keep the −2</span>)</span></li>
+<li>$2X^TX\boldsymbol\beta = 2X^T\mathbf y \ \Rightarrow\ \boxed{X^TX\boldsymbol\beta = X^T\mathbf y}$ <span class="why">set the gradient to 0 and divide by 2 — this is the Normal Equation</span></li>
+<li>$\boxed{\boldsymbol\beta^* = (X^TX)^{-1}X^T\mathbf y}$ <span class="why">multiply both sides on the left by $(X^TX)^{-1}$ (if it exists)</span></li>
+</ol>
+</div>
+
+<div class="box deriv"><span class="tag">Why the identities are true (2 parameters, so you can see it)</span>
+<p><b>Identity 2:</b> $\mathbf a^T\boldsymbol\beta = a_1\beta_1 + a_2\beta_2$. Then $\partial/\partial\beta_1 = a_1$ and $\partial/\partial\beta_2 = a_2$ → the gradient is $(a_1, a_2) = \mathbf a$.</p>
+<p><b>Identity 3:</b> with $A = \begin{bmatrix}p&q\\q&r\end{bmatrix}$: $\boldsymbol\beta^TA\boldsymbol\beta = p\beta_1^2 + 2q\beta_1\beta_2 + r\beta_2^2$. Then $\partial/\partial\beta_1 = 2p\beta_1 + 2q\beta_2$ and $\partial/\partial\beta_2 = 2q\beta_1 + 2r\beta_2$ → that's $2\begin{bmatrix}p&q\\q&r\end{bmatrix}\begin{bmatrix}\beta_1\\\beta_2\end{bmatrix} = 2A\boldsymbol\beta$. <span class="hlg">This needed A symmetric (both off-diagonals = q). $X^TX$ always is, because $(X^TX)^T = X^TX$.</span></p>
+</div>
+
+<div class="box ex"><span class="tag">Worked: fit y = β₀ + β₁x to (0, 1), (1, 2), (2, 6)</span>
+<ol class="steps">
+<li>$X = \begin{bmatrix}1&0\\1&1\\1&2\end{bmatrix}$, $\mathbf y = \begin{bmatrix}1\\2\\6\end{bmatrix}$.</li>
+<li>$X^TX = \begin{bmatrix}1+1+1 & 0+1+2\\ 0+1+2 & 0+1+4\end{bmatrix} = \begin{bmatrix}3&3\\3&5\end{bmatrix}$ <span class="why">top-left = n, off-diagonal = Σx, bottom-right = Σx²</span></li>
+<li>$X^T\mathbf y = \begin{bmatrix}1+2+6\\ 0\cdot1+1\cdot2+2\cdot6\end{bmatrix} = \begin{bmatrix}9\\14\end{bmatrix}$ <span class="why">top = Σy, bottom = Σxy</span></li>
+<li>$\det = 3\cdot5 - 3\cdot3 = 6$; $(X^TX)^{-1} = \frac16\begin{bmatrix}5&-3\\-3&3\end{bmatrix}$ <span class="why">2×2 rule: swap the diagonal, negate the off-diagonal, divide by det</span></li>
+<li>$\boldsymbol\beta = \frac16\begin{bmatrix}5\cdot9 - 3\cdot14\\ -3\cdot9 + 3\cdot14\end{bmatrix} = \frac16\begin{bmatrix}3\\15\end{bmatrix} = \begin{bmatrix}0.5\\2.5\end{bmatrix}$ → <span class="hl">$\hat y = 0.5 + 2.5x$</span></li>
+</ol>
+</div>
+
+<h3>When the Normal Equation fails</h3>
+<ul>
+<li><span class="hl">$(X^TX)^{-1}$ exists only if the columns of X are linearly independent</span> ($\det X^TX \ne 0$). If a column is an exact combination of others (x₂ = 2x₁, or °C and °F together, or a duplicated 1s column) → <b>singular</b>, no inverse. This is <b>perfect multicollinearity</b>.</li>
+<li><b>Cost:</b> inverting a k×k matrix (k = p + 1) by Gauss–Jordan takes 3 nested loops: pivot columns (k) × rows to eliminate (k) × entries in the augmented row (~2k) ≈ $2k^3$ = <span class="hl">$O(k^3)$</span>. p = 100 → about 10⁶ operations; doubling p → 8× the cost. That is why gradient descent is used for huge p.</li>
+<li>Too few rows (n &lt; p + 1) also makes $X^TX$ singular.</li>
+</ul>
+<div class="box trap"><span class="tag">⚠ Exam traps</span>
+<ul>
+<li>Order matters: $(X^TX)^{-1}X^T\mathbf y$, not $X^T(X^TX)^{-1}\mathbf y$.</li>
+<li>MLR is "linear" because it is linear in the <b>parameters</b> β.</li>
+<li>NumPy: predictions = <code>X @ theta</code>. sklearn adds the intercept itself (don't add a 1s column there too).</li>
+<li>Adding a feature never increases training error (it can only stay the same or drop).</li>
+</ul>
+</div>
+</section>

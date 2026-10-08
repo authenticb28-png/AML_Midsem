@@ -1,0 +1,258 @@
+
+<!-- ===================================================== 5 -->
+<section class="topic">
+<h2><span class="num">5</span>Batch Gradient Descent</h2>
+<p><b>Big idea:</b> instead of solving the normal equation, <span class="hl">start with any θ and repeatedly step downhill on the loss surface</span>. "Batch" = every step uses <b>all</b> training rows.</p>
+
+<h3>Why not just use OLS?</h3>
+<ol>
+<li><b>Cost:</b> inverting $X^TX$ is $O(p^3)$ — impossible for millions of features.</li>
+<li><b>Invertibility:</b> collinear columns → $X^TX$ singular → no inverse. (GD still runs, but the solution is not unique.)</li>
+</ol>
+
+<h3>The update rule</h3>
+<div class="box formula"><span class="tag">Gradient descent</span>
+$$\boldsymbol\theta_{\text{new}} = \boldsymbol\theta_{\text{old}} - \alpha\,\nabla L(\boldsymbol\theta_{\text{old}}) \qquad\text{i.e.}\qquad \theta_j \leftarrow \theta_j - \alpha\frac{\partial L}{\partial\theta_j}$$
+</div>
+<ul>
+<li>The <b>gradient</b> $\nabla L$ points uphill (direction of steepest increase). <span class="hl">Minus</span> → we go downhill. The steeper the slope, the bigger the step.</li>
+<li><b>α (learning rate)</b> = step size, a hyperparameter. Too small → slow; too large → overshoots and <b>diverges</b> (loss grows).</li>
+<li><span class="hl">Simultaneous update:</span> compute <b>all</b> partial derivatives using the <b>old</b> θ, then update all θⱼ together. Updating θ₀ first and using the new θ₀ for θ₁ is wrong.</li>
+<li>Initialisation: zeros are fine for linear/logistic regression (convex bowl, one minimum).</li>
+<li><b>Epoch</b> = one full pass over the data. In BGD, <span class="hl">1 epoch = 1 update</span>.</li>
+</ul>
+
+<div class="box deriv"><span class="tag">Derivation — gradient of the MSE</span>
+<p>m rows, prediction $\hat y_i = \boldsymbol\theta^T\mathbf x_i = \theta_0 + \theta_1x_{i1} + \dots$ (with $x_{i0} = 1$).</p>
+<ol class="steps">
+<li>$L(\boldsymbol\theta) = \frac1m\sum_{i=1}^{m}(\hat y_i - y_i)^2$ <span class="why">MSE (squaring makes ŷ − y and y − ŷ the same)</span></li>
+<li>$\frac{\partial L}{\partial\theta_j} = \frac1m\sum_i 2(\hat y_i - y_i)\cdot\frac{\partial\hat y_i}{\partial\theta_j}$ <span class="why">chain rule on each squared term</span></li>
+<li>$\frac{\partial\hat y_i}{\partial\theta_j} = x_{ij}$ <span class="why">in $\theta_0 + \theta_1x_{i1} + \dots$ only the θⱼ term contains θⱼ, and its coefficient is $x_{ij}$</span></li>
+<li>$\boxed{\frac{\partial L}{\partial\theta_j} = \frac2m\sum_{i=1}^{m}(\hat y_i - y_i)\,x_{ij}}$ <span class="why">for θ₀ the "x" is 1, so it is just $\frac2m\sum(\hat y_i - y_i)$</span></li>
+<li>Stack all j into a vector: $\boxed{\nabla L = \frac2m X^T(X\boldsymbol\theta - \mathbf y)}$ <span class="why">row j of $X^T$ times the residual vector = $\sum_i x_{ij}(\hat y_i - y_i)$</span></li>
+</ol>
+<p class="small">Some books use $L = \frac{1}{2m}\sum(\cdot)^2$; then the 2 cancels and $\nabla L = \frac1m X^T(X\boldsymbol\theta - \mathbf y)$. Same minimum, only the step size changes.</p>
+</div>
+
+<div class="box ex"><span class="tag">Worked: one BGD epoch on (1,2), (2,4), (3,6), (4,8), θ = (0, 0), α = 0.1</span>
+<ol class="steps">
+<li>Predictions with θ = (0,0): all 0. Errors $\hat y - y$ = −2, −4, −6, −8.</li>
+<li><b>Course-quiz convention</b> (average of e and e·x, no 2): $g_0 = \frac{-2-4-6-8}{4} = -5$; $g_1 = \frac{(-2)(1) + (-4)(2) + (-6)(3) + (-8)(4)}{4} = \frac{-60}{4} = -15$.</li>
+<li>Update: $\theta_0 = 0 - 0.1(-5) = 0.5$, $\theta_1 = 0 - 0.1(-15) = 1.5$ → <span class="hl">θ = (0.5, 1.5)</span> after <b>one</b> update.</li>
+<li>With the worksheet's full MSE (factor $\frac2m$) the gradient doubles to (−10, −30) and θ = (1, 3). <span class="hlp">Check which convention the question/options use.</span></li>
+</ol>
+</div>
+<div class="box ex"><span class="tag">Worked: lab model y = w·x (no bias)</span>
+<p>x = [1, 2, 3], y = [2, 4, 6], w = 0, lr = 0.01, $dw = \text{mean}\big(2(wx_i - y_i)x_i\big)$.</p>
+<p>Terms: $2(0-2)(1) = -4$, $2(0-4)(2) = -16$, $2(0-6)(3) = -36$ → mean = −56/3 = −18.667 → $w = 0 - 0.01(-18.667) = 0.1867$. Repeat for each epoch; it converges to w = 2.</p>
+</div>
+
+<h3>Learning rate and convergence</h3>
+<div class="box deriv"><span class="tag">Why a big α diverges (1-D bowl $L = a\theta^2$)</span>
+<ol class="steps">
+<li>$\frac{dL}{d\theta} = 2a\theta$ → $\theta_{\text{new}} = \theta - \alpha\cdot2a\theta = (1 - 2a\alpha)\,\theta$</li>
+<li>Each step multiplies θ by $(1 - 2a\alpha)$. It shrinks toward 0 (the minimum) only if $|1 - 2a\alpha| < 1$, i.e. $0 < \alpha < 1/a$.</li>
+<li>$\alpha > 1/a$ → $|1 - 2a\alpha| > 1$ → θ jumps across the bowl further each time → <span class="hl">diverges</span>. Between $\frac1{2a}$ and $\frac1a$ it zig-zags but still converges.</li>
+</ol>
+</div>
+<ul>
+<li><b>Choose α on the validation loss</b> (never the test set). Typical grid: 0.001, 0.01, 0.1, 1.</li>
+<li><b>Feature scaling</b>: features on very different scales (attendance 70–100 vs hours 1–5) make a stretched bowl; the large feature gets huge gradients, so α must be tiny and progress is slow (zig-zag). Standardise first.</li>
+<li>Convex MSE + suitable α → BGD reaches the <b>same global minimum as OLS</b>.</li>
+</ul>
+<div class="box key"><span class="tag">BGD pros / cons</span>
+<p><b>+</b> exact gradient, smooth stable path, deterministic. <b>−</b> one update needs a full pass: <span class="hl">high cost per update, memory &amp; I/O pressure (data bigger than RAM), slow feedback (can't adapt quickly, e.g. fraud), redundant work (near-identical rows)</span>.</p>
+</div>
+<div class="box trap"><span class="tag">⚠ Exam traps</span>
+<ul>
+<li>Subtract α × gradient (adding goes uphill). If you write the error as y − ŷ, the sign flips.</li>
+<li>BGD does not invert $X^TX$.</li>
+<li>In L4 "m" = number of features; in L5 "m" = number of rows. Read carefully.</li>
+</ul>
+</div>
+</section>
+
+<!-- ===================================================== 6 -->
+<section class="topic">
+<h2><span class="num">6</span>Stochastic &amp; Mini-Batch Gradient Descent</h2>
+<p><b>Big idea:</b> BGD waits for all m rows before one step. <span class="hl">SGD steps after every single row; mini-batch steps after every b rows.</span></p>
+
+<div class="box formula"><span class="tag">The three update rules</span>
+$$\textbf{BGD: } \boldsymbol\theta \leftarrow \boldsymbol\theta - \alpha\frac1m\sum_{i=1}^{m}\nabla J_i \qquad \textbf{SGD: } \boldsymbol\theta \leftarrow \boldsymbol\theta - \alpha\nabla J_{i_t} \qquad \textbf{Mini-batch: } \boldsymbol\theta \leftarrow \boldsymbol\theta - \alpha\frac{1}{|B|}\sum_{i\in B}\nabla J_i$$
+<p class="small">Per-row gradient (½-squared loss, e = ŷ − y): $\nabla J_i = [\,e_i,\ e_ix_i\,]$ for (θ₀, θ₁).</p>
+</div>
+<table>
+<tr><th></th><th>BGD</th><th>SGD</th><th>Mini-batch (size b)</th></tr>
+<tr><td>Rows per update</td><td>m</td><td>1</td><td>b</td></tr>
+<tr><td><span class="hl">Updates per epoch</span></td><td>1</td><td>m</td><td>$\lceil m/b\rceil$</td></tr>
+<tr><td>Cost per update</td><td>$O(md)$</td><td>$O(d)$</td><td>$O(bd)$</td></tr>
+<tr><td>Path</td><td>smooth</td><td>very noisy</td><td>mildly noisy</td></tr>
+<tr><td>Hardware</td><td>may not fit memory</td><td>under-uses GPU</td><td><b>best for GPUs</b></td></tr>
+</table>
+<p>Cost per <b>epoch</b> is the same $O(md)$ for all; SGD just makes m times more (cheaper, noisier) updates. b = 1 → SGD; b = m → BGD.</p>
+
+<div class="box key"><span class="tag">Why SGD works — "unbiased but noisy"</span>
+<p>SGD randomises <b>which sample</b> $i_t$ is used. Averaged over the random choice: $\mathbb E[\nabla J_{i}] = \frac1m\sum_i \nabla J_i = \nabla J$. So <span class="hl">on average it points the right way (unbiased)</span>, but each single step can be off (high variance). Consequences:</p>
+<ul>
+<li>The loss can go <b>up</b> after one step; judge the trend over many steps.</li>
+<li>With a fixed α it keeps bouncing near the minimum; a decaying α lets it settle.</li>
+<li>Noise can help escape shallow local minima / saddle points (non-convex problems).</li>
+<li><span class="hl">Shuffle every epoch</span>, otherwise consecutive updates follow the data's ordering pattern instead of the true signal.</li>
+</ul>
+</div>
+
+<div class="box ex"><span class="tag">Worked: one SGD epoch, data (1,2), (2,4), (3,6), (4,8), θ = (0,0), α = 0.1, order S2, S4, S1, S3</span>
+<p>Rule: $e = \hat y - y$, $\theta_0 \leftarrow \theta_0 - \alpha e$, $\theta_1 \leftarrow \theta_1 - \alpha e x$. <span class="hlg">Each step uses the θ just updated.</span></p>
+<table>
+<tr><th>Step</th><th>Sample (x, y)</th><th>ŷ = θ₀ + θ₁x</th><th>e</th><th>θ₀ new</th><th>θ₁ new</th></tr>
+<tr><td>1</td><td>(2, 4)</td><td>0</td><td>−4</td><td>0 + 0.4 = 0.4</td><td>0 + 0.1·4·2 = 0.8</td></tr>
+<tr><td>2</td><td>(4, 8)</td><td>0.4 + 3.2 = 3.6</td><td>−4.4</td><td>0.84</td><td>0.8 + 1.76 = 2.56</td></tr>
+<tr><td>3</td><td>(1, 2)</td><td>0.84 + 2.56 = 3.4</td><td>+1.4</td><td>0.70</td><td>2.56 − 0.14 = 2.42</td></tr>
+<tr><td>4</td><td>(3, 6)</td><td>0.7 + 7.26 = 7.96</td><td>+1.96</td><td>0.504</td><td>2.42 − 0.588 = <b>1.832</b></td></tr>
+</table>
+<p>4 updates in one epoch (BGD made 1). θ bounced past the answer (θ₁ = 2.56, then fell) — that's SGD noise.</p>
+</div>
+<div class="box ex"><span class="tag">Worked: mini-batch b = 2, batches {S2, S4} then {S1, S3}</span>
+<ol class="steps">
+<li>Batch 1 at θ = (0,0): S2 e = 0 − 4 = −4, S4 e = 0 − 8 = −8. Mean e = −6 → θ₀ = 0.6. Mean e·x = (−4·2 + −8·4)/2 = −20 → θ₁ = 2.0. <span class="hl">θ = (0.6, 2.0)</span>.</li>
+<li>Batch 2 at θ = (0.6, 2.0): S1 ŷ = 2.6, e = 0.6; S3 ŷ = 6.6, e = 0.6. Mean e = 0.6 → θ₀ = 0.54. Mean e·x = (0.6·1 + 0.6·3)/2 = 1.2 → θ₁ = 1.88. <span class="hl">θ = (0.54, 1.88)</span>.</li>
+<li>Updates per epoch = ⌈4/2⌉ = 2. E.g. m = 1000, b = 64 → ⌈15.6⌉ = 16 (the last batch is smaller; average over its real size).</li>
+</ol>
+</div>
+<div class="box trap"><span class="tag">⚠ Exam traps</span>
+<ul>
+<li><span class="hlp">Summing the gradients over all samples and updating once after the loop = BGD</span>, not SGD.</li>
+<li>Batch sizes 32/64/128 are chosen for GPU efficiency, not because maths requires them.</li>
+<li>Most stable = BGD, noisiest = SGD; mini-batch = the best overall balance.</li>
+<li>Lab versions use the full squared error: $w \leftarrow w - \alpha\cdot2(wx_i - y_i)x_i$, seed 42, shuffle the indices each epoch.</li>
+</ul>
+</div>
+</section>
+
+<!-- ===================================================== 7 -->
+<section class="topic">
+<h2><span class="num">7</span>Evaluation Metrics</h2>
+<p><b>Big idea:</b> the training loss helps the optimiser; <span class="hl">metrics judge the model on data it hasn't seen</span>. Here the residual is $e = y - \hat y$.</p>
+
+<h3>Regression metrics</h3>
+<div class="box formula"><span class="tag">Regression formulas</span>
+<div class="two">
+<div>$$\text{MAE} = \frac1n\sum|y_i - \hat y_i|$$ $$\text{MSE} = \frac1n\sum(y_i - \hat y_i)^2$$ $$\text{RMSE} = \sqrt{\text{MSE}}$$</div>
+<div>$$\text{MAPE} = \frac{100}{n}\sum\frac{|y_i - \hat y_i|}{|y_i|}$$ $$R^2 = 1 - \frac{\text{RSS}}{\text{TSS}}$$ $$R^2_{adj} = 1 - (1 - R^2)\frac{n-1}{n-p-1}$$</div>
+</div>
+<p class="small">$\text{RSS} = \sum(y_i - \hat y_i)^2$ (model's error), $\text{TSS} = \sum(y_i - \bar y)^2$ (error of always predicting the mean of the <b>actual</b> y). p = number of features (no intercept).</p>
+</div>
+<table>
+<tr><th>Metric</th><th>Unit</th><th>Key property</th></tr>
+<tr><td>MAE</td><td>same as y</td><td>typical miss; robust; every error counts linearly</td></tr>
+<tr><td>MSE</td><td><span class="hlp">squared units</span></td><td>punishes big errors (5 vs 2 → 25 vs 4 = 6.25×)</td></tr>
+<tr><td>RMSE</td><td>same as y</td><td>keeps MSE's outlier sensitivity; <b>RMSE ≥ MAE</b> (a big gap = some large errors)</td></tr>
+<tr><td>MAPE</td><td>%</td><td>relative error; <span class="hlp">undefined if any y = 0</span>; blows up for small y</td></tr>
+<tr><td>R²</td><td>none</td><td>1 = perfect, 0 = as good as the mean, <span class="hl">negative = worse than the mean</span></td></tr>
+<tr><td>Adj. R²</td><td>none</td><td>penalises extra features; can fall when a useless feature is added</td></tr>
+</table>
+
+<div class="box ex"><span class="tag">Worked: y = 40, 50, 60, 70, 80 and ŷ = 45, 52, 58, 72, 78</span>
+<ol class="steps">
+<li>Errors y − ŷ: −5, −2, 2, −2, 2. Absolute: 5, 2, 2, 2, 2 (sum 13). Squared: 25, 4, 4, 4, 4 (sum 41).</li>
+<li>MAE = 13/5 = <b>2.6</b>; MSE = 41/5 = <b>8.2</b>; RMSE = √8.2 = <b>2.86</b>.</li>
+<li>APE: 5/40 = 12.5%, 2/50 = 4%, 2/60 = 3.33%, 2/70 = 2.86%, 2/80 = 2.5% → MAPE = 25.19/5 = <b>5.04%</b>.</li>
+<li>ȳ = 60 → TSS = 400 + 100 + 0 + 100 + 400 = 1000; RSS = 41 → $R^2 = 1 - 41/1000 = $ <b>0.959</b>.</li>
+<li>Adjusted, n = 5, p = 1: $1 - (1 - 0.959)\cdot\frac{4}{3} = 1 - 0.041\times1.333 = $ <b>0.945</b>.</li>
+</ol>
+</div>
+<div class="box key"><span class="tag">Why adjusted R² exists (the logic chain)</span>
+<p>Add any feature → OLS can fit a little noise → RSS falls a little → $R^2 = 1 - \text{RSS}/\text{TSS}$ <b>rises regardless of the reason</b> → R² falsely reports improvement → a fair metric must penalise complexity → <span class="hl">adjusted R²</span>. Its factor $\frac{n-1}{n-p-1}$ grows with p, so a useless feature lowers it.</p>
+<p class="small">e.g. 60 rows: model 1 (p = 3, R² = 0.750) → adj 0.7366; model 2 (p = 5, R² = 0.758) → adj 0.7356 → prefer <b>model 1</b>.</p>
+</div>
+
+<h3>Classification metrics</h3>
+<table class="center">
+<tr><th></th><th>Predicted 0</th><th>Predicted 1</th></tr>
+<tr><th>Actual 0</th><td>TN</td><td>FP (false alarm)</td></tr>
+<tr><th>Actual 1</th><td>FN (missed)</td><td>TP</td></tr>
+</table>
+<p class="small">sklearn: rows = actual, columns = predicted; <code>confusion_matrix(...).ravel()</code> → tn, fp, fn, tp.</p>
+<div class="box formula"><span class="tag">Classification formulas</span>
+<div class="two">
+<div>$$\text{Accuracy} = \frac{TP + TN}{TP + TN + FP + FN}$$ $$\text{Precision} = \frac{TP}{TP + FP}$$ $$\text{Recall (TPR)} = \frac{TP}{TP + FN}$$</div>
+<div>$$F_1 = \frac{2PR}{P + R} = \frac{2TP}{2TP + FP + FN}$$ $$F_\beta = \frac{(1+\beta^2)PR}{\beta^2P + R}$$ $$\text{Specificity} = \frac{TN}{TN + FP},\ \ \text{FPR} = 1 - \text{spec}$$</div>
+</div>
+</div>
+<ul>
+<li><span class="hl">Precision</span> = of the ones I <b>predicted</b> positive, how many were right → matters when <b>false alarms are costly</b> (spam folder hiding real mail).</li>
+<li><span class="hl">Recall</span> = of the <b>actual</b> positives, how many I caught → matters when <b>misses are costly</b> (fraud, cancer).</li>
+<li>F1 = harmonic mean (punishes imbalance between P and R); ignores TN. β = 2 favours recall; β = 0.5 favours precision.</li>
+<li>Accuracy lies on imbalanced data — check per-class recall.</li>
+</ul>
+<div class="box ex"><span class="tag">Worked: TP = 40, FP = 10, FN = 20, TN = 30</span>
+<p>Accuracy = 70/100 = 0.70. Precision = 40/50 = 0.80. Recall = 40/60 = 0.667. F1 = 2(0.8)(0.667)/(1.467) = 0.727 (check: 80/110). Specificity = 30/40 = 0.75.</p>
+</div>
+
+<h3>Multiclass averaging</h3>
+<div class="box formula"><span class="tag">Averages</span>
+$$\text{Macro} = \frac1K\sum_k M_k \qquad \text{Weighted} = \frac{\sum_k n_kM_k}{\sum_k n_k} \qquad \text{Micro: pool all TP, FP, FN first}$$
+</div>
+<ul>
+<li><b>Macro</b>: every class gets an equal vote → use when <span class="hl">all classes are equally important</span> (exposes a weak small class).</li>
+<li><b>Weighted</b>: big classes count more (by support n_k).</li>
+<li><b>Micro</b>: for single-label multiclass, <span class="hl">micro-P = micro-R = micro-F1 = accuracy</span>.</li>
+</ul>
+<p class="small">e.g. class F1 = 0.9, 0.6, 0.3 with supports 50, 30, 20: macro = 1.8/3 = 0.60; weighted = (45 + 18 + 6)/100 = 0.69. Model A F1s (0.95, 0.90, 0.20) → macro 0.683; model B (0.75, 0.75, 0.75) → macro 0.75 → B is better if all classes matter equally.</p>
+
+<h3>ROC and AUC (extra)</h3>
+<p>Lowering the threshold → more positives → TPR ↑ and FPR ↑. ROC = TPR vs FPR over all thresholds. <span class="hl">AUC = 1 perfect, 0.5 random</span>; AUC = P(a random positive scores higher than a random negative).</p>
+<div class="box trap"><span class="tag">⚠ Exam traps</span>
+<ul>
+<li>Accuracy = (TP + <b>TN</b>)/total, not (TP + FP)/total.</li>
+<li>MAPE divides by the <b>actual</b> y. TSS uses the mean of the <b>actual</b> y.</li>
+<li>Adjusted R² denominator is n − p − 1. sklearn MAPE returns a fraction (×100 for %).</li>
+<li>Two models with the same MAE can have different MAPE (errors on small actual values cost more %).</li>
+</ul>
+</div>
+</section>
+
+<!-- ===================================================== 8 -->
+<section class="topic">
+<h2><span class="num">8</span>Polynomial Regression &amp; Assumptions of Linear Regression</h2>
+<h3>Polynomial regression</h3>
+<p><b>Big idea:</b> a straight line can't follow a curve, so <span class="hl">create new features x², x³, … and run ordinary linear regression on them</span>.</p>
+<div class="box formula"><span class="tag">Polynomial model</span>
+$$\hat y = \beta_0 + \beta_1x + \beta_2x^2 + \dots + \beta_nx^n \qquad \phi(x) = (1, x, x^2, \dots, x^n)$$
+<p class="small">Design matrix columns: 1, x, x², … → still $\boldsymbol\beta = (X^TX)^{-1}X^T\mathbf y$. <span class="hl">Still linear regression</span> because it's linear in the β's. Degree n, 1 feature → n + 1 columns; turning points ≤ n − 1. Degree 2 on 2 inputs → 1, x₁, x₂, x₁², x₁x₂, x₂² = 6 columns.</p>
+</div>
+<p>A curve in (x, y) becomes a <b>plane</b> in (x, x², y) space — the model fits a flat plane to lifted data. Higher degree → lower <b>training</b> error always, but <span class="hlp">too high a degree overfits</span> (wiggly curve through noise, large test error). Pick the degree on validation data. Scale x before using high powers (x⁸ explodes).</p>
+<p class="small">Lab rule ("Polynomial Detective"): underfit if train &gt; 0.3 and test &gt; 0.3 and |train − test| &lt; 0.05; else overfit if train &lt; 0.1 and test &gt; 0.15; else good. Best degree = lowest test MSE (tie → smallest degree).</p>
+
+<h3>The 5 assumptions (check with residuals $e = y - \hat y$)</h3>
+<table>
+<tr><th>Assumption</th><th>Means</th><th>How to see violation</th><th>If violated</th></tr>
+<tr><td>1. Linearity</td><td>y is linear in the features (central trend)</td><td><b>U-shape / curve</b> in residuals vs ŷ</td><td>add x², transform</td></tr>
+<tr><td>2. Normality of residuals</td><td>$\varepsilon \sim \mathcal N(0, \sigma^2)$</td><td>skewed histogram; Q–Q plot off the line</td><td>CIs/p-values unreliable (prediction OK)</td></tr>
+<tr><td>3. Homoscedasticity</td><td>constant error variance</td><td><b>funnel</b> shape (spread grows with ŷ)</td><td>log-transform y; standard errors wrong</td></tr>
+<tr><td>4. No autocorrelation</td><td>errors independent (over time/order)</td><td>waves/runs over time; Durbin–Watson far from 2</td><td>time-series models</td></tr>
+<tr><td>5. No multicollinearity</td><td>features not linear combos of each other</td><td>correlation ≈ ±1, high VIF</td><td>unstable coefficients; drop/combine, Ridge</td></tr>
+</table>
+<p><span class="hl">Funnel = heteroscedasticity; U-shape = non-linearity.</span> Normality is about the <b>residuals</b>, not the features.</p>
+
+<div class="box deriv"><span class="tag">Proof — perfect multicollinearity makes XᵀX singular</span>
+<ol class="steps">
+<li>Suppose column 3 = column 1 + column 2. Then $X\mathbf c = \mathbf 0$ for $\mathbf c = (1, 1, -1)^T \ne \mathbf 0$. <span class="why">col1 + col2 − col3 = 0 in every row</span></li>
+<li>$X^TX\mathbf c = X^T(X\mathbf c) = X^T\mathbf 0 = \mathbf 0$ <span class="why">matrix multiplication can be regrouped</span></li>
+<li>If $(X^TX)^{-1}$ existed: $\mathbf c = (X^TX)^{-1}\mathbf 0 = \mathbf 0$ — contradiction, since $\mathbf c \ne \mathbf 0$. <span class="why">multiply step 2 by the inverse</span></li>
+<li>So $X^TX$ has no inverse: <span class="hl">det(XᵀX) = 0</span> and OLS has no unique solution.</li>
+</ol>
+<p class="small">Example: $X = \begin{bmatrix}1&1&2\\1&2&3\\1&3&4\end{bmatrix}$ (col3 = col1 + col2). A scaled copy (x₂ = 2x₁, °F = 1.8°C + 32) works the same way.</p>
+</div>
+<div class="box formula"><span class="tag">Formal tests (extra)</span>
+$$\text{VIF}_j = \frac{1}{1 - R_j^2} \qquad DW = \frac{\sum_{t=2}^{n}(e_t - e_{t-1})^2}{\sum_{t=1}^{n}e_t^2}\in[0,4]$$
+<p class="small">$R_j^2$ = R² from regressing feature j on the <b>other features</b>. VIF &gt; 10 = serious (R²ⱼ = 0.9 → VIF 10). DW ≈ 2 = no autocorrelation; &lt; 2 positive; &gt; 2 negative. e.g. residuals 1, −1, 1, −1: numerator 4 + 4 + 4 = 12, denominator 4 → DW = 3.</p>
+</div>
+<div class="box trap"><span class="tag">⚠ Exam traps</span>
+<ul>
+<li>Multicollinearity hurts the <b>coefficients</b> (interpretation) more than prediction.</li>
+<li>Autocorrelation is about the residuals over time; multicollinearity is about features vs features.</li>
+<li>Create x² from the training x and apply the same transform to the test x.</li>
+</ul>
+</div>
+</section>
